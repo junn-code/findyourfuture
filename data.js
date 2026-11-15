@@ -2,7 +2,7 @@
 /* =========================================================
    FIND YOUR FUTURE
    DATA DATABASE
-   Version: 3.0
+   Version: 3.0.1
    Malaysia-first | English + Chinese
    ========================================================= */
 
@@ -12,7 +12,7 @@
 
 export const APP_CONFIG = {
   name: "Find Your Future",
-  version: "3.0.0",
+  version: "3.0.1",
   defaultLanguage: "en",
   supportedLanguages: ["en", "zh"],
   defaultTheme: "light",
@@ -10919,3 +10919,318 @@ export const databaseSummary = {
   verifiedCourses: courses.filter(item => ["verified", "official"].includes(item.dataStatus)).length,
   pendingCourses: courses.filter(item => item.dataStatus === "pending").length
 };
+
+
+/* =========================================================
+   15. CONTENT COMPLETION LAYER (V3.0.1)
+   Enriches the catalogue with bilingual learning frameworks.
+   IMPORTANT: framework modules are guidance, NOT institution-issued
+   syllabi. Programme-specific facts remain pending until sourced.
+   ========================================================= */
+
+const moduleTranslations = {
+  "Engineering Mathematics":"工程数学", "Engineering Mechanics":"工程力学", "Structural Analysis":"结构分析",
+  "Structural Design":"结构设计", "Geotechnical Engineering":"岩土工程", "Hydraulics":"水力学",
+  "Transportation Engineering":"交通工程", "Construction Materials":"建筑材料", "Engineering Drawing":"工程制图",
+  "Thermodynamics":"热力学", "Fluid Mechanics":"流体力学", "Machine Design":"机械设计",
+  "Manufacturing Technology":"制造技术", "Control Systems":"控制系统", "Circuit Theory":"电路理论",
+  "Electronics":"电子学", "Electrical Machines":"电机学", "Power Systems":"电力系统",
+  "Digital Systems":"数字系统", "Programming Fundamentals":"编程基础", "Data Structures and Algorithms":"数据结构与算法",
+  "Database Systems":"数据库系统", "Software Engineering":"软件工程", "Computer Networks":"计算机网络",
+  "Operating Systems":"操作系统", "Statistics":"统计学", "Research Methods":"研究方法",
+  "Cell Biology":"细胞生物学", "Genetics":"遗传学", "Microbiology":"微生物学",
+  "Biochemistry":"生物化学", "Molecular Biology":"分子生物学", "Human Anatomy and Physiology":"人体解剖与生理学",
+  "Pathology":"病理学", "Pharmacology":"药理学", "Epidemiology":"流行病学",
+  "Clinical Practice":"临床实践", "Patient Care":"病患照护", "Health Promotion":"健康促进",
+  "Accounting Principles":"会计原理", "Financial Accounting":"财务会计", "Management Accounting":"管理会计",
+  "Auditing":"审计学", "Taxation":"税务", "Corporate Finance":"企业财务",
+  "Marketing Principles":"市场营销原理", "Consumer Behaviour":"消费者行为", "Digital Marketing":"数码营销",
+  "Organisational Behaviour":"组织行为学", "Human Resource Management":"人力资源管理",
+  "Economics":"经济学", "Business Statistics":"商业统计学", "Business Communication":"商业沟通",
+  "Design Fundamentals":"设计基础", "Visual Communication":"视觉传达", "Typography":"字体设计",
+  "Design Studio":"设计工作室", "User Experience Design":"用户体验设计", "Digital Media Production":"数码媒体制作",
+  "Psychology":"心理学", "Sociology":"社会学", "Social Research Methods":"社会研究方法",
+  "Public Policy":"公共政策", "Community Development":"社区发展", "Counselling Skills":"辅导技巧",
+  "Education Psychology":"教育心理学", "Curriculum Design":"课程设计", "Teaching Practice":"教学实践",
+  "Learning Technologies":"学习科技", "Assessment and Evaluation":"评量与评价",
+  "Environmental Science":"环境科学", "Ecology":"生态学", "Chemistry":"化学", "Physics":"物理学",
+  "Food Safety":"食品安全", "Food Processing":"食品加工", "Quality Assurance":"品质保证",
+  "Supply Chain Management":"供应链管理", "Logistics Operations":"物流运作", "Procurement":"采购管理",
+  "Project Management":"项目管理", "Construction Technology":"建筑技术", "Quantity Measurement":"工程量计算",
+  "Building Services":"建筑设备系统", "Building Information Modelling":"建筑信息模型", "Land Surveying":"土地测量"
+};
+
+Object.assign(moduleTranslations, {
+  "Engineering Design":"工程设计", "Materials and Technology":"材料与技术", "Modelling and Analysis":"建模与分析", "Systems, Safety and Sustainability":"系统、安全与可持续发展", "Engineering Project Practice":"工程项目实践",
+  "Human Biology and Health Science":"人体生物学与健康科学", "Evidence-Based Practice":"循证实践", "Professional Ethics and Patient Safety":"专业伦理与病患安全",
+  "Cell and Molecular Biology":"细胞与分子生物学", "Genetics and Inheritance":"遗传学与遗传规律", "Biochemistry and Metabolism":"生物化学与代谢", "Biological Data Analysis":"生物数据分析", "Research Design and Ethics":"研究设计与伦理",
+  "Programming and Computational Thinking":"编程与计算思维", "Algorithms and Data Structures":"算法与数据结构", "Computer Systems and Networks":"计算机系统与网络", "Databases and Information Management":"数据库与信息管理", "Security and Responsible Computing":"安全与负责任计算", "Software or Technology Project":"软件或科技项目",
+  "Business Foundations":"商业基础", "Accounting and Financial Literacy":"会计与财务素养", "Marketing and Customer Insight":"市场营销与客户洞察", "Management and Organisations":"管理与组织", "Business Data and Analytics":"商业数据与分析", "Strategy and Professional Practice":"策略与专业实践",
+  "Scientific Principles":"科学原理", "Mathematics and Quantitative Methods":"数学与定量方法", "Laboratory and Field Methods":"实验室与田野方法", "Measurement and Data Analysis":"测量与数据分析", "Science Communication and Ethics":"科学传播与伦理",
+  "Built Environment Fundamentals":"建成环境基础", "Design and Technical Representation":"设计与技术表达", "Construction Materials and Methods":"建筑材料与施工方法", "Digital Modelling and Measurement":"数码建模与测量", "Contracts, Regulations and Safety":"合约、法规与安全", "Integrated Project Practice":"综合项目实践",
+  "Social and Behavioural Foundations":"社会与行为基础", "People, Culture and Institutions":"人群、文化与制度", "Policy and Community Contexts":"政策与社区脉络", "Ethics and Professional Practice":"伦理与专业实践",
+  "Learning and Development":"学习与发展", "Curriculum and Instruction":"课程与教学", "Teaching and Facilitation":"教学与引导", "Assessment and Evaluation":"评量与评价", "Inclusive Learning Environments":"融合教育环境", "Teaching Practice and Reflection":"教学实践与反思",
+  "Creative and Design Foundations":"创意与设计基础", "Visual Communication and Concepts":"视觉传达与概念", "Digital Tools and Production":"数码工具与制作", "User or Audience Research":"用户或受众研究", "Studio and Portfolio Practice":"工作室与作品集实践", "Creative Industry and Professional Practice":"创意产业与专业实践",
+  "Transport and Logistics Foundations":"运输与物流基础", "Operations and Process Design":"营运与流程设计", "Supply Networks and Distribution":"供应网络与配送", "Data and Performance Analysis":"数据与绩效分析", "Safety and Regulations":"安全与法规", "Industry Project Practice":"产业项目实践",
+  "Agricultural and Food Systems":"农业与食品系统", "Biological and Production Science":"生物与生产科学", "Processing and Quality":"加工与品质", "Sustainability and Resource Management":"可持续发展与资源管理", "Applied Research Methods":"应用研究方法", "Industry and Professional Practice":"产业与专业实践"
+});
+
+const frameworkDescriptions = {
+  en: "A study-planning topic commonly associated with this discipline. Exact module titles, sequencing and credit values vary by institution.",
+  zh: "此为该学科常见的学习主题参考。实际科目名称、修读顺序及学分因院校而异。"
+};
+
+// Supply a structured topic framework where the original discipline record
+// did not yet include subject examples. These are study guides, not official syllabi.
+const fieldTopicFrameworks = {
+  engineering: ["Engineering Mathematics", "Engineering Design", "Materials and Technology", "Modelling and Analysis", "Systems, Safety and Sustainability", "Engineering Project Practice"],
+  "medicine-health": ["Human Biology and Health Science", "Anatomy and Physiology", "Clinical or Health Practice", "Evidence-Based Practice", "Research Methods and Data", "Professional Ethics and Patient Safety"],
+  "biological-sciences": ["Cell and Molecular Biology", "Genetics and Inheritance", "Biochemistry and Metabolism", "Laboratory Methods", "Biological Data Analysis", "Research Design and Ethics"],
+  "computer-technology": ["Programming and Computational Thinking", "Algorithms and Data Structures", "Computer Systems and Networks", "Databases and Information Management", "Security and Responsible Computing", "Software or Technology Project"],
+  business: ["Business Foundations", "Accounting and Financial Literacy", "Marketing and Customer Insight", "Management and Organisations", "Business Data and Analytics", "Strategy and Professional Practice"],
+  science: ["Scientific Principles", "Mathematics and Quantitative Methods", "Laboratory and Field Methods", "Measurement and Data Analysis", "Research Design", "Science Communication and Ethics"],
+  "architecture-built-environment": ["Built Environment Fundamentals", "Design and Technical Representation", "Construction Materials and Methods", "Digital Modelling and Measurement", "Contracts, Regulations and Safety", "Integrated Project Practice"],
+  "social-sciences": ["Social and Behavioural Foundations", "People, Culture and Institutions", "Research Methods", "Policy and Community Contexts", "Data Interpretation", "Ethics and Professional Practice"],
+  education: ["Learning and Development", "Curriculum and Instruction", "Teaching and Facilitation", "Assessment and Evaluation", "Inclusive Learning Environments", "Teaching Practice and Reflection"],
+  "design-creative": ["Creative and Design Foundations", "Visual Communication and Concepts", "Digital Tools and Production", "User or Audience Research", "Studio and Portfolio Practice", "Creative Industry and Professional Practice"],
+  "transport-logistics": ["Transport and Logistics Foundations", "Operations and Process Design", "Supply Networks and Distribution", "Data and Performance Analysis", "Safety and Regulations", "Industry Project Practice"],
+  agriculture: ["Agricultural and Food Systems", "Biological and Production Science", "Processing and Quality", "Sustainability and Resource Management", "Applied Research Methods", "Industry and Professional Practice"]
+};
+for (const discipline of disciplines) {
+  if (!Array.isArray(discipline.subjects) || discipline.subjects.length === 0) {
+    const topics = fieldTopicFrameworks[discipline.fieldId] || fieldTopicFrameworks.science;
+    discipline.subjects = topics.map(topic => topic.replace(/^(Engineering|Business|Scientific|Built Environment|Social and Behavioural|Creative and Design|Transport and Logistics|Agricultural and Food) Foundations$/, `${discipline.name.en} Foundations`));
+  }
+}
+
+// Expand each discipline into a useful bilingual study profile.
+for (const discipline of disciplines) {
+  const subjectList = Array.isArray(discipline.subjects) ? discipline.subjects : [];
+  discipline.studyFocus = discipline.description;
+  discipline.coreTopics = subjectList.map(subject => ({
+    en: subject,
+    zh: moduleTranslations[subject] || `${discipline.name.zh}相关主题：${subject}`,
+  }));
+  discipline.typicalProjects = discipline.typicalProjects || {
+    en: [`Introductory ${discipline.name.en} case study`, `Applied project using ${subjectList.slice(0,2).join(" and ") || discipline.name.en}`, "Research, design or practice-based assignment"],
+    zh: [`${discipline.name.zh}入门案例研究`, `运用${subjectList.slice(0,2).map(x => moduleTranslations[x] || x).join("与") || discipline.name.zh}的应用项目`, "研究、设计或实践型作业"]
+  };
+  discipline.industrySectors = discipline.industrySectors || {
+    en: ["Private sector organisations", "Public agencies and services", "Research, education or consulting"],
+    zh: ["私人企业与机构", "公共部门与服务", "研究、教育或顾问领域"]
+  };
+  discipline.profileNote = {
+    en: "General discipline guide. This is not a substitute for an institution's official programme specification.",
+    zh: "学科通用介绍，不能取代院校正式课程说明。"
+  };
+}
+
+// Fill curriculum panels with transparent, discipline-based learning frameworks.
+// These do not change the accreditation or verification status of any course.
+for (const course of courses) {
+  const discipline = disciplines.find(item => item.id === course.disciplineId);
+  if (!discipline) continue;
+  if (!Array.isArray(course.curriculum) || course.curriculum.length === 0) {
+    const subjects = discipline.subjects || [];
+    course.curriculum = subjects.map((subject, index) => ({
+      id: `${course.id}-framework-${index+1}`,
+      name: { en: subject, zh: moduleTranslations[subject] || `${discipline.name.zh}相关主题：${subject}` },
+      description: frameworkDescriptions,
+      stage: index < 2 ? "Foundation" : index < 4 ? "Core" : "Applied",
+      frameworkOnly: true
+    }));
+  }
+  course.curriculumBasis = "discipline-framework";
+  course.curriculumNote = {
+    en: "Indicative subject framework generated from the discipline profile. It is not an official curriculum for this named award. Confirm exact modules, credits, year of study and practical components with the institution.",
+    zh: "此为依据学科资料整理的参考科目框架，并非该课程名称对应的院校官方课纲。实际科目、学分、修读年份及实习安排须向院校核实。"
+  };
+  if (!course.learningOutcomes) course.learningOutcomes = {
+    en: ["Explain key concepts in the discipline", "Apply foundational methods to structured problems", "Interpret evidence and communicate findings"],
+    zh: ["解释该学科的核心概念", "运用基础方法处理结构化问题", "解读证据并清楚表达研究结果"]
+  };
+}
+
+// Career profiles are exploratory. They do not imply a licence or guaranteed job outcome.
+const careerProfileDefaults = {
+  engineering: {
+    environments: ["Engineering consultancies", "Manufacturing and industrial sites", "Infrastructure and project teams", "Testing and research facilities"],
+    skills: ["Problem Solving", "Engineering Design", "Data Analysis", "Project Management"],
+    progression: ["Graduate / Junior Engineer", "Engineer", "Senior / Specialist Engineer", "Technical Lead / Engineering Manager"]
+  },
+  "medicine-health": {
+    environments: ["Hospitals and clinics", "Diagnostic and healthcare laboratories", "Community health services", "Health research organisations"],
+    skills: ["Communication", "Scientific Research", "Attention to Detail", "Teamwork"],
+    progression: ["Entry-level support or graduate role", "Experienced practitioner / specialist pathway", "Senior or supervisory role", "Education, research or management pathway"]
+  },
+  "biological-sciences": {
+    environments: ["Research laboratories", "Biotechnology and pharmaceutical companies", "Universities", "Public health and testing laboratories"],
+    skills: ["Scientific Research", "Data Analysis", "Attention to Detail", "Problem Solving"],
+    progression: ["Laboratory / Research Assistant", "Scientist / Research Associate", "Senior Scientist", "Research Lead / Laboratory Manager"]
+  },
+  "computer-technology": {
+    environments: ["Technology companies", "Software and product teams", "Cybersecurity and IT operations", "Research and data teams"],
+    skills: ["Programming", "Problem Solving", "Data Analysis", "Communication"],
+    progression: ["Junior Developer / Analyst", "Developer / Engineer", "Senior / Specialist", "Technical Lead / Architect / Manager"]
+  },
+  "architecture-built-environment": {
+    environments: ["Design and engineering consultancies", "Construction sites", "Property and infrastructure organisations", "Government planning agencies"],
+    skills: ["Engineering Design", "Project Management", "Communication", "Attention to Detail"],
+    progression: ["Assistant / Graduate", "Professional / Project Executive", "Senior Consultant / Manager", "Principal / Director"]
+  },
+  business: {
+    environments: ["Corporations and SMEs", "Financial and professional services", "Start-ups", "Public and non-profit organisations"],
+    skills: ["Data Analysis", "Communication", "Problem Solving", "Project Management"],
+    progression: ["Assistant / Analyst", "Executive / Specialist", "Senior Executive / Manager", "Head of Function / Director"]
+  },
+  "social-sciences": {
+    environments: ["Public services", "Community organisations", "Research institutions", "Policy and consulting teams"],
+    skills: ["Communication", "Critical Thinking", "Scientific Research", "Teamwork"],
+    progression: ["Research / Programme Assistant", "Officer / Analyst", "Senior Officer / Specialist", "Programme Lead / Policy or Research Manager"]
+  },
+  education: {
+    environments: ["Schools and learning centres", "Education technology organisations", "Training providers", "Education research and policy"],
+    skills: ["Communication", "Creativity", "Teamwork", "Adaptability"],
+    progression: ["Teaching / Learning Assistant", "Educator / Trainer", "Senior Educator / Coordinator", "Education Lead / Specialist"]
+  },
+  "design-creative": {
+    environments: ["Design studios", "Media and production companies", "Technology product teams", "Freelance and creative businesses"],
+    skills: ["Creativity", "Communication", "Problem Solving", "Adaptability"],
+    progression: ["Junior Designer / Assistant", "Designer / Creator", "Senior Designer / Art Director", "Creative Lead / Studio Director"]
+  },
+  science: {
+    environments: ["Research laboratories", "Universities", "Testing and quality laboratories", "Government science agencies"],
+    skills: ["Scientific Research", "Data Analysis", "Critical Thinking", "Attention to Detail"],
+    progression: ["Research / Laboratory Assistant", "Scientist / Analyst", "Senior Scientist", "Research Lead / Laboratory Manager"]
+  }
+};
+for (const career of careers) {
+  const profile = careerProfileDefaults[career.fieldId] || careerProfileDefaults.science;
+  career.workEnvironments = career.workEnvironments || { en: profile.environments, zh: profile.environments.map(x => ({
+    "Engineering consultancies":"工程顾问公司", "Manufacturing and industrial sites":"制造与工业现场", "Infrastructure and project teams":"基础设施与项目团队", "Testing and research facilities":"测试与研究设施",
+    "Hospitals and clinics":"医院与诊所", "Diagnostic and healthcare laboratories":"诊断与医疗实验室", "Community health services":"社区健康服务", "Health research organisations":"健康研究机构",
+    "Research laboratories":"研究实验室", "Biotechnology and pharmaceutical companies":"生物科技与制药公司", "Universities":"大学", "Public health and testing laboratories":"公共卫生与检测实验室",
+    "Technology companies":"科技公司", "Software and product teams":"软件与产品团队", "Cybersecurity and IT operations":"网络安全与IT营运", "Research and data teams":"研究与数据团队",
+    "Design and engineering consultancies":"设计与工程顾问公司", "Construction sites":"建筑工地", "Property and infrastructure organisations":"房地产与基础设施机构", "Government planning agencies":"政府规划机构",
+    "Corporations and SMEs":"企业与中小型企业", "Financial and professional services":"金融与专业服务", "Start-ups":"初创企业", "Public and non-profit organisations":"公共及非营利机构",
+    "Public services":"公共服务", "Community organisations":"社区组织", "Research institutions":"研究机构", "Policy and consulting teams":"政策与顾问团队",
+    "Schools and learning centres":"学校与学习中心", "Education technology organisations":"教育科技机构", "Training providers":"培训机构", "Education research and policy":"教育研究与政策",
+    "Design studios":"设计工作室", "Media and production companies":"媒体与制作公司", "Technology product teams":"科技产品团队", "Freelance and creative businesses":"自由职业与创意企业",
+    "Testing and quality laboratories":"测试与品质实验室", "Government science agencies":"政府科学机构"
+  }[x] || x)) };
+  career.skills = career.skills || { en: profile.skills, zh: profile.skills.map(x => ({"Problem Solving":"解决问题","Engineering Design":"工程设计","Data Analysis":"数据分析","Project Management":"项目管理","Communication":"沟通","Scientific Research":"科学研究","Attention to Detail":"注重细节","Teamwork":"团队合作","Programming":"编程","Critical Thinking":"批判性思维","Creativity":"创意","Adaptability":"适应能力"}[x] || x)) };
+  career.progression = career.progression || { en: profile.progression, zh: profile.progression.map(x => x) };
+  career.profileNote = { en: "Typical examples only. Actual duties, entry routes and regulated scopes vary by employer and jurisdiction.", zh: "以上为常见职业发展示例。实际职责、入职路线及受监管工作范围因雇主和司法管辖区而异。" };
+}
+
+// Extend the skill library with additional transferable and discipline skills.
+const additionalSkillSeeds = [
+  ["technical-writing","Technical Writing","技术写作","Communication","Explain technical information through clear, structured documents.","以清晰、有结构的文件说明技术信息。",["engineering","technology","science"],["Technical Writer","Engineer","Research Assistant"]],
+  ["scientific-literacy","Scientific Literacy","科学素养","Research","Understand how scientific claims are tested, interpreted and communicated.","理解科学主张如何被验证、解释与传达。",["science","biological-sciences","medicine-health"],["Research Assistant","Laboratory Technologist","Science Communicator"]],
+  ["laboratory-techniques","Laboratory Techniques","实验室技术","Technical","Follow laboratory procedures, document observations and handle instruments responsibly.","遵循实验室程序、记录观察并妥善使用仪器。",["science","biological-sciences","medicine-health"],["Laboratory Technologist","Research Assistant"]],
+  ["clinical-communication","Clinical Communication","临床沟通","People","Communicate respectfully and accurately in healthcare learning and service settings.","在医疗学习与服务环境中尊重、准确地沟通。",["medicine-health"],["Healthcare Assistant","Nurse","Allied Health Professional"]],
+  ["spatial-visualisation","Spatial Visualisation","空间想象","Technical","Interpret drawings, models and three-dimensional relationships.","理解图纸、模型与三维空间关系。",["engineering","architecture-built-environment","design-creative"],["Design Engineer","Architectural Assistant","BIM Technician"]],
+  ["cad-modelling","CAD Modelling","CAD建模","Digital","Create and interpret computer-aided technical drawings and models.","建立及解读计算机辅助技术图纸与模型。",["engineering","architecture-built-environment","design-creative"],["CAD Technician","Design Engineer","BIM Modeller"]],
+  ["bim-coordination","BIM Coordination","BIM协调","Digital","Coordinate digital building information across project disciplines.","协调不同项目专业之间的建筑数码信息。",["architecture-built-environment","engineering"],["BIM Coordinator","BIM Technician","Digital Construction Specialist"]],
+  ["quantitative-reasoning","Quantitative Reasoning","数量推理","Thinking","Use numerical evidence, estimation and mathematical reasoning to assess questions.","运用数值证据、估算与数学推理分析问题。",["engineering","science","business"],["Analyst","Engineer","Quantity Surveyor"]],
+  ["risk-assessment","Risk Assessment","风险评估","Professional","Identify uncertainties, assess possible impacts and document controls.","识别不确定因素、评估潜在影响并记录控制措施。",["engineering","business","architecture-built-environment"],["Safety Officer","Project Engineer","Risk Analyst"]],
+  ["quality-control","Quality Control","品质控制","Technical","Check outputs against documented standards and acceptance criteria.","依据文件标准与验收条件检查成果。",["engineering","science","business"],["Quality Officer","Laboratory Analyst","Manufacturing Engineer"]],
+  ["research-design","Research Design","研究设计","Research","Choose suitable questions, methods and evidence for a structured investigation.","为系统性研究选择合适的问题、方法与证据。",["science","social-sciences","medicine-health"],["Research Assistant","Research Analyst","Scientist"]],
+  ["ethical-reasoning","Ethical Reasoning","伦理判断","Professional","Recognise ethical considerations and explain responsible choices.","识别伦理考量并说明负责任的选择。",["medicine-health","science","business","social-sciences"],["Healthcare Professional","Researcher","Policy Analyst"]],
+  ["cyber-hygiene","Cybersecurity Awareness","网络安全意识","Digital","Use safe, privacy-aware practices when working with digital information.","处理数码信息时采用安全且尊重隐私的做法。",["technology","business","education"],["IT Support Specialist","Security Analyst"]],
+  ["user-research","User Research","用户研究","Research","Understand user needs through structured observation, interviews and testing.","通过有结构的观察、访谈与测试了解用户需求。",["design-creative","technology","business"],["UX Researcher","Product Designer","Service Designer"]],
+  ["financial-literacy","Financial Literacy","财务素养","Professional","Understand budgets, costs, financial choices and basic financial information.","理解预算、成本、财务选择与基础财务信息。",["business","engineering"],["Accountant","Business Analyst","Project Coordinator"]],
+  ["sustainability-literacy","Sustainability Literacy","可持续发展素养","Thinking","Consider environmental, social and economic effects when evaluating solutions.","评估方案时考虑环境、社会与经济影响。",["engineering","science","business","architecture-built-environment"],["Environmental Analyst","Sustainability Officer","Engineer"]],
+  ["conflict-resolution","Conflict Resolution","冲突协调","People","Listen to different perspectives and work toward constructive agreements.","倾听不同观点并推动建设性共识。",["business","education","social-sciences"],["HR Officer","Project Coordinator","Community Worker"]],
+  ["presentation","Presentation","演讲与展示","Communication","Organise information and present ideas to an audience.","组织信息并向听众清楚展示想法。",["business","education","engineering","science"],["Consultant","Teacher","Researcher"]],
+  ["digital-literacy","Digital Literacy","数码素养","Digital","Select and use digital tools appropriately and evaluate online information.","恰当选择数码工具并评估线上信息。",["technology","business","education","social-sciences"],["Digital Content Executive","IT Support Specialist","Analyst"]],
+  ["systems-thinking","Systems Thinking","系统思维","Thinking","Understand how components interact within a larger process or organisation.","理解各组成部分如何在更大的流程或组织中互相影响。",["engineering","technology","business","science"],["Systems Engineer","Operations Analyst","Researcher"]]
+];
+for (const [id,en,zh,category,descEn,descZh,fields,relatedCareers] of additionalSkillSeeds) {
+  if (!skills.some(skill => skill.id === id)) skills.push({ id, name:{en,zh}, category, description:{en:descEn,zh:descZh}, relatedFields:fields, relatedCareers, dataStatus:"directory" });
+}
+
+// Expand the official-source directory for Malaysia. These are reference portals,
+// not proof that a specific course or scholarship is currently open.
+DATA_GOVERNANCE.malaysiaQualificationFrameworkSource = "https://www.mqa.gov.my/";
+DATA_GOVERNANCE.mqrSearchSource = "https://www2.mqa.gov.my/mqr/english/ecarianakr.cfm";
+DATA_GOVERNANCE.tvetCatalogueSource = "https://mohon.tvet.gov.my/awam-kursus/katalog";
+DATA_GOVERNANCE.tvetPortalSource = "https://www.tvet.gov.my/";
+DATA_GOVERNANCE.upuPortalSource = "https://upu.mohe.gov.my/";
+DATA_GOVERNANCE.upuCircular2026Source = "https://upu.mohe.gov.my/";
+DATA_GOVERNANCE.scholarshipVerificationRule = "Only publish an award as currently open after checking the provider's current application notice, eligibility, deadline and official application page.";
+
+// Connect every course search record to relevant career exploration entries.
+// The relationship is a discovery aid, not a claim that a course guarantees a job.
+for (const course of courses) {
+  if (!Array.isArray(course.careerIds) || course.careerIds.length === 0) {
+    const discipline = disciplines.find(item => item.id === course.disciplineId);
+    const exact = careers.filter(career => career.disciplineId === course.disciplineId).map(career => career.id);
+    const disciplineLinks = (discipline?.careers || []).filter(id => careers.some(career => career.id === id));
+    const fieldLinks = careers.filter(career => career.fieldId === course.fieldId).slice(0, 4).map(career => career.id);
+    course.careerIds = [...new Set([...exact, ...disciplineLinks, ...fieldLinks])].slice(0, 6);
+  }
+}
+for (const career of careers) {
+  career.recommendedCourseIds = courses.filter(course => course.disciplineId === career.disciplineId).slice(0, 8).map(course => course.id);
+}
+
+// Add a practical Malaysia scholarship-source directory based on MOHE's
+// domestic sponsorship index. No record is marked as an active award.
+const additionalScholarshipSources = [
+  { id:"mohe-domestic-sponsorship-index", name:{en:"MOHE Domestic Sponsorship Directory",zh:"高等教育部国内奖助学金目录"}, country:"Malaysia", website:"https://www.mohe.gov.my/en/services/higher-education-funding/sponsorship-by-domestic-agencies-institutions/domestic-scholarship-list", dataStatus:"official", note:"Official consolidated directory of domestic sponsorship notices. Check each notice for its current cycle, eligibility and deadline." },
+  { id:"petronas-education-sponsorship", name:{en:"PETRONAS Education Sponsorship",zh:"PETRONAS 教育赞助"}, country:"Malaysia", website:"https://educationsponsorship.petronas.com.my/OAS", dataStatus:"directory", note:"Sponsorship schemes and application periods vary by intake. The 2026 SPM-leaver cycle is historical; check for the next official notice." },
+  { id:"tnb-ytn-scholarship", name:{en:"Yayasan Tenaga Nasional Scholarships",zh:"国家能源基金会奖学金"}, country:"Malaysia", website:"https://ytn.tnb.com.my/scholarships.html", dataStatus:"directory", note:"Includes different sponsorship routes. Confirm eligible qualification, institution and current application period." },
+  { id:"jpa-sponsorship", name:{en:"Public Service Department Sponsorship",zh:"公共服务局教育赞助"}, country:"Malaysia", website:"https://penajaan.jpa.gov.my/", dataStatus:"directory", note:"Schemes and eligible applicant groups vary by announcement and year." },
+  { id:"mara-education-financing", name:{en:"MARA Education Sponsorship and Financing",zh:"MARA 教育赞助与融资"}, country:"Malaysia", website:"https://www.mara.gov.my/bm/pendidikan/pembiayaan-pelajaran/", dataStatus:"directory", note:"Eligibility depends on the scheme, applicant category and current MARA announcement." },
+  { id:"yayasan-peneraju", name:{en:"Yayasan Peneraju",zh:"Yayasan Peneraju 人才基金会"}, country:"Malaysia", website:"https://yayasanpeneraju.com.my/", dataStatus:"directory", note:"Provides selected education and talent-development financing programmes; check the current programme list." },
+  { id:"bank-negara-scholarship", name:{en:"Bank Negara Malaysia Scholarships",zh:"马来西亚国家银行奖学金"}, country:"Malaysia", website:"https://www.bnm.gov.my/careers/scholarships", dataStatus:"directory", note:"Check current scholarship announcements and eligibility directly with Bank Negara Malaysia." },
+  { id:"yayasan-khazanah-scholarship", name:{en:"Yayasan Khazanah Scholarships",zh:"Khazanah 基金会奖学金"}, country:"Malaysia", website:"https://www.yayasankhazanah.com.my/scholarship-programmes", dataStatus:"directory", note:"Different programmes may have different study levels, destinations and selection criteria." },
+  { id:"yayasan-bank-rakyat", name:{en:"Yayasan Bank Rakyat Education Financing",zh:"银行人民基金会教育资助"}, country:"Malaysia", website:"https://www.ybr.com.my/", dataStatus:"directory", note:"Check the current education-financing announcement and repayment or award terms." },
+  { id:"shell-malaysia-scholarship", name:{en:"Shell Malaysia Student Opportunities",zh:"Shell Malaysia 学生机会"}, country:"Malaysia", website:"https://www.shell.com.my/careers/students-and-graduates.html", dataStatus:"directory", note:"Student opportunities and sponsorship availability depend on the current recruitment cycle." },
+  { id:"yayasan-sime-darby", name:{en:"Yayasan Sime Darby Scholarships",zh:"森那美基金会奖学金"}, country:"Malaysia", website:"https://www.yayasansimedarby.com/", dataStatus:"directory", note:"Check the foundation's current scholarship programme, eligible courses and deadlines." }
+];
+for (const item of additionalScholarshipSources) {
+  if (!scholarshipSources.some(existing => existing.id === item.id)) scholarshipSources.push(item);
+}
+DATA_GOVERNANCE.scholarshipDirectorySource = "https://www.mohe.gov.my/en/services/higher-education-funding/sponsorship-by-domestic-agencies-institutions/domestic-scholarship-list";
+
+// Qualification and admissions reference cards. These explain the credential;
+// they do not replace programme-specific entry requirements or equivalency decisions.
+const additionalAdmissionReferences = [
+  { id:"spm-qualification", name:"SPM", purpose:"Malaysian secondary-school qualification. Programme entry depends on required subjects, grades and the institution's current rules.", website:"https://www.moe.gov.my/", dataStatus:"directory" },
+  { id:"uec-qualification", name:"UEC", purpose:"Unified Examination Certificate. Acceptance, subject prerequisites and grade requirements vary by institution and programme; confirm directly with the receiving institution.", website:null, dataStatus:"pending" },
+  { id:"stpm-qualification", name:"STPM", purpose:"Pre-university qualification used for selected undergraduate entry routes. Check the current UPU circular and programme-specific conditions.", website:"https://upu.mohe.gov.my/", dataStatus:"directory" },
+  { id:"matriculation-qualification", name:"Matriculation", purpose:"Pre-university qualification. Entry requirements and programme selection are governed by the current admissions cycle.", website:"https://upu.mohe.gov.my/", dataStatus:"directory" },
+  { id:"foundation-qualification", name:"Foundation / Asasi", purpose:"Pre-university route. Recognition and progression may be limited by institution, field, subject prerequisites and programme agreements.", website:"https://www2.mqa.gov.my/mqr/english/ecarianakr.cfm", dataStatus:"directory" },
+  { id:"a-level-qualification", name:"A-Level", purpose:"International pre-university qualification. Subject combinations and grade requirements are programme-specific.", website:null, dataStatus:"directory" },
+  { id:"diploma-qualification", name:"Diploma", purpose:"May support entry into a related degree, subject to accreditation, field relevance, grades and credit-transfer assessment.", website:"https://www2.mqa.gov.my/mqr/english/ecarianakr.cfm", dataStatus:"directory" },
+  { id:"degree-qualification", name:"Bachelor's Degree", purpose:"Typical entry qualification for many postgraduate programmes; discipline, grades, research preparation and other conditions vary.", website:"https://www2.mqa.gov.my/mqr/english/ecarianakr.cfm", dataStatus:"directory" }
+];
+for (const item of additionalAdmissionReferences) {
+  if (!admissionsTests.some(existing => existing.id === item.id)) admissionsTests.push(item);
+}
+
+// Fill missing institution descriptions with transparent directory guidance.
+// Do not fabricate an institutional history, ranking, programme list or address.
+for (const institution of institutions) {
+  if (!institution.description) {
+    const country = institution.country || "the listed country";
+    const type = institution.type || "higher-education provider";
+    institution.description = {
+      en: `${type} directory entry in ${country}. Confirm current programmes, campus details, admissions, fees and recognition through the institution's official website and relevant national register.`,
+      zh: `${country}的${type}目录条目。课程、校区、招生、学费及资格认可情况，须通过院校官方网站及相关国家登记册核实。`
+    };
+  }
+  if (!institution.website) institution.websiteStatus = "pending";
+  institution.profileNote = {
+    en: "Directory information only. Listing an institution does not verify that a specific programme is active, accredited or open for admission.",
+    zh: "此为院校目录资料。列出院校不代表其特定课程现行开办、已获认证或正在招生。"
+  };
+}
+
+// Keep summary counters aligned with the enriched in-memory catalogue.
+databaseSummaryExpanded.skills = skills.length;
+databaseSummaryExpanded.courseSearchSeeds = courses.filter(item => item.dataStatus === "pending").length;
+databaseSummaryExpanded.illustrativeCourses = courses.filter(item => item.dataStatus === "illustrative").length;
+databaseSummaryExpanded.verifiedCourses = courses.filter(item => ["verified","official"].includes(item.dataStatus)).length;
