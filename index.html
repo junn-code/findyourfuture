@@ -92,6 +92,10 @@
           Professional
         </button>
 
+        <button class="nav-item" data-page="scholarships">
+          Funding
+        </button>
+
       </nav>
 
 
@@ -152,6 +156,7 @@
       <button data-page="pathways">Pathways / 升学路线</button>
       <button data-page="careers">Careers / 职业</button>
       <button data-page="professional">Professional / 专业资格</button>
+      <button data-page="scholarships">Funding / 奖学金资助</button>
       <button data-page="report">My Future / 我的未来</button>
       <button data-page="admin">Admin Dashboard</button>
 
@@ -631,6 +636,20 @@
             <b>↗</b>
           </button>
 
+          <button class="qualification-card" data-level="TVET Certificate">
+            <span>09</span>
+            <strong>TVET Certificate</strong>
+            <small>技能证书</small>
+            <b>↗</b>
+          </button>
+
+          <button class="qualification-card" data-level="TVET Diploma">
+            <span>10</span>
+            <strong>TVET Diploma</strong>
+            <small>技能文凭</small>
+            <b>↗</b>
+          </button>
+
         </div>
 
       </section>
@@ -1047,8 +1066,11 @@
         <h2>寻找适合你的课程。</h2>
 
         <p>
-          Explore programmes across six qualification levels.
-          Understand what you will learn and where your studies can lead.
+          Explore academic, professional and TVET programme categories.
+          Understand qualification levels, study areas and possible career directions.
+        </p>
+        <p class="chinese-description">
+          课程目录包含待核实的检索条目。只有匹配院校官方课程网页及认证登记册后，才可视为现行开办课程。
         </p>
 
         <p class="chinese-description">
@@ -1123,6 +1145,14 @@
           PhD
         </button>
 
+        <button class="qualification-tab" data-level="TVET Certificate">
+          TVET Certificate
+        </button>
+
+        <button class="qualification-tab" data-level="TVET Diploma">
+          TVET Diploma
+        </button>
+
       </div>
 
 
@@ -1174,8 +1204,7 @@
         </p>
 
         <p class="chinese-description">
-          从公立大学、私立大学、外国分校到学院、理工学院、
-          社区学院与 TVET 机构。
+          目录目前收录部分马来西亚及海外院校；院校条目不代表其所有课程均已收录或取得认证。
         </p>
 
       </div>
@@ -1582,7 +1611,29 @@
 
 
     <!-- =====================================
-         PAGE 09 — MY FUTURE REPORT
+         PAGE 09 — SCHOLARSHIPS & FUNDING
+    ====================================== -->
+
+    <section class="page-section" id="page-scholarships" data-page-section="scholarships">
+      <div class="page-hero">
+        <span class="section-eyebrow">FUNDING & FINANCIAL SUPPORT</span>
+        <h1>Scholarships & funding.</h1>
+        <h2>奖学金、贷款与升学资助。</h2>
+        <p>Explore official funding providers. A directory link does not mean an award is currently open; always confirm the latest intake, eligibility and terms with the provider.</p>
+      </div>
+      <div class="catalog-result-heading"><h2>Malaysia funding sources</h2><span id="scholarshipCount">Sources</span></div>
+      <div class="catalog-grid" id="scholarshipGrid"></div>
+      <div class="page-hero" style="margin-top:48px">
+        <span class="section-eyebrow">ADMISSIONS REFERENCES</span>
+        <h2>Tests & entry requirements.</h2>
+        <p>Language tests and subject prerequisites vary by institution and programme.</p>
+      </div>
+      <div class="catalog-grid" id="admissionsTestGrid"></div>
+    </section>
+
+
+    <!-- =====================================
+         PAGE 10 — MY FUTURE REPORT
     ====================================== -->
 
     <section
@@ -1671,7 +1722,7 @@
 
 
     <!-- =====================================
-         PAGE 10 — ADMIN DASHBOARD
+         PAGE 11 — ADMIN DASHBOARD
     ====================================== -->
 
     <section

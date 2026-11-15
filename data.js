@@ -2,7 +2,7 @@
 /* =========================================================
    FIND YOUR FUTURE
    DATA DATABASE
-   Version: 2.0
+   Version: 2.2
    Malaysia-first | English + Chinese
    ========================================================= */
 
@@ -12,7 +12,7 @@
 
 export const APP_CONFIG = {
   name: "Find Your Future",
-  version: "2.1.0",
+  version: "2.2.0",
   defaultLanguage: "en",
   supportedLanguages: ["en", "zh"],
   defaultTheme: "light",
@@ -25,6 +25,10 @@ export const APP_CONFIG = {
     directory: "Directory entry",
     illustrative: "Illustrative example",
     pending: "Pending verification",
+    provisional: "Provisional accreditation",
+    expired: "Expired",
+    discontinued: "Discontinued",
+    unavailable: "Unavailable",
     needsUpdate: "Needs update"
   }
 };
@@ -44,7 +48,10 @@ export const DATA_GOVERNANCE = {
     "Tuition fees must include currency, academic year, student category and source URL.",
     "Unknown admission requirements, fees or curriculum must remain null or Pending Verification.",
     "Foreign branch-campus records must identify the home university and home country.",
-    "Directory records are not equivalent to active programme availability or current admissions."
+    "Directory records are not equivalent to active programme availability or current admissions.",
+    "Generated course search seeds are pending records, not verified live offerings.",
+    "Course status must be confirmed against MQR, PASP, JPK or the applicable professional regulator.",
+    "Scholarship directory links do not guarantee that an award is currently open."
   ],
   lastDirectoryReview: "2026-11-15"
 };
@@ -5215,6 +5222,15 @@ export const qualificationLevels = [
 ];
 
 
+for (const [id, en, zh, order] of [
+  ["tvet-certificate", "TVET Certificate", "TVET证书", 9],
+  ["tvet-diploma", "TVET Diploma", "TVET文凭", 10],
+  ["professional-qualification", "Professional Qualification", "专业资格", 11]
+]) {
+  if (!qualificationLevels.some(item => item.id === id)) qualificationLevels.push({ id, name: { en, zh }, order });
+}
+
+
 /* =========================================================
    13. DATA STATUS LABELS
    ========================================================= */
@@ -5243,9 +5259,387 @@ export const dataStatusLabels = {
   needsUpdate: {
     en: "Needs update",
     zh: "需要更新"
-  }
+  },
+  expired: { en: "Expired", zh: "已过期" },
+  discontinued: { en: "Discontinued", zh: "已停办" },
+  unavailable: { en: "Unavailable", zh: "暂无资料" },
+  provisional: { en: "Provisional accreditation", zh: "临时认证" }
 };
 
+
+/* =========================================================
+   13A. EXPANDED CATALOGUE TAXONOMY (V2.2)
+   Search seeds are NOT confirmed active programmes.
+   They remain pending until matched to an official institution page
+   and the applicable MQA / JPK / professional register.
+   ========================================================= */
+
+const expandedDisciplineSeeds = [
+  ["structural-engineering","engineering","Structural Engineering","结构工程","Analysis and design of structures, materials and building safety."],
+  ["geotechnical-engineering","engineering","Geotechnical Engineering","岩土工程","Soil, rock, foundations, retaining structures and ground engineering."],
+  ["water-resources-engineering","engineering","Water Resources Engineering","水资源工程","Hydrology, water infrastructure, drainage and water-resource systems."],
+  ["transportation-engineering","engineering","Transportation Engineering","交通工程","Transport infrastructure, traffic systems and mobility planning."],
+  ["chemical-engineering","engineering","Chemical Engineering","化学工程","Process design, chemical production, energy and industrial systems."],
+  ["aerospace-engineering","engineering","Aerospace Engineering","航空航天工程","Aircraft, spacecraft, propulsion and aerospace systems."],
+  ["biomedical-engineering","engineering","Biomedical Engineering","生物医学工程","Engineering methods applied to medical devices and healthcare technology."],
+  ["mechatronics-engineering","engineering","Mechatronics Engineering","机电一体化工程","Integrated mechanical, electronic, control and robotics systems."],
+  ["environmental-engineering","engineering","Environmental Engineering","环境工程","Engineering solutions for water, waste, pollution and sustainability."],
+  ["materials-engineering","engineering","Materials Engineering","材料工程","Development and testing of metals, polymers, ceramics and advanced materials."],
+  ["computer-engineering","engineering","Computer Engineering","计算机工程","Computer hardware, embedded systems and digital architecture."],
+  ["nursing","medicine-health","Nursing","护理学","Nursing practice, patient care, health promotion and clinical placements."],
+  ["pharmacy","medicine-health","Pharmacy","药剂学","Medicines, pharmaceutical sciences, patient safety and pharmacy practice."],
+  ["physiotherapy","medicine-health","Physiotherapy","物理治疗","Movement science, rehabilitation and physical function."],
+  ["occupational-therapy","medicine-health","Occupational Therapy","职业治疗","Supporting participation in daily activities through rehabilitation."],
+  ["radiography","medicine-health","Radiography","放射影像学","Medical imaging, radiation science and diagnostic procedures."],
+  ["public-health","medicine-health","Public Health","公共卫生","Population health, epidemiology, prevention and health policy."],
+  ["medical-assistant","medicine-health","Medical Assistant Studies","医疗助理学","Clinical support, primary care and healthcare operations; scope depends on local regulation."],
+  ["emergency-medical-care","medicine-health","Emergency Medical Care","紧急医疗护理","Pre-hospital care, emergency response and patient assessment."],
+  ["medical-social-work","medicine-health","Medical Social Work","医疗社会工作","Psychosocial support, care coordination and social services in healthcare."],
+  ["biology","biological-sciences","Biology","生物学","Living organisms, biological systems, ecology and laboratory science."],
+  ["microbiology","biological-sciences","Microbiology","微生物学","Microorganisms, infection, industrial microbiology and laboratory methods."],
+  ["molecular-biology","biological-sciences","Molecular Biology","分子生物学","Molecular mechanisms, gene expression and cellular processes."],
+  ["genetics","biological-sciences","Genetics","遗传学","Genes, inheritance, genomics and genetic variation."],
+  ["biochemistry","biological-sciences","Biochemistry","生物化学","Chemical processes in living systems and molecular biology."],
+  ["bioinformatics","biological-sciences","Bioinformatics","生物信息学","Computational analysis of biological and biomedical data."],
+  ["medical-biotechnology","biological-sciences","Medical Biotechnology","医学生物科技","Biotechnology applications in diagnostics, therapeutics and healthcare research."],
+  ["computer-science","computer-technology","Computer Science","计算机科学","Algorithms, computation, software systems and theoretical foundations."],
+  ["software-engineering","computer-technology","Software Engineering","软件工程","Software design, development, testing and lifecycle management."],
+  ["data-science","computer-technology","Data Science","数据科学","Statistics, programming, machine learning and data-driven decision-making."],
+  ["cybersecurity","computer-technology","Cybersecurity","网络安全","Security engineering, risk management and digital defence."],
+  ["information-technology","computer-technology","Information Technology","信息技术","IT infrastructure, systems administration and technology services."],
+  ["robotics","computer-technology","Robotics","机器人学","Robotic systems, automation, sensing and intelligent control."],
+  ["accounting","business","Accounting","会计学","Financial reporting, audit, taxation and management accounting."],
+  ["finance","business","Finance","金融学","Financial markets, investment, corporate finance and risk."],
+  ["marketing","business","Marketing","市场营销","Consumer research, branding, digital marketing and strategy."],
+  ["human-resource-management","business","Human Resource Management","人力资源管理","People management, employment relations and organisational development."],
+  ["economics","business","Economics","经济学","Markets, policy, economic analysis and quantitative methods."],
+  ["business-analytics","business","Business Analytics","商业分析","Data analysis and decision support for organisations."],
+  ["logistics-management","transport-logistics","Logistics Management","物流管理","Transport operations, warehousing and distribution systems."],
+  ["supply-chain-management","transport-logistics","Supply Chain Management","供应链管理","Procurement, operations, logistics and end-to-end supply networks."],
+  ["physics","science","Physics","物理学","Matter, energy, forces and fundamental physical systems."],
+  ["chemistry","science","Chemistry","化学","Chemical structures, reactions, materials and laboratory analysis."],
+  ["mathematics","science","Mathematics","数学","Mathematical theory, modelling and quantitative problem-solving."],
+  ["statistics","science","Statistics","统计学","Statistical inference, experimental design and data analysis."],
+  ["forensic-science","science","Forensic Science","法证科学","Scientific methods used in investigation and evidence analysis."],
+  ["environmental-science","science","Environmental Science","环境科学","Environmental systems, conservation, monitoring and sustainability."],
+  ["construction-management","architecture-built-environment","Construction Management","建筑管理","Construction planning, site operations, contracts and project delivery."],
+  ["building-surveying","architecture-built-environment","Building Surveying","建筑测量","Building inspection, maintenance, compliance and building performance."],
+  ["urban-planning","architecture-built-environment","Urban and Regional Planning","城市与区域规划","Land use, urban development, transport and community planning."],
+  ["landscape-architecture","architecture-built-environment","Landscape Architecture","景观建筑","Design of outdoor spaces, landscapes and public environments."],
+  ["interior-design","architecture-built-environment","Interior Design","室内设计","Interior environments, spatial planning, materials and design communication."],
+  ["geomatics","architecture-built-environment","Geomatics","测绘与地理信息","Surveying, geospatial data, mapping and positioning technologies."],
+  ["building-information-modelling","architecture-built-environment","Building Information Modelling","建筑信息模型","Digital construction information, coordinated models and project data."],
+  ["psychology","social-sciences","Psychology","心理学","Human behaviour, cognition, development and research methods."],
+  ["sociology","social-sciences","Sociology","社会学","Social structures, institutions, communities and social change."],
+  ["political-science","social-sciences","Political Science","政治学","Government, political systems, policy and political behaviour."],
+  ["international-relations","social-sciences","International Relations","国际关系","Diplomacy, global affairs, security and international institutions."],
+  ["social-work","social-sciences","Social Work","社会工作","Social support, community services and advocacy."],
+  ["communication","social-sciences","Communication Studies","传播学","Communication theory, media, organisations and public engagement."],
+  ["early-childhood-education","education","Early Childhood Education","幼儿教育","Learning, development and care in early childhood settings."],
+  ["special-education","education","Special Education","特殊教育","Inclusive teaching and support for learners with diverse needs."],
+  ["educational-technology","education","Educational Technology","教育科技","Digital learning design, educational media and learning systems."],
+  ["tesl","education","Teaching English as a Second Language","英语作为第二语言教学","Language teaching, applied linguistics and classroom practice."],
+  ["graphic-design","design-creative","Graphic Design","平面设计","Visual communication, typography, branding and digital design."],
+  ["industrial-design","design-creative","Industrial Design","工业设计","Product form, usability, materials and design development."],
+  ["animation","design-creative","Animation","动画","2D/3D animation, storytelling and digital production."],
+  ["game-design","design-creative","Game Design","游戏设计","Game mechanics, interactive storytelling and production workflows."],
+  ["food-science","agriculture","Food Science","食品科学","Food chemistry, safety, processing and product development."],
+  ["veterinary-science","agriculture","Veterinary Science","兽医学","Animal health, disease prevention and veterinary practice."],
+  ["aquaculture","agriculture","Aquaculture","水产养殖","Aquatic farming, fish health and sustainable production."],
+  ["law","law","Law","法律","Legal systems, legal reasoning, research and professional practice."],
+  ["corporate-law","law","Corporate Law","公司法","Company law, commercial transactions and corporate governance."],
+  ["hospitality-management","hospitality-tourism","Hospitality Management","酒店管理","Hospitality operations, guest services and business management."],
+  ["tourism-management","hospitality-tourism","Tourism Management","旅游管理","Tourism planning, destination management and visitor services."],
+  ["culinary-arts","hospitality-tourism","Culinary Arts","烹饪艺术","Food preparation, kitchen operations and culinary management."],
+  ["journalism","communication-media","Journalism","新闻学","News gathering, reporting, verification and multimedia storytelling."],
+  ["mass-communication","communication-media","Mass Communication","大众传播","Media industries, communication strategy and content production."],
+  ["public-relations","communication-media","Public Relations","公共关系","Reputation, stakeholder communication and strategic communications."],
+  ["aviation-management","transport-logistics","Aviation Management","航空管理","Air transport operations, airport services and aviation business."],
+  ["maritime-studies","transport-logistics","Maritime Studies","海事研究","Shipping, ports, maritime operations and ocean industries."]
+];
+
+for (const [id, fieldId, en, zh, description] of expandedDisciplineSeeds) {
+  if (!disciplines.some(item => item.id === id)) {
+    disciplines.push({
+      id, fieldId, name: { en, zh },
+      description: { en: description, zh: `${zh}相关知识、应用、研究与专业实践。` },
+      subjects: [], careers: [], keywords: [en.toLowerCase(), zh]
+    });
+  }
+  const field = studyFields.find(item => item.id === fieldId);
+  if (field && !field.disciplines.includes(id)) field.disciplines.push(id);
+}
+
+const courseQualificationSeeds = [
+  { qualification: "Diploma", prefix: "Diploma in", duration: null },
+  { qualification: "Bachelor", prefix: "Bachelor in", duration: null },
+  { qualification: "Master", prefix: "Master in", duration: null },
+  { qualification: "PhD", prefix: "PhD in", duration: null }
+];
+
+for (const discipline of disciplines) {
+  for (const level of courseQualificationSeeds) {
+    const id = `${level.qualification.toLowerCase()}-${discipline.id}`;
+    if (courses.some(item => item.id === id)) continue;
+    const title = `${level.prefix} ${discipline.name.en}`;
+    courses.push({
+      id,
+      disciplineId: discipline.id,
+      fieldId: discipline.fieldId,
+      name: { en: title, zh: `${discipline.name.zh}${({Certificate:"证书",Foundation:"预科",Diploma:"文凭", "Advanced Diploma":"高级文凭",Bachelor:"学士", "Postgraduate Diploma":"研究生文凭",Master:"硕士",PhD:"博士", "TVET Certificate":"TVET证书", "TVET Diploma":"TVET文凭"})[level.qualification]}` },
+      qualification: level.qualification,
+      duration: level.duration,
+      studyMode: [],
+      country: "Malaysia",
+      description: {
+        en: `Catalogue search seed for ${discipline.name.en}. This record is not evidence that a Malaysian institution currently offers this exact award title. Match it to an official institution programme page before publication as an active course.`,
+        zh: `${discipline.name.zh}课程目录检索条目。此记录不代表马来西亚院校目前确实开办此名称课程，必须匹配院校官方课程网页后才能作为现行课程发布。`
+      },
+      entryRequirements: { en: "Pending institution-specific verification.", zh: "等待按院校及课程核实入学条件。" },
+      curriculum: [],
+      institutionIds: [],
+      careerIds: [],
+      accreditation: [],
+      estimatedFees: null,
+      dataStatus: "pending",
+      dataNote: "Programme search seed only. No institution, active intake, fee, curriculum or accreditation has been verified.",
+      source: null,
+      lastVerified: null
+    });
+  }
+}
+
+
+const tvetDisciplineIds = [
+  "civil-engineering", "mechanical-engineering", "electrical-engineering", "chemical-engineering",
+  "mechatronics-engineering", "computer-engineering", "computer-science", "information-technology",
+  "robotics", "construction-management", "building-information-modelling", "geomatics",
+  "automotive-technology", "welding-technology", "electrical-technology", "culinary-arts",
+  "food-technology", "agriculture", "aquaculture", "logistics-management", "hospitality-management",
+  "graphic-design", "industrial-design", "network-technology"
+];
+for (const disciplineId of tvetDisciplineIds) {
+  const discipline = disciplines.find(item => item.id === disciplineId);
+  if (!discipline) continue;
+  for (const level of [
+    { qualification: "TVET Certificate", prefix: "TVET Certificate in" },
+    { qualification: "TVET Diploma", prefix: "TVET Diploma in" }
+  ]) {
+    const id = `${level.qualification.toLowerCase().replaceAll(" ", "-")}-${discipline.id}`;
+    if (courses.some(item => item.id === id)) continue;
+    courses.push({
+      id, disciplineId, fieldId: discipline.fieldId,
+      name: { en: `${level.prefix} ${discipline.name.en}`, zh: `${discipline.name.zh}${level.qualification === "TVET Certificate" ? "技能证书" : "技能文凭"}` },
+      qualification: level.qualification, duration: null, studyMode: [], country: "Malaysia",
+      description: { en: `TVET catalogue search seed for ${discipline.name.en}. Exact NOSS code, JPK qualification level, training provider and current intake must be verified.`, zh: `${discipline.name.zh}的TVET目录检索条目。必须核实NOSS代码、JPK资格等级、培训机构及当前招生。` },
+      entryRequirements: { en: "Pending provider- and NOSS-specific verification.", zh: "等待按培训机构及NOSS标准核实入学条件。" },
+      curriculum: [], institutionIds: [], careerIds: [], accreditation: [], estimatedFees: null,
+      dataStatus: "pending", dataNote: "TVET search seed only; not a verified JPK programme or active provider listing.", source: null, lastVerified: null
+    });
+  }
+}
+
+/* Additional career directory: occupational profiles are exploratory, not licensing advice. */
+const careerSeeds = [
+  ["structural-engineer","Structural Engineer","结构工程师","engineering","structural-engineering","Develops and assesses structural systems for buildings and infrastructure."],
+  ["site-engineer","Site Engineer","现场工程师","engineering","civil-engineering","Coordinates technical construction activities, drawings, quality and site progress."],
+  ["geotechnical-engineer","Geotechnical Engineer","岩土工程师","engineering","geotechnical-engineering","Assesses ground conditions, foundations and geotechnical risks."],
+  ["transportation-engineer","Transportation Engineer","交通工程师","engineering","transportation-engineering","Analyses and plans transport infrastructure and traffic systems."],
+  ["chemical-engineer","Chemical Engineer","化学工程师","engineering","chemical-engineering","Designs and improves industrial chemical and process operations."],
+  ["aerospace-engineer","Aerospace Engineer","航空航天工程师","engineering","aerospace-engineering","Works on aircraft, spacecraft, propulsion or aerospace systems."],
+  ["biomedical-engineer","Biomedical Engineer","生物医学工程师","engineering","biomedical-engineering","Develops and evaluates medical devices and healthcare technologies."],
+  ["mechatronics-engineer","Mechatronics Engineer","机电工程师","engineering","mechatronics-engineering","Integrates mechanical, electronic and control technologies."],
+  ["environmental-engineer","Environmental Engineer","环境工程师","engineering","environmental-engineering","Designs systems for pollution control, water and environmental protection."],
+  ["manufacturing-engineer","Manufacturing Engineer","制造工程师","engineering","mechanical-engineering","Improves production processes, quality and manufacturing systems."],
+  ["nurse","Registered Nurse","注册护士","medicine-health","nursing","Provides nursing care, monitors patients and supports health education."],
+  ["pharmacist","Pharmacist","药剂师","medicine-health","pharmacy","Supports safe and effective use of medicines within regulated practice."],
+  ["physiotherapist","Physiotherapist","物理治疗师","medicine-health","physiotherapy","Assesses movement and delivers rehabilitation interventions."],
+  ["occupational-therapist","Occupational Therapist","职业治疗师","medicine-health","occupational-therapy","Helps people participate in daily activities through rehabilitation."],
+  ["radiographer","Diagnostic Radiographer","放射技师","medicine-health","radiography","Performs medical imaging procedures under professional standards."],
+  ["public-health-officer","Public Health Officer","公共卫生人员","medicine-health","public-health","Supports population health programmes, surveillance and prevention."],
+  ["medical-assistant","Medical Assistant","医疗助理","medicine-health","medical-assistant","Supports clinical teams within the scope of local training and regulation."],
+  ["biotechnologist","Biotechnologist","生物科技专员","biological-sciences","biotechnology","Applies biological methods in research, healthcare, agriculture or industry."],
+  ["microbiologist","Microbiologist","微生物学家","biological-sciences","microbiology","Studies microorganisms in clinical, industrial or environmental settings."],
+  ["molecular-biologist","Molecular Biologist","分子生物学家","biological-sciences","molecular-biology","Studies molecular processes in cells and living systems."],
+  ["bioinformatician","Bioinformatician","生物信息学家","biological-sciences","bioinformatics","Analyses biological datasets using computational and statistical methods."],
+  ["research-scientist","Research Scientist","研究科学家","science","physics","Plans experiments, analyses evidence and communicates research findings."],
+  ["software-engineer","Software Engineer","软件工程师","computer-technology","software-engineering","Designs, builds, tests and maintains software systems."],
+  ["data-scientist","Data Scientist","数据科学家","computer-technology","data-science","Uses statistics, programming and data to support decisions."],
+  ["cybersecurity-analyst","Cybersecurity Analyst","网络安全分析师","computer-technology","cybersecurity","Monitors and assesses information security risks and controls."],
+  ["cloud-engineer","Cloud Engineer","云端工程师","computer-technology","information-technology","Builds and maintains cloud-based infrastructure and services."],
+  ["robotics-engineer","Robotics Engineer","机器人工程师","computer-technology","robotics","Develops robotic systems, automation and control solutions."],
+  ["accountant","Accountant","会计师","business","accounting","Prepares and analyses financial information and reporting."],
+  ["financial-analyst","Financial Analyst","金融分析师","business","finance","Evaluates financial data, performance and investment information."],
+  ["marketing-executive","Marketing Executive","市场营销专员","business","marketing","Plans campaigns, studies customers and supports brand growth."],
+  ["human-resource-executive","Human Resources Executive","人力资源专员","business","human-resource-management","Supports recruitment, employee services and people operations."],
+  ["business-analyst","Business Analyst","商业分析师","business","business-analytics","Translates business needs into process and data-driven improvements."],
+  ["construction-manager","Construction Manager","建筑项目经理","architecture-built-environment","construction-management","Coordinates construction delivery, resources, safety and programme."],
+  ["building-surveyor","Building Surveyor","建筑测量师","architecture-built-environment","building-surveying","Inspects building condition, defects, maintenance and compliance."],
+  ["architect","Architect","建筑师","architecture-built-environment","architecture","Develops building designs and coordinates architectural project requirements."],
+  ["urban-planner","Urban Planner","城市规划师","architecture-built-environment","urban-planning","Plans land use, urban growth and community environments."],
+  ["bim-coordinator","BIM Coordinator","BIM协调员","architecture-built-environment","building-information-modelling","Coordinates digital building models and project information workflows."],
+  ["psychologist","Psychologist","心理学相关专业人员","social-sciences","psychology","Studies behaviour and may provide services subject to recognised qualifications and registration."],
+  ["social-worker","Social Worker","社会工作者","social-sciences","social-work","Supports individuals, families and communities through social services."],
+  ["policy-analyst","Policy Analyst","政策分析员","social-sciences","political-science","Researches policy issues and evaluates public programmes."],
+  ["teacher","Teacher","教师","education","secondary-education","Plans learning activities, teaches and assesses student progress."],
+  ["tesl-teacher","English Language Teacher","英语教师","education","tesl","Teaches English language skills in suitable education settings."],
+  ["graphic-designer","Graphic Designer","平面设计师","design-creative","graphic-design","Creates visual communication for print and digital platforms."],
+  ["product-designer","Product Designer","产品设计师","design-creative","industrial-design","Develops product concepts, prototypes and user-centred solutions."],
+  ["animator","Animator","动画师","design-creative","animation","Creates animated sequences and digital visual content."],
+  ["food-technologist","Food Technologist","食品科技专员","agriculture","food-science","Works on food processing, safety, quality and product development."],
+  ["veterinarian","Veterinarian","兽医","agriculture","veterinary-science","Diagnoses and treats animal health conditions subject to registration."],
+  ["lawyer","Lawyer","律师","law","law","Provides legal services subject to jurisdiction-specific admission and practice rules."],
+  ["legal-executive","Legal Executive","法律事务专员","law","legal-studies","Supports legal research, documentation and case administration."],
+  ["hotel-manager","Hotel Manager","酒店经理","hospitality-tourism","hotel-management","Oversees hospitality operations, guest experience and business performance."],
+  ["chef","Chef","厨师","hospitality-tourism","culinary-arts","Plans and prepares food and coordinates kitchen operations."],
+  ["journalist","Journalist","记者","communication-media","journalism","Researches, verifies and reports news and public-interest information."],
+  ["public-relations-specialist","Public Relations Specialist","公关专员","communication-media","public-relations","Manages organisational communication and stakeholder relationships."],
+  ["logistics-manager","Logistics Manager","物流经理","transport-logistics","logistics-management","Coordinates transport, warehousing and distribution operations."],
+  ["aviation-operations-officer","Aviation Operations Officer","航空运营人员","transport-logistics","aviation-management","Supports airport or airline operations and service coordination."],
+  ["marine-operations-officer","Marine Operations Officer","海事运营人员","transport-logistics","maritime-studies","Supports shipping, port or maritime operations." ]
+];
+
+for (const [id, en, zh, fieldId, disciplineId, description] of careerSeeds) {
+  if (!careers.some(item => item.id === id)) careers.push({
+    id, name: { en, zh }, fieldId, disciplineId,
+    description: { en: description, zh: `${zh}相关工作，具体职责与资格要求取决于雇主、行业及适用法规。` },
+    responsibilities: { en: [description, "Collaborate with relevant teams", "Maintain professional and safety standards"], zh: [description, "与相关团队合作", "遵守专业及安全标准"] },
+    qualificationLevels: ["Diploma", "Bachelor", "Master"],
+    professionalRequirements: [],
+    dataStatus: "pending",
+    dataNote: "Exploratory occupational profile. Confirm local licensing, protected titles and employer requirements before relying on it."
+  });
+}
+
+
+const careerRequirementMap = {
+  "civil-engineer": ["bem"], "mechanical-engineer": ["bem"], "structural-engineer": ["bem"],
+  "site-engineer": ["bem"], "geotechnical-engineer": ["bem"], "transportation-engineer": ["bem"],
+  "chemical-engineer": ["bem"], "aerospace-engineer": ["bem"], "biomedical-engineer": ["bem"],
+  "mechatronics-engineer": ["bem"], "environmental-engineer": ["bem"], "manufacturing-engineer": ["bem"],
+  "quantity-surveyor": ["bqsm"], "architect": ["lam"], "nurse": ["malaysian-nursing-board"],
+  "pharmacist": ["pharmacy-board"], "lawyer": ["malaysian-bar"]
+};
+for (const career of careers) {
+  if (careerRequirementMap[career.id]) career.professionalRequirements = careerRequirementMap[career.id];
+  career.skills ??= ["Communication", "Problem-solving", "Professional ethics", "Digital literacy"];
+  career.workEnvironments ??= ["Relevant industry workplaces", "Team-based professional environments"];
+  career.progression ??= { en: "Progression depends on experience, further study, professional recognition and employer requirements.", zh: "職業发展取决于工作经验、继续进修、专业认可及雇主要求。" };
+  career.salaryData ??= null;
+  career.marketOutlook ??= null;
+}
+for (const discipline of disciplines) {
+  discipline.careers = careers.filter(career => career.disciplineId === discipline.id).map(career => career.id);
+}
+
+/* Professional bodies and official reference points. A directory entry is not an eligibility decision. */
+const professionalBodySeeds = [
+  ["lam","Board of Architects Malaysia","马来西亚建筑师局","LAM","architecture-built-environment","https://www.lam.gov.my/","Architect registration and recognised professional pathways."],
+  ["pam","Malaysian Institute of Architects","马来西亚建筑师协会","PAM","architecture-built-environment","https://www.pam.org.my/","Professional institute and architectural practice resources."],
+  ["mbot","Malaysia Board of Technologists","马来西亚科技人员局","MBOT","engineering","https://www.mbot.org.my/","Technologist and technician registration information."],
+  ["mqa","Malaysian Qualifications Agency","马来西亚学术资格鉴定机构","MQA","education","https://www.mqa.gov.my/","Programme accreditation and qualifications framework information."],
+  ["pharmacy-board","Pharmacy Board Malaysia","马来西亚药剂局","PBM","medicine-health","https://pharmacy.moh.gov.my/","Pharmacy registration and professional requirements."],
+  ["malaysian-nursing-board","Nursing Board Malaysia","马来西亚护士局","NBM","medicine-health","https://www.moh.gov.my/","Nursing registration and practice information."],
+  ["malaysian-bar","Malaysian Bar","马来西亚律师公会","MB","law","https://www.malaysianbar.org.my/","Legal profession information and admission resources."],
+  ["mip","Malaysian Institute of Planners","马来西亚规划师协会","MIP","architecture-built-environment","https://www.mip.org.my/","Planning profession resources and membership information."],
+  ["mdec","Malaysia Digital Economy Corporation","马来西亚数字经济机构","MDEC","computer-technology","https://mdec.my/","Digital economy and talent ecosystem information."],
+  ["moh","Ministry of Health Malaysia","马来西亚卫生部","MOH","medicine-health","https://www.moh.gov.my/","Health sector policies, services and professional information."],
+  ["jpk","Department of Skills Development","马来西亚技能发展局","JPK","education","https://www.dsd.gov.my/","National occupational skills standards and Malaysian Skills Certification information."]
+];
+for (const [id, en, zh, abbreviation, fieldId, website, note] of professionalBodySeeds) {
+  if (!professionalRequirements.some(item => item.id === id)) professionalRequirements.push({
+    id, name: { en, zh }, abbreviation, fields: [fieldId], website,
+    description: { en: note, zh: note }, requirements: [], dataStatus: "directory",
+    note: "Reference directory only. Confirm current rules, registration categories and recognised qualifications directly with the authority."
+  });
+}
+
+/* Additional generic progression routes; actual admission and credit transfer remain institution-specific. */
+const pathwaySeeds = [
+  ["uec-to-bachelor","UEC to Bachelor Degree","UEC 升读学士","UEC","Bachelor",["UEC","Bachelor"]],
+  ["stpm-to-bachelor","STPM to Bachelor Degree","STPM 升读学士","STPM","Bachelor",["STPM","Bachelor"]],
+  ["a-level-to-bachelor","A-Level to Bachelor Degree","A-Level 升读学士","A-Level","Bachelor",["A-Level","Bachelor"]],
+  ["ib-to-bachelor","IB Diploma to Bachelor Degree","IB Diploma 升读学士","IB Diploma","Bachelor",["IB Diploma","Bachelor"]],
+  ["matriculation-to-bachelor","Matriculation to Bachelor Degree","大学预科升读学士","Matriculation","Bachelor",["Matriculation","Bachelor"]],
+  ["certificate-to-diploma","Certificate to Diploma","证书升读文凭","Certificate","Diploma",["Certificate","Diploma"]],
+  ["foundation-to-bachelor","Foundation to Bachelor Degree","Foundation 升读学士","Foundation","Bachelor",["Foundation","Bachelor"]],
+  ["bachelor-to-phd","Bachelor to Doctoral Study","学士衔接博士研究","Bachelor","PhD",["Bachelor","Master","PhD"]],
+  ["skm-to-dkm-dlkm","SKM to DKM / DLKM","SKM → DKM / DLKM","SKM","DLKM",["SKM","DKM","DLKM"]],
+  ["tvet-to-degree","TVET Diploma to Related Degree","TVET 文凭衔接相关学士","TVET Diploma","Bachelor",["TVET Diploma","Bachelor"]],
+  ["professional-to-postgraduate","Professional Qualification to Postgraduate Study","专业资格衔接研究生课程","Professional Qualification","Master",["Professional Qualification","Master"]]
+];
+for (const [id, en, zh, start, end, steps] of pathwaySeeds) {
+  if (!studyPathways.some(item => item.id === id)) studyPathways.push({
+    id, name: { en, zh }, category: "progression", startQualification: start, endQualification: end,
+    country: "Malaysia", steps: steps.map(qualification => ({ qualification, duration: null })),
+    description: { en: "Potential progression route. Entry, equivalence, subject prerequisites and credit transfer must be confirmed with the receiving institution or relevant authority.", zh: "可能的升学衔接路线。入学、学历等值、科目先修条件及学分转移须向接收院校或相关机构核实。" },
+    dataStatus: "pending"
+  });
+}
+
+export const scholarshipSources = [
+  { id: "ptptn", name: { en: "PTPTN Education Financing", zh: "PTPTN 高等教育贷款" }, country: "Malaysia", website: "https://www.ptptn.gov.my/", dataStatus: "directory", note: "Financing eligibility and terms depend on current PTPTN rules." },
+  { id: "jpa-scholarships", name: { en: "Public Service Department Scholarships", zh: "公共服务局奖学金" }, country: "Malaysia", website: "https://www.jpa.gov.my/", dataStatus: "directory", note: "Check current scholarship advertisements and eligibility." },
+  { id: "mara-education", name: { en: "MARA Education Sponsorship", zh: "MARA 教育资助" }, country: "Malaysia", website: "https://www.mara.gov.my/", dataStatus: "directory", note: "Eligibility and available schemes are subject to current MARA announcements." },
+  { id: "yayasan-khazanah", name: { en: "Yayasan Khazanah", zh: "Khazanah 基金会" }, country: "Malaysia", website: "https://www.yayasankhazanah.com.my/", dataStatus: "directory", note: "Check current scholarship programmes and application cycles." },
+  { id: "bank-negara-scholarship", name: { en: "Bank Negara Malaysia Scholarships", zh: "马来西亚国家银行奖学金" }, country: "Malaysia", website: "https://www.bnm.gov.my/", dataStatus: "directory", note: "Check current scholarship announcements and eligibility." }
+];
+
+export const admissionsTests = [
+  { id: "muet", name: "MUET", purpose: "English language proficiency", website: "https://www.mpm.edu.my/", dataStatus: "directory" },
+  { id: "ielts", name: "IELTS", purpose: "English language proficiency", website: "https://ielts.org/", dataStatus: "directory" },
+  { id: "toefl", name: "TOEFL iBT", purpose: "English language proficiency", website: "https://www.ets.org/toefl.html", dataStatus: "directory" },
+  { id: "sat", name: "SAT", purpose: "Admissions testing where required by an institution", website: "https://satsuite.collegeboard.org/sat", dataStatus: "directory" },
+  { id: "mathematics-prerequisite", name: "Mathematics prerequisite", purpose: "Programme-specific mathematics subject and grade requirements", website: null, dataStatus: "pending" },
+  { id: "science-prerequisite", name: "Science prerequisite", purpose: "Programme-specific science subject and grade requirements", website: null, dataStatus: "pending" }
+];
+
+export const courseDataSchema = {
+  requiredIdentity: ["id","name","qualification","fieldId","disciplineId","country"],
+  institutionSpecific: ["institutionIds","campus","officialProgrammeTitle","officialUrl","intake","duration","studyMode"],
+  admission: ["entryRequirements","subjectRequirements","languageRequirements","selectionRequirements"],
+  academic: ["curriculum","creditHours","internship","industrialTraining","deliveryMode"],
+  cost: ["estimatedFees","feeCurrency","feeAcademicYear","feeStudentCategory","feeSource"],
+  recognition: ["accreditation","professionalRecognition","registerReference","accreditationValidity"],
+  governance: ["dataStatus","source","lastVerified","verifiedBy","dataNote"],
+  rule: "Never publish a course as active or accredited without matching its exact official title, institution, campus, mode and validity period."
+};
+
+export const institutionDataSchema = {
+  identity: ["id","name","abbreviation","type","ownership","country"],
+  campus: ["campusName","address","state","city","studyLocation"],
+  delivery: ["officialWebsite","admissionsUrl","internationalAdmissionsUrl"],
+  governance: ["source","dataStatus","lastVerified","dataNote"],
+  rule: "An institution directory entry does not confirm a programme, campus intake or accreditation."
+};
+
+export const careerDataSchema = {
+  identity: ["id","name","fieldId","disciplineId"],
+  profile: ["description","responsibilities","skills","workEnvironments","progression"],
+  education: ["qualificationLevels","recommendedCourseIds"],
+  regulation: ["professionalRequirements","registrationNotes"],
+  labourMarket: ["salaryData","marketOutlook","marketSource","marketYear"],
+  rule: "Do not publish salary or job-growth figures without a dated and attributable source."
+};
+
+export const scholarshipDataSchema = {
+  identity: ["id","name","provider","country"],
+  award: ["awardType","amount","currency","coverage","renewalConditions"],
+  eligibility: ["citizenship","academicRequirements","incomeRequirements","eligibleLevels","eligibleFields"],
+  application: ["openingDate","deadline","applicationUrl","officialSource"],
+  governance: ["dataStatus","lastVerified","dataNote"],
+  rule: "A provider directory entry is not an active scholarship offer. Confirm the current application cycle and eligibility."
+};
+
+export const databaseSummaryExpanded = {
+  courseSearchSeeds: courses.filter(item => item.dataStatus === "pending").length,
+  illustrativeCourses: courses.filter(item => item.dataStatus === "illustrative").length,
+  verifiedCourses: courses.filter(item => ["verified","official"].includes(item.dataStatus)).length,
+  pendingCareers: careers.filter(item => item.dataStatus === "pending").length,
+  scholarshipSources: scholarshipSources.length,
+  admissionsTests: admissionsTests.length,
+  note: "Counts describe records in this prototype, not the total number of active programmes available in Malaysia."
+};
 
 /* =========================================================
    14. DATA HELPERS
@@ -5387,5 +5781,9 @@ export const databaseSummary = {
   careers: careers.length,
   professionalRequirements: professionalRequirements.length,
   pathways: studyPathways.length,
-  discoveryQuestions: discoveryQuestions.length
+  discoveryQuestions: discoveryQuestions.length,
+  scholarshipSources: scholarshipSources.length,
+  admissionsTests: admissionsTests.length,
+  verifiedCourses: courses.filter(item => ["verified", "official"].includes(item.dataStatus)).length,
+  pendingCourses: courses.filter(item => item.dataStatus === "pending").length
 };

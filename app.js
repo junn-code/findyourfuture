@@ -113,7 +113,11 @@ function statusLabel(item) {
     illustrative: t("Illustrative example", "示例资料"),
     pending: t("Pending verification", "等待核实"),
     "needs-verification": t("Needs verification", "待核实"),
-    "needs-update": t("Needs update", "需要更新")
+    "needs-update": t("Needs update", "需要更新"),
+    expired: t("Expired", "已过期"),
+    discontinued: t("Discontinued", "已停办"),
+    unavailable: t("Unavailable", "暂无资料"),
+    provisional: t("Provisional accreditation", "临时认证")
   };
   return labels[status] || status;
 }
@@ -143,7 +147,7 @@ function setText(selector, value) {
    NAVIGATION, LANGUAGE AND APPEARANCE
    ========================================================= */
 
-const PAGE_IDS = ["home", "discover", "fields", "courses", "institutions", "pathways", "careers", "professional", "report", "admin"];
+const PAGE_IDS = ["home", "discover", "fields", "courses", "institutions", "pathways", "careers", "professional", "scholarships", "report", "admin"];
 
 function navigateTo(page, updateHash = true) {
   if (!PAGE_IDS.includes(page)) page = "home";
@@ -175,6 +179,7 @@ function navigateTo(page, updateHash = true) {
   if (page === "pathways") renderPathways();
   if (page === "careers") renderCareers();
   if (page === "professional") renderProfessional();
+  if (page === "scholarships") renderScholarships();
   if (page === "discover") renderDiscovery();
   if (page === "report") renderReport();
   if (page === "admin") initAdmin({ container: $("#adminWorkspace"), data: DATA, language: state.language });
@@ -595,6 +600,31 @@ function initPathwayEvents() {
 }
 
 /* =========================================================
+   SCHOLARSHIPS, FUNDING AND ADMISSIONS REFERENCES
+   ========================================================= */
+function renderScholarships() {
+  const scholarships = getArray("scholarshipSources");
+  const tests = getArray("admissionsTests");
+  const scholarshipGrid = $("#scholarshipGrid");
+  const testGrid = $("#admissionsTestGrid");
+  if (scholarshipGrid) scholarshipGrid.innerHTML = scholarships.map(item => `
+    <article class="catalog-card">
+      <div class="card-topline"><span class="category-label">${escapeHTML(item.country || "Malaysia")}</span>${statusBadge(item)}</div>
+      <h3>${escapeHTML(getName(item))}</h3>
+      <p>${escapeHTML(item.note || "Check the provider's official website for current schemes and eligibility.")}</p>
+      ${item.website ? `<a class="text-button" href="${escapeHTML(item.website)}" target="_blank" rel="noopener noreferrer">${t("Official provider website", "官方机构网站")} ↗</a>` : ""}
+    </article>`).join("");
+  if (testGrid) testGrid.innerHTML = tests.map(item => `
+    <article class="catalog-card">
+      <div class="card-topline"><span class="category-label">${t("Admissions reference", "入学参考")}</span>${statusBadge(item)}</div>
+      <h3>${escapeHTML(item.name)}</h3>
+      <p>${escapeHTML(item.purpose || "Check the relevant institution's current requirements.")}</p>
+      ${item.website ? `<a class="text-button" href="${escapeHTML(item.website)}" target="_blank" rel="noopener noreferrer">${t("Official website", "官方网站")} ↗</a>` : ""}
+    </article>`).join("");
+  setText("#scholarshipCount", `${scholarships.length} ${t("sources", "个来源")}`);
+}
+
+/* =========================================================
    CAREERS + PROFESSIONAL REQUIREMENTS
    ========================================================= */
 
@@ -936,7 +966,9 @@ const ADMIN_COLLECTIONS = [
   { key: "professionalRequirements", label: { en: "Professional Requirements", zh: "专业资格" }, icon: "◎" },
   { key: "studyPathways", label: { en: "Study Pathways", zh: "升学路线" }, icon: "⇢" },
   { key: "qualificationLevels", label: { en: "Qualification Levels", zh: "学历层级" }, icon: "▥" },
-  { key: "discoveryQuestions", label: { en: "Discovery Questions", zh: "探索问卷" }, icon: "?" }
+  { key: "discoveryQuestions", label: { en: "Discovery Questions", zh: "探索问卷" }, icon: "?" },
+  { key: "scholarshipSources", label: { en: "Scholarship Sources", zh: "奖学金来源" }, icon: "☆" },
+  { key: "admissionsTests", label: { en: "Admissions & Tests", zh: "入学考试与要求" }, icon: "✓" }
 ];
 
 const adminState = { container: null, data: DATA, language: "en", activeCollection: "courses", search: "", localChanges: {} };
