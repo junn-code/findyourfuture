@@ -891,13 +891,13 @@
 
               <div>
                 <span class="section-eyebrow">
-                  SECTION 03 · 5 QUESTIONS
+                  SECTION 03 · 5 PLANNING QUESTIONS
                 </span>
 
                 <h2>Let's plan your next step.</h2>
 
                 <p>
-                  Tell us a little about your education plans.
+                  Select all the options that apply to your education plans.
                 </p>
               </div>
 
@@ -1268,11 +1268,36 @@
         <span class="filter-group-label">Institution ownership / 院校性质</span>
         <div class="horizontal-filter" id="institutionOwnershipFilter" aria-label="Filter by institution ownership">
           <button type="button" class="filter-chip active" data-ownership="all">All types</button>
-          <button type="button" class="filter-chip" data-ownership="public">Public / Government</button>
+          <button type="button" class="filter-chip" data-ownership="public">Public / National</button>
           <button type="button" class="filter-chip" data-ownership="private">Private</button>
           <button type="button" class="filter-chip" data-ownership="foreign-branch">Foreign university campuses</button>
           <button type="button" class="filter-chip" data-ownership="other">Other providers</button>
         </div>
+      </div>
+
+      <div class="institution-filter-group">
+        <span class="filter-group-label">Institution distinctions / 院校分类</span>
+        <div class="horizontal-filter" id="institutionDistinctionFilter" aria-label="Filter by institution distinction">
+          <button type="button" class="filter-chip active" data-distinction="all">All distinctions</button>
+          <button type="button" class="filter-chip" data-distinction="985">Project 985</button>
+          <button type="button" class="filter-chip" data-distinction="211">Project 211</button>
+          <button type="button" class="filter-chip" data-distinction="National">Taiwan National</button>
+          <button type="button" class="filter-chip" data-distinction="Private">Taiwan Private</button>
+        </div>
+      </div>
+
+      <div class="notice-box institution-admissions-guide">
+        <strong>China Project 985 / 211 classifications / 中国大陆 985／211 分类</strong>
+        <p>985 and 211 are historical national higher-education project labels, not current admissions guarantees or a complete measure of programme quality. Check each university’s current programmes and the Double First-Class discipline information separately.</p>
+        <p>985 与 211 属于历史重点建设项目标签，不代表录取保证，也不能单独衡量科系质量。请另外核对大学现有课程及“双一流”学科资讯。</p>
+        <a href="https://www.moe.gov.cn/jyb_xwfb/xw_zt/moe_357/jyzt_2015nztzl/2015_zt15/15zt15_mtbd/201511/t20151106_217950.html" target="_blank" rel="noopener noreferrer">Official background ↗</a>
+      </div>
+
+      <div class="notice-box institution-admissions-guide">
+        <strong>Taiwan admissions for Malaysian applicants / 马来西亚学生赴台升学</strong>
+        <p>Taiwan has an overseas Chinese student joint-admission system as well as university-level independent admission. Eligibility, participating departments and annual quotas must be checked in the current official guide.</p>
+        <p>台湾设有海外联合招生及各校独立招生途径；申请资格、参与科系与年度名额须以当年度官方简章为准。</p>
+        <a href="https://www.overseas.edu.tw/en/university_system/taiwan-university-of-education-system/" target="_blank" rel="noopener noreferrer">Official admission information ↗</a>
       </div>
 
       <div
@@ -1363,6 +1388,19 @@
 
         </select>
 
+        <label class="pathway-target-select">
+          <span class="section-eyebrow">TARGET QUALIFICATION</span>
+          <select id="pathwayTargetQualification" class="large-select">
+            <option value="">Any target qualification</option>
+            <option value="Certificate">Certificate</option>
+            <option value="Foundation">Foundation</option>
+            <option value="Diploma">Diploma</option>
+            <option value="Bachelor">Bachelor</option>
+            <option value="Master">Master</option>
+            <option value="PhD">PhD</option>
+          </select>
+        </label>
+
       </div>
 
 
@@ -1394,7 +1432,7 @@
 
         <div>
           <span class="section-eyebrow">POSSIBLE ROUTES</span>
-          <h2>Explore your options.</h2>
+          <h2>Explore routes that fit your next step.</h2>
         </div>
 
       </div>
@@ -1664,7 +1702,7 @@
           class="button button-secondary"
           id="printReport"
         >
-          Print report
+          Save as PDF / Print
         </button>
 
         <button

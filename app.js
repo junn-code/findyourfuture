@@ -24,6 +24,7 @@ const state = {
   fieldCategory: "all",
   institutionCategory: "all",
   institutionOwnership: "all",
+  institutionDistinction: "all",
   courseLevel: "all",
   careerCategory: "all"
 };
@@ -449,13 +450,15 @@ function renderInstitutions() {
     const itemType = item.type ?? item.institutionType ?? item.category ?? "";
     const ownership = institutionOwnership(item);
     const location = institutionLocation(item);
-    const searchable = [getName(item), getDescription(item), item.abbreviation, item.type, item.state, item.country, item.parentUniversity, item.parentCountry].join(" ").toLowerCase();
+    const searchable = [getName(item), getDescription(item), item.abbreviation, item.type, item.state, item.country, item.parentUniversity, item.parentCountry, item.ownershipLabel, ...(item.classificationTags || []), ...(item.admissionRoutes || [])].join(" ").toLowerCase();
     const locationMatch = state.institutionCategory === "all" ||
       (state.institutionCategory === "Malaysia" && location === "domestic") ||
       (state.institutionCategory === "international" && location === "international") ||
       (state.institutionCategory !== "Malaysia" && state.institutionCategory !== "international" && state.institutionCategory === item.country);
     const ownershipMatch = state.institutionOwnership === "all" || ownership === state.institutionOwnership;
-    return (!query || searchable.includes(query)) && (type === "all" || itemType === type) && locationMatch && ownershipMatch;
+    const tags = item.classificationTags || [];
+    const distinctionMatch = state.institutionDistinction === "all" || tags.includes(state.institutionDistinction);
+    return (!query || searchable.includes(query)) && (type === "all" || itemType === type) && locationMatch && ownershipMatch && distinctionMatch;
   });
   grid.innerHTML = filtered.map(item => `
     <article class="catalog-card institution-card">
@@ -463,7 +466,9 @@ function renderInstitutions() {
       <h3>${escapeHTML(getName(item))}</h3>
       ${item.abbreviation ? `<span class="institution-abbreviation">${escapeHTML(item.abbreviation)}</span>` : ""}
       <p>${escapeHTML(getDescription(item) || t("Institution directory entry. Check the official website for current programme details.", "院校目录资料。课程详情请以官方网站为准。"))}</p>
-      <div class="card-meta"><span>${escapeHTML([item.state, item.country].filter(Boolean).join(", "))}</span></div>
+      <div class="card-meta"><span>${escapeHTML([item.state, item.country, item.ownershipLabel].filter(Boolean).join(" · "))}</span></div>
+      ${(item.classificationTags || []).length ? `<div class="institution-tags">${item.classificationTags.map(tag => `<span>${escapeHTML(tag)}</span>`).join("")}</div>` : ""}
+      ${(item.admissionRoutes || []).includes("Overseas Chinese Joint Admission (Malaysia)") ? `<p class="institution-admission-note">${t("Taiwan has an overseas Chinese student joint-admission system. Confirm current eligibility, participating departments and quotas in the annual official guide; this directory does not guarantee admission.", "台湾设有海外联合招生制度；申请资格、参与科系与年度名额须以官方当年度简章为准，本目录不保证录取。")} <a href="https://www.overseas.edu.tw/en/university_system/taiwan-university-of-education-system/" target="_blank" rel="noopener noreferrer">${t("Admission information", "招生资讯")} ↗</a></p>` : ""}
       ${item.parentUniversity ? `<p class="institution-parent">${t("Home university", "母校")}: ${escapeHTML(item.parentUniversity)}${item.parentCountry ? ` · ${escapeHTML(item.parentCountry)}` : ""}</p>` : ""}
       <div class="institution-links">
         ${item.website ? `<a class="text-button" href="${escapeHTML(item.website)}" target="_blank" rel="noopener noreferrer">${t("Official website", "官方网站")} ↗</a>` : ""}
@@ -492,11 +497,19 @@ function initInstitutionEvents() {
     $$("#institutionOwnershipFilter [data-ownership]").forEach(item => item.classList.toggle("active", item === button));
     renderInstitutions();
   });
+  $("#institutionDistinctionFilter")?.addEventListener("click", event => {
+    const button = event.target.closest("[data-distinction]");
+    if (!button) return;
+    state.institutionDistinction = button.dataset.distinction;
+    $$("#institutionDistinctionFilter [data-distinction]").forEach(item => item.classList.toggle("active", item === button));
+    renderInstitutions();
+  });
   $("#institutionCountryFilter")?.addEventListener("click", event => {
     const button = event.target.closest("[data-country]");
     if (!button) return;
     state.institutionCategory = button.dataset.country;
     $$("#institutionCategoryFilter [data-country]").forEach(item => item.classList.toggle("active", item.dataset.country === state.institutionCategory));
+    $$("#institutionCountryFilter [data-country]").forEach(item => item.classList.toggle("active", item.dataset.country === state.institutionCategory));
     renderInstitutions();
   });
 }
@@ -510,14 +523,19 @@ function renderPathways() {
   if (!grid) return;
   const query = ($("#pathwaySearch")?.value || "").trim().toLowerCase();
   const current = $("#pathwayQualification")?.value || "";
-  const pathways = getArray("studyPathways");
+  const target = $("#pathwayTargetQualification")?.value || "";
+  const recommended = PATHWAYS.recommendPathways({ currentQualification: current || null, targetQualification: target || null });
+  const pathways = current || target ? recommended : getArray("studyPathways").map(pathway => ({ ...pathway, eligibility: null }));
   const filtered = pathways.filter(pathway => {
     const searchable = [getName(pathway), getDescription(pathway), pathway.category, pathway.startQualification, pathway.endQualification, ...(pathway.steps || []).map(step => step.qualification)].join(" ").toLowerCase();
     return !query || searchable.includes(query);
   });
-  grid.innerHTML = filtered.map(pathway => {
-    const eligibility = current ? PATHWAYS.checkPathwayEligibility(pathway, current) : null;
+  grid.innerHTML = filtered.length ? filtered.map(pathway => {
     const duration = PATHWAYS.calculatePathwayDuration(pathway);
+    const routeSteps = pathway.steps || [];
+    const currentIndex = current ? routeSteps.findIndex(step => PATHWAYS.normaliseQualification(step.qualification) === PATHWAYS.normaliseQualification(current)) : -1;
+    const nextStep = currentIndex >= 0 ? routeSteps[currentIndex + 1] : null;
+    const routeHint = current ? (currentIndex >= 0 ? (nextStep ? t(`Your next stage: ${PATHWAYS.getQualificationLabel(nextStep.qualification, state.language)}`, `你的下一阶段：${PATHWAYS.getQualificationLabel(nextStep.qualification, state.language)}`) : t("This route reaches its target at your current stage.", "这条路线已到达你目前的学历阶段。")) : t("This route does not contain your selected current qualification. Review its entry requirements.", "这条路线未包含你选择的目前学历，请核对入学条件。")) : t("Select your current qualification to see routes that include it.", "选择目前学历后，可筛选包含该学历的升学路线。");
     const selected = state.selectedPathways.includes(pathway.id);
     return `
       <article class="pathway-card catalog-card ${selected ? "is-selected" : ""}">
@@ -525,11 +543,11 @@ function renderPathways() {
         <h3>${escapeHTML(getName(pathway))}</h3>
         <p>${escapeHTML(getDescription(pathway))}</p>
         <div class="pathway-sequence">${(pathway.steps || []).map(step => `<span>${escapeHTML(getQualificationLabel(step.qualification))}</span>`).join("<i>→</i>")}</div>
-        <div class="card-meta"><span>${escapeHTML(duration.display || t("Duration unavailable", "学制未提供"))}</span>${eligibility ? `<span>${escapeHTML(eligibility.status === "matching-start" ? t("Starting qualification matches", "符合起点学历") : eligibility.message)}</span>` : ""}</div>
+        <div class="card-meta"><span>${escapeHTML(duration.display || t("Duration unavailable", "学制未提供"))}</span>${current ? `<span>${escapeHTML(routeHint)}</span>` : ""}${target ? `<span>${t("Target", "目标")}: ${escapeHTML(PATHWAYS.getQualificationLabel(pathway.endQualification, state.language))}</span>` : ""}</div>
         <label class="compare-check"><input type="checkbox" data-compare-pathway="${escapeHTML(pathway.id)}" ${selected ? "checked" : ""}><span>${t("Add to comparison", "加入比较")}</span></label>
         <button class="text-button" type="button" data-pathway-detail="${escapeHTML(pathway.id)}">${t("View route details", "查看路线详情")} ↗</button>
       </article>`;
-  }).join("");
+  }).join("") : `<div class="empty-state"><h3>${t("No matching route found", "找不到符合条件的升学路线")}</h3><p>${t("Try a different current or target qualification. Entry requirements vary by institution.", "请尝试其他目前学历或目标学历。实际入学条件因院校而异。")}</p></div>`;
   updatePathwayCompareCount();
 }
 
@@ -573,6 +591,7 @@ function renderPathwayComparison() {
 function initPathwayEvents() {
   $("#pathwaySearch")?.addEventListener("input", renderPathways);
   $("#pathwayQualification")?.addEventListener("change", renderPathways);
+  $("#pathwayTargetQualification")?.addEventListener("change", renderPathways);
   $("#pathwayGrid")?.addEventListener("change", event => {
     const input = event.target.closest("[data-compare-pathway]");
     if (!input) return;
@@ -634,12 +653,14 @@ function renderCareers() {
   const query = ($("#careerSearch")?.value || "").trim().toLowerCase();
   const category = $("#careerCategoryFilter")?.value || "all";
   const filtered = getArray("careers").filter(item => {
-    const searchable = [getName(item), getDescription(item), item.industry, item.fieldId].join(" ").toLowerCase();
+    const searchable = [getName(item), getDescription(item), item.industry, item.fieldId, item.disciplineId, String(item.disciplineId || "").replace(/-/g, " ")].join(" ").toLowerCase();
     return (!query || searchable.includes(query)) && (category === "all" || item.industry === category || item.category === category || item.fieldId === category);
   });
-  grid.innerHTML = filtered.map(item => `
-    <article class="catalog-card"><div class="card-topline"><span class="category-label">${escapeHTML(item.industry || getFieldName(item.fieldId))}</span>${statusBadge(item)}</div><h3>${escapeHTML(getName(item))}</h3><p>${escapeHTML(getDescription(item))}</p><div class="card-meta">${item.fieldId ? `<span>${escapeHTML(getFieldName(item.fieldId))}</span>` : ""}</div></article>
-  `).join("");
+  grid.innerHTML = filtered.map(item => {
+    const relatedCourses = getArray("courses").filter(course => (item.disciplineId && course.disciplineId === item.disciplineId) || (item.fieldId && course.fieldId === item.fieldId)).slice(0, 3);
+    const disciplineLabel = item.disciplineId ? item.disciplineId.replace(/-/g, " ") : getFieldName(item.fieldId);
+    return `<article class="catalog-card career-card"><div class="card-topline"><span class="category-label">${escapeHTML(item.industry || getFieldName(item.fieldId))}</span>${statusBadge(item)}</div><h3>${escapeHTML(getName(item))}</h3><p>${escapeHTML(getDescription(item))}</p><div class="card-meta">${item.fieldId ? `<span>${escapeHTML(getFieldName(item.fieldId))}</span>` : ""}</div><div class="career-related"><strong>${t("Related study areas", "相关科系方向")}</strong><p>${escapeHTML(disciplineLabel)}</p>${relatedCourses.length ? `<small>${t("Related programmes in this directory", "目录中的相关课程")}: ${relatedCourses.map(course => escapeHTML(getName(course))).join(" · ")}</small>` : `<small>${t("Programme listings are being expanded. Search the related study field.", "相关课程目录持续扩充中，可先查看相关学科领域。")}</small>`}<button class="text-button" type="button" data-career-discipline="${escapeHTML(item.disciplineId || item.fieldId || "")}">${t("Explore related courses", "查看相关科系课程")} ↗</button></div></article>`;
+  }).join("");
   setText("#careerCount", `${filtered.length} ${t("careers", "种职业")}`);
   $("#careerEmpty")?.classList.toggle("hidden", filtered.length > 0);
 }
@@ -647,6 +668,18 @@ function renderCareers() {
 function initCareerEvents() {
   $("#careerSearch")?.addEventListener("input", renderCareers);
   $("#careerCategoryFilter")?.addEventListener("change", renderCareers);
+  $("#careerGrid")?.addEventListener("click", event => {
+    const button = event.target.closest("[data-career-discipline]");
+    if (!button) return;
+    navigateTo("courses");
+    const field = getArray("careers").find(item => (item.disciplineId || item.fieldId) === button.dataset.careerDiscipline)?.fieldId;
+    const fieldSelect = $("#courseFieldFilter");
+    if (fieldSelect && field) fieldSelect.value = field;
+    const search = $("#courseSearch");
+    const exactMatches = getArray("courses").some(course => course.disciplineId === button.dataset.careerDiscipline);
+    if (search) search.value = exactMatches ? button.dataset.careerDiscipline : "";
+    renderCourses();
+  });
 }
 
 function renderProfessional() {
@@ -754,6 +787,12 @@ function renderRiasecQuestion() {
   $("#questionBack", target)?.addEventListener("click", () => { if (state.quizIndex > 0) { state.quizIndex--; renderRiasecQuestion(); } });
 }
 
+const DEVELOPMENT_OPTION_ZH = {
+  "Medicine & Healthcare": "医学与医疗保健", "Engineering": "工程学", "Artificial Intelligence & Data Science": "人工智能与数据科学", "Biology, Biotechnology & Genetics": "生物学、生物科技与遗传学", "Business, Economics & Entrepreneurship": "商业、经济与创业", "Fundamental Science & Research": "基础科学与研究", "Design, Media & Creative Technology": "设计、媒体与创意科技", "Psychology & Social Sciences": "心理学与社会科学", "Architecture, Construction & Urban Systems": "建筑、建设与城市系统", "Education & Human Development": "教育与人类发展",
+  "Investigating a problem with incomplete evidence and testing competing explanations": "在证据不完整时调查问题，并测试不同解释", "Designing and prototyping a solution, then improving it after user feedback": "设计解决方案原型，并根据使用者反馈持续改进", "Supporting people through complex decisions and explaining options clearly": "协助他人处理复杂决定，并清楚解释不同选择", "Analysing data to identify patterns that are not immediately obvious": "分析数据，找出不容易直接观察到的规律", "Developing an original concept and communicating it to an audience": "发展原创概念，并向受众清楚表达", "Understanding how people, organisations and communities behave": "理解个人、组织与社区的行为模式", "Integrating software, hardware and systems to solve a practical need": "整合软件、硬件与系统来解决实际需求", "Planning a controlled experiment and interpreting unexpected results": "规划受控实验，并解释意料之外的结果",
+  "A laboratory where results must be precise, repeatable and documented": "要求精确、可重复并完整记录结果的实验室", "A healthcare team where decisions affect patient care and safety": "决策会影响病患照护与安全的医疗团队", "An engineering workshop where designs are tested against real constraints": "根据真实限制测试设计的工程工作坊", "An organisation where you analyse operations, budgets and strategy": "分析营运、预算与策略的组织环境", "A research centre where you compare evidence and develop new knowledge": "比较证据并发展新知识的研究中心", "A construction or infrastructure project coordinating people and systems": "协调人员与系统的建筑或基础设施项目", "A technology team building and evaluating digital products": "开发并评估数码产品的科技团队", "A creative studio turning research into clear visual communication": "将研究转化为清晰视觉表达的创意工作室", "A field setting collecting observations and responding to changing conditions": "收集观察资料并应对变化的实地环境"
+};
+
 function renderDevelopmentChoices() {
   const target = $("#dreamChoices");
   if (!target) return;
@@ -762,7 +801,7 @@ function renderDevelopmentChoices() {
     const selected = Array.isArray(state.quizAnswers[question.id]) ? state.quizAnswers[question.id] : [];
     const options = (question.options || []).map((option, optionIndex) => {
       const value = typeof option === "object" ? (option.value ?? option.id ?? optionIndex) : option;
-      const label = typeof option === "object" ? localized(option.label ?? option.name ?? option) : option;
+      const label = typeof option === "object" ? localized(option.label ?? option.name ?? option) : (state.language === "zh" ? (DEVELOPMENT_OPTION_ZH[option] || option) : option);
       return `<label class="dream-choice ${selected.includes(String(value)) ? "selected" : ""}"><input type="checkbox" data-dream-question="${escapeHTML(question.id)}" value="${escapeHTML(value)}" ${selected.includes(String(value)) ? "checked" : ""}><span>${escapeHTML(label)}</span></label>`;
     }).join("");
     return `<section class="development-question"><span class="section-eyebrow">${t("INTEREST AREA", "發展興趣")} ${index + 1} / ${questions.length}</span><h3>${escapeHTML(localized(question.question))}</h3><p>${t("Choose up to three options.", "最多选择三个选项。")}</p><div class="dream-choice-grid">${options}</div></section>`;
@@ -908,22 +947,45 @@ function renderReport() {
     return;
   }
   const scores = result.scores || calculateRiasecScores();
-  const top = scores.slice(0,3);
-  const selectedFields = [...new Set(top.flatMap(item => RIASEC_FIELD_MAP[item.code] || []))].map(id => getArray("studyFields").find(field => field.id === id)).filter(Boolean).slice(0,6);
-  const development = getQuestions("development-interest").map(question => ({ question: localized(question.question), answers: state.quizAnswers[question.id] || [] }));
-  const planning = getQuestions("study-planning").map(question => ({ question: localized(question.question), answer: state.quizAnswers[question.id] || "" }));
+  const top = scores.slice(0, 3);
+  const selectedFieldIds = [...new Set(top.flatMap(item => RIASEC_FIELD_MAP[item.code] || []))];
+  const selectedFields = selectedFieldIds.map(id => getArray("studyFields").find(field => field.id === id)).filter(Boolean).slice(0, 4);
+  const relatedCourses = getArray("courses").filter(course => selectedFieldIds.includes(course.fieldId)).slice(0, 6);
+  const relatedCareers = getArray("careers").filter(career => selectedFieldIds.includes(career.fieldId)).slice(0, 6);
+  const riasecCode = top.map(item => item.code).join("-");
+  const planning = getQuestions("study-planning").map(question => {
+    const raw = state.quizAnswers[question.id] || [];
+    const values = Array.isArray(raw) ? raw : [raw];
+    const compact = values.slice(0, 3).join(" · ") + (values.length > 3 ? ` +${values.length - 3}` : "");
+    return { question: localized(question.question), answer: compact || "—" };
+  });
   target.innerHTML = `
-    <section class="report-summary"><span class="section-eyebrow">YOUR INTEREST PROFILE</span><h2>${t("Your strongest interest themes", "你的主要兴趣倾向")}</h2><p>${t("These results are a starting point for exploration, not a fixed career label or a guarantee of suitability.", "这些结果是探索起点，并不是固定的职业标签，也不代表适合度保证。")}</p>
+    <section class="report-summary">
+      <span class="section-eyebrow">YOUR INTEREST PROFILE</span>
+      <h2>${t("Your RIASEC profile", "你的 RIASEC 兴趣画像")}</h2>
+      <div class="riasec-code-line"><span>${t("Your leading code", "你的主要代码")}</span><strong>${riasecCode}</strong><small>${top.map(item => escapeHTML(item[state.language])).join(" · ")}</small></div>
+      <p>${t("Your leading letters summarise your strongest interest themes. Use them to explore study fields, programmes and career directions.", "你的主要字母代码总结了较突出的兴趣方向，可用来探索相关学科、科系与职业出路。")}</p>
       <div class="riasec-score-grid">${scores.map(item => `<div class="riasec-score"><span>${item.code}</span><strong>${item.score}</strong><small>${escapeHTML(item[state.language])}</small><div><i style="width:${item.score / 60 * 100}%"></i></div></div>`).join("")}</div>
     </section>
-    <section class="report-section"><h2>${t("Your leading themes", "排名靠前的兴趣方向")}</h2><div class="report-theme-grid">${top.map((item,index) => `<article><span>0${index+1}</span><h3>${escapeHTML(item[state.language])}</h3><p>${escapeHTML(t(`Your answers show a stronger interest in ${item.en.toLowerCase()} activities.`, `你的答案显示你对${item.zh}相关活动有较高兴趣。`))}</p></article>`).join("")}</div></section>
-    <section class="report-section"><h2>${t("Study fields to explore", "可以进一步探索的学科领域")}</h2><div class="catalog-grid">${selectedFields.map(field => `<article class="catalog-card"><h3>${escapeHTML(getName(field))}</h3><p>${escapeHTML(getDescription(field))}</p><button class="text-button" data-report-field="${escapeHTML(field.id)}">${t("Explore courses", "探索相关课程")} ↗</button></article>`).join("")}</div></section>
-    <section class="report-section"><h2>${t("Your development interests", "你的发展兴趣选择")}</h2>${development.map(item => `<div class="report-answer"><strong>${escapeHTML(item.question)}</strong><p>${escapeHTML(item.answers.join(", ") || "—")}</p></div>`).join("")}</section>
-    <section class="report-section"><h2>${t("Your study planning answers", "你的升学规划答案")}</h2>${planning.map(item => `<div class="report-answer"><strong>${escapeHTML(item.question)}</strong><p>${escapeHTML(Array.isArray(item.answer) ? item.answer.join(", ") : (item.answer || "—"))}</p></div>`).join("")}</section>
-    <p class="report-disclaimer">${t("This self-exploration report is for educational guidance only. It is not a psychometric diagnosis, admissions decision or professional career assessment. Verify course requirements with each institution.", "本报告仅供教育探索参考，并非心理测评诊断、录取决定或专业职业评估。课程入学条件请向相关院校核实。")}</p>
+    <section class="report-section report-recommendations">
+      <h2>${t("Study fields to explore", "建议探索的学科领域")}</h2>
+      <div class="report-compact-grid">${selectedFields.map(field => `<article class="report-mini-card"><h3>${escapeHTML(getName(field))}</h3><p>${escapeHTML(getDescription(field))}</p><button class="text-button" data-report-field="${escapeHTML(field.id)}">${t("Explore related programmes", "查看相关科系课程")} ↗</button></article>`).join("")}</div>
+    </section>
+    <section class="report-section report-recommendations">
+      <h2>${t("Related programmes", "相关科系／课程")}</h2>
+      <div class="report-list-grid">${relatedCourses.length ? relatedCourses.map(course => `<div class="report-list-item"><strong>${escapeHTML(getName(course))}</strong><small>${escapeHTML(getFieldName(course.fieldId))} · ${escapeHTML(getQualificationLabel(getQualification(course)) || t("Level not listed", "未注明学历层级"))}</small><em>${escapeHTML(String(course.dataStatus || "directory"))}</em></div>`).join("") : `<p>${t("No directly matched programme listing is available yet. Explore the study fields above.", "目前没有可直接匹配的课程条目，请先探索上方学科领域。")}</p>`}</div>
+    </section>
+    <section class="report-section report-recommendations">
+      <h2>${t("Possible career directions", "相关职业出路")}</h2>
+      <div class="report-list-grid">${relatedCareers.length ? relatedCareers.map(career => `<div class="report-list-item"><strong>${escapeHTML(getName(career))}</strong><small>${escapeHTML(getFieldName(career.fieldId))}${career.disciplineId ? ` · ${escapeHTML(career.disciplineId.replace(/-/g, " "))}` : ""}</small></div>`).join("") : `<p>${t("Career matches will expand as the directory grows.", "职业匹配资料会随着目录扩充而增加。")}</p>`}</div>
+    </section>
+    <section class="report-section report-planning-summary"><h2>${t("Your study planning", "你的升学规划")}</h2><div class="report-list-grid">${planning.map(item => `<div class="report-list-item"><strong>${escapeHTML(item.question)}</strong><small>${escapeHTML(String(item.answer || "—"))}</small></div>`).join("")}</div></section>
+    <p class="report-disclaimer">${t("Educational exploration only. This is not a psychometric diagnosis, admissions decision or guarantee of career suitability. Programme records may be directory or illustrative entries; confirm current requirements with each institution.", "本报告仅供教育探索参考，并非心理诊断、录取决定或职业适合度保证。课程资料可能属于目录或示例条目，请向院校核实最新要求。")}</p>
   `;
   target.querySelectorAll("[data-report-field]").forEach(button => button.addEventListener("click", () => {
-    navigateTo("courses"); const select = $("#courseFieldFilter"); if (select) { select.value = button.dataset.reportField; renderCourses(); }
+    navigateTo("courses");
+    const select = $("#courseFieldFilter");
+    if (select) { select.value = button.dataset.reportField; renderCourses(); }
   }));
 }
 

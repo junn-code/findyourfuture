@@ -2,7 +2,7 @@
 /* =========================================================
    FIND YOUR FUTURE
    DATA DATABASE
-   Version: 2.2
+   Version: 2.3
    Malaysia-first | English + Chinese
    ========================================================= */
 
@@ -12,7 +12,7 @@
 
 export const APP_CONFIG = {
   name: "Find Your Future",
-  version: "2.2.0",
+  version: "2.3.0",
   defaultLanguage: "en",
   supportedLanguages: ["en", "zh"],
   defaultTheme: "light",
@@ -38,6 +38,10 @@ export const DATA_GOVERNANCE = {
   institutionDirectorySource: "https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm",
   polytechnicDirectorySource: "https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik",
   communityCollegeDirectorySource: "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+  china985Source: "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+  china211Source: "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+  taiwanInstitutionSource: "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+  taiwanOverseasJointAdmissionSource: "https://www.overseas.edu.tw/en/university_system/taiwan-university-of-education-system/",
   publicInstitutionSource: "https://jpt.mohe.gov.my/portal/index.php/en/hei/public-hei/public-universities",
   accreditationRegister: "https://www2.mqa.gov.my/mqr/english/ecarianakr.cfm",
   provisionalAccreditationRegister: "https://www2.mqa.gov.my/pasp/",
@@ -896,3616 +900,8727 @@ export const curriculumSchema = {
 
 export const institutions = [
   {
-    id: "um",
-    name: {
-      en: "Universiti Malaya",
-      zh: "马来亚大学"
+    "id": "um",
+    "name": {
+      "en": "Universiti Malaya",
+      "zh": "马来亚大学"
     },
-    abbreviation: "UM",
-    type: "Public University",
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: "Kuala Lumpur",
-    website: "https://www.um.edu.my/",
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
-    lastVerified: "2026-11-15"
+    "abbreviation": "UM",
+    "type": "Public University",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Kuala Lumpur",
+    "website": "https://www.um.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
+    "lastVerified": "2026-11-15"
   },
   {
-    id: "ukm",
-    name: {
-      en: "Universiti Kebangsaan Malaysia",
-      zh: "马来西亚国民大学"
+    "id": "ukm",
+    "name": {
+      "en": "Universiti Kebangsaan Malaysia",
+      "zh": "马来西亚国民大学"
     },
-    abbreviation: "UKM",
-    type: "Public University",
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: "Selangor",
-    website: "https://www.ukm.my/",
-    campuses: [],
-    dataStatus: "directory",
-    source: "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
-    lastVerified: "2026-11-15"
+    "abbreviation": "UKM",
+    "type": "Public University",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Selangor",
+    "website": "https://www.ukm.my/",
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
+    "lastVerified": "2026-11-15"
   },
   {
-    id: "usm",
-    name: {
-      en: "Universiti Sains Malaysia",
-      zh: "马来西亚理科大学"
+    "id": "usm",
+    "name": {
+      "en": "Universiti Sains Malaysia",
+      "zh": "马来西亚理科大学"
     },
-    abbreviation: "USM",
-    type: "Public University",
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: "Penang",
-    website: "https://www.usm.my/",
-    campuses: [],
-    dataStatus: "directory",
-    source: "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
-    lastVerified: "2026-11-15"
+    "abbreviation": "USM",
+    "type": "Public University",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Penang",
+    "website": "https://www.usm.my/",
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
+    "lastVerified": "2026-11-15"
   },
   {
-    id: "utm",
-    name: {
-      en: "Universiti Teknologi Malaysia",
-      zh: "马来西亚工艺大学"
+    "id": "utm",
+    "name": {
+      "en": "Universiti Teknologi Malaysia",
+      "zh": "马来西亚工艺大学"
     },
-    abbreviation: "UTM",
-    type: "Public University",
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: "Johor",
-    website: "https://www.utm.my/",
-    campuses: [],
-    dataStatus: "directory",
-    source: "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
-    lastVerified: "2026-11-15"
+    "abbreviation": "UTM",
+    "type": "Public University",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Johor",
+    "website": "https://www.utm.my/",
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
+    "lastVerified": "2026-11-15"
   },
   {
-    id: "upm",
-    name: {
-      en: "Universiti Putra Malaysia",
-      zh: "马来西亚博特拉大学"
+    "id": "upm",
+    "name": {
+      "en": "Universiti Putra Malaysia",
+      "zh": "马来西亚博特拉大学"
     },
-    abbreviation: "UPM",
-    type: "Public University",
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: "Selangor",
-    website: "https://www.upm.edu.my/",
-    campuses: [],
-    dataStatus: "directory",
-    source: "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
-    lastVerified: "2026-11-15"
+    "abbreviation": "UPM",
+    "type": "Public University",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Selangor",
+    "website": "https://www.upm.edu.my/",
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
+    "lastVerified": "2026-11-15"
   },
   {
-    id: "uitm",
-    name: {
-      en: "Universiti Teknologi MARA",
-      zh: "玛拉工艺大学"
+    "id": "uitm",
+    "name": {
+      "en": "Universiti Teknologi MARA",
+      "zh": "玛拉工艺大学"
     },
-    abbreviation: "UiTM",
-    type: "Public University",
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: "Selangor",
-    website: "https://uitm.edu.my/",
-    campuses: [],
-    dataStatus: "directory",
-    source: "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
-    lastVerified: "2026-11-15"
+    "abbreviation": "UiTM",
+    "type": "Public University",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Selangor",
+    "website": "https://uitm.edu.my/",
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
+    "lastVerified": "2026-11-15"
   },
   {
-    id: "unimas",
-    name: {
-      en: "Universiti Malaysia Sarawak",
-      zh: "马来西亚砂拉越大学"
+    "id": "unimas",
+    "name": {
+      "en": "Universiti Malaysia Sarawak",
+      "zh": "马来西亚砂拉越大学"
     },
-    abbreviation: "UNIMAS",
-    type: "Public University",
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: "Sarawak",
-    website: "https://www.unimas.my/",
-    campuses: [],
-    dataStatus: "directory",
-    source: "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
-    lastVerified: "2026-11-15"
+    "abbreviation": "UNIMAS",
+    "type": "Public University",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Sarawak",
+    "website": "https://www.unimas.my/",
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
+    "lastVerified": "2026-11-15"
   },
   {
-    id: "ums",
-    name: {
-      en: "Universiti Malaysia Sabah",
-      zh: "马来西亚沙巴大学"
+    "id": "ums",
+    "name": {
+      "en": "Universiti Malaysia Sabah",
+      "zh": "马来西亚沙巴大学"
     },
-    abbreviation: "UMS",
-    type: "Public University",
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: "Sabah",
-    website: "https://www.ums.edu.my/",
-    campuses: [],
-    dataStatus: "directory",
-    source: "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
-    lastVerified: "2026-11-15"
+    "abbreviation": "UMS",
+    "type": "Public University",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Sabah",
+    "website": "https://www.ums.edu.my/",
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
+    "lastVerified": "2026-11-15"
   },
   {
-    id: "taylors",
-    name: {
-      en: "Taylor's University",
-      zh: "泰莱大学"
+    "id": "taylors",
+    "name": {
+      "en": "Taylor's University",
+      "zh": "泰莱大学"
     },
-    abbreviation: "Taylor's",
-    type: "Private University",
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "private",
-    state: "Selangor",
-    website: "https://university.taylors.edu.my/",
-    campuses: [],
-    dataStatus: "directory",
-    source: "https://university.taylors.edu.my/",
-    lastVerified: null
+    "abbreviation": "Taylor's",
+    "type": "Private University",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "private",
+    "state": "Selangor",
+    "website": "https://university.taylors.edu.my/",
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://university.taylors.edu.my/",
+    "lastVerified": null
   },
   {
-    id: "sunway",
-    name: {
-      en: "Sunway University",
-      zh: "双威大学"
+    "id": "sunway",
+    "name": {
+      "en": "Sunway University",
+      "zh": "双威大学"
     },
-    abbreviation: "Sunway",
-    type: "Private University",
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "private",
-    state: "Selangor",
-    website: "https://sunwayuniversity.edu.my/",
-    campuses: [],
-    dataStatus: "directory",
-    source: "https://sunwayuniversity.edu.my/",
-    lastVerified: null
+    "abbreviation": "Sunway",
+    "type": "Private University",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "private",
+    "state": "Selangor",
+    "website": "https://sunwayuniversity.edu.my/",
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://sunwayuniversity.edu.my/",
+    "lastVerified": null
   },
   {
-    id: "monash-malaysia",
-    name: {
-      en: "Monash University Malaysia",
-      zh: "莫纳什大学马来西亚校区"
+    "id": "monash-malaysia",
+    "name": {
+      "en": "Monash University Malaysia",
+      "zh": "莫纳什大学马来西亚校区"
     },
-    abbreviation: "Monash Malaysia",
-    type: "Foreign Branch Campus",
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "foreign-branch",
-    parentCountry: "Australia",
-    state: "Selangor",
-    website: "https://www.monash.edu.my/",
-    parentUniversity: "Monash University",
-    parentCountry: "Australia",
-    campuses: [],
-    dataStatus: "directory",
-    source: "https://www.monash.edu.my/",
-    lastVerified: null
+    "abbreviation": "Monash Malaysia",
+    "type": "Foreign Branch Campus",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "foreign-branch",
+    "parentCountry": "Australia",
+    "state": "Selangor",
+    "website": "https://www.monash.edu.my/",
+    "parentUniversity": "Monash University",
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.monash.edu.my/",
+    "lastVerified": null
   },
   {
-    id: "nottingham-malaysia",
-    name: {
-      en: "University of Nottingham Malaysia",
-      zh: "诺丁汉大学马来西亚校区"
+    "id": "nottingham-malaysia",
+    "name": {
+      "en": "University of Nottingham Malaysia",
+      "zh": "诺丁汉大学马来西亚校区"
     },
-    abbreviation: "UNM",
-    type: "Foreign Branch Campus",
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "foreign-branch",
-    parentCountry: "United Kingdom",
-    state: "Selangor",
-    website: "https://www.nottingham.edu.my/",
-    parentUniversity: "University of Nottingham",
-    parentCountry: "United Kingdom",
-    campuses: [],
-    dataStatus: "directory",
-    source: "https://www.nottingham.edu.my/",
-    lastVerified: null
+    "abbreviation": "UNM",
+    "type": "Foreign Branch Campus",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "foreign-branch",
+    "parentCountry": "United Kingdom",
+    "state": "Selangor",
+    "website": "https://www.nottingham.edu.my/",
+    "parentUniversity": "University of Nottingham",
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.nottingham.edu.my/",
+    "lastVerified": null
   },
   {
-    id: "apu",
-    name: {
-      en: "Asia Pacific University of Technology & Innovation",
-      zh: "亚太科技大学"
+    "id": "apu",
+    "name": {
+      "en": "Asia Pacific University of Technology & Innovation",
+      "zh": "亚太科技大学"
     },
-    abbreviation: "APU",
-    type: "Private University",
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "private",
-    state: "Kuala Lumpur",
-    website: "https://www.apu.edu.my/",
-    campuses: [],
-    dataStatus: "directory",
-    source: "https://www.apu.edu.my/",
-    lastVerified: null
+    "abbreviation": "APU",
+    "type": "Private University",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "private",
+    "state": "Kuala Lumpur",
+    "website": "https://www.apu.edu.my/",
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.apu.edu.my/",
+    "lastVerified": null
   },
   {
-    id: "ucsi",
-    name: {
-      en: "UCSI University",
-      zh: "思特雅大学"
+    "id": "ucsi",
+    "name": {
+      "en": "UCSI University",
+      "zh": "思特雅大学"
     },
-    abbreviation: "UCSI",
-    type: "Private University",
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "private",
-    state: "Kuala Lumpur",
-    website: "https://www.ucsiuniversity.edu.my/",
-    campuses: [],
-    dataStatus: "directory",
-    source: "https://www.ucsiuniversity.edu.my/",
-    lastVerified: null
+    "abbreviation": "UCSI",
+    "type": "Private University",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "private",
+    "state": "Kuala Lumpur",
+    "website": "https://www.ucsiuniversity.edu.my/",
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.ucsiuniversity.edu.my/",
+    "lastVerified": null
   },
   {
-    id: "utar",
-    name: {
-      en: "Universiti Tunku Abdul Rahman",
-      zh: "拉曼大学"
+    "id": "utar",
+    "name": {
+      "en": "Universiti Tunku Abdul Rahman",
+      "zh": "拉曼大学"
     },
-    abbreviation: "UTAR",
-    type: "Private University",
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "private",
-    state: "Perak",
-    website: "https://www.utar.edu.my/",
-    campuses: [],
-    dataStatus: "directory",
-    source: "https://www.utar.edu.my/",
-    lastVerified: null
+    "abbreviation": "UTAR",
+    "type": "Private University",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "private",
+    "state": "Perak",
+    "website": "https://www.utar.edu.my/",
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.utar.edu.my/",
+    "lastVerified": null
   },
   {
-    id: "utp",
-    name: {
-      en: "Universiti Teknologi PETRONAS",
-      zh: "国油科技大学"
+    "id": "utp",
+    "name": {
+      "en": "Universiti Teknologi PETRONAS",
+      "zh": "国油科技大学"
     },
-    abbreviation: "UTP",
-    type: "Private University",
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "private",
-    state: "Perak",
-    website: "https://www.utp.edu.my/",
-    campuses: [],
-    dataStatus: "directory",
-    source: "https://www.utp.edu.my/",
-    lastVerified: null
+    "abbreviation": "UTP",
+    "type": "Private University",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "private",
+    "state": "Perak",
+    "website": "https://www.utp.edu.my/",
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.utp.edu.my/",
+    "lastVerified": null
   },
   {
-    id: "politeknik-ungku-omar",
-    name: {
-      en: "Politeknik Ungku Omar",
-      zh: "翁姑奥马理工学院"
+    "id": "politeknik-ungku-omar",
+    "name": {
+      "en": "Politeknik Ungku Omar",
+      "zh": "翁姑奥马理工学院"
     },
-    abbreviation: "PUO",
-    type: "Polytechnic",
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: "Perak",
-    website: "https://www.puo.edu.my/",
-    campuses: [],
-    dataStatus: "directory",
-    source: "https://www.puo.edu.my/",
-    lastVerified: null
+    "abbreviation": "PUO",
+    "type": "Polytechnic",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Perak",
+    "website": "https://www.puo.edu.my/",
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.puo.edu.my/",
+    "lastVerified": null
   },
   {
-    id: "politeknik-ibrahim-sultan",
-    name: {
-      en: "Politeknik Ibrahim Sultan",
-      zh: "易卜拉欣苏丹理工学院"
+    "id": "politeknik-ibrahim-sultan",
+    "name": {
+      "en": "Politeknik Ibrahim Sultan",
+      "zh": "易卜拉欣苏丹理工学院"
     },
-    abbreviation: "PIS",
-    type: "Polytechnic",
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: "Johor",
-    website: "https://www.pis.edu.my/",
-    campuses: [],
-    dataStatus: "directory",
-    source: "https://www.pis.edu.my/",
-    lastVerified: null
-  },
-  {
-    id: "uum",
-    name: { en: "Universiti Utara Malaysia", zh: "马来西亚北方大学" },
-    abbreviation: "UUM",
-    type: "Public University",
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: "Kedah",
-    website: "https://www.uum.edu.my/",
-    campuses: [],
-    dataStatus: "directory",
-    source: "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
-    lastVerified: "2026-11-15"
-  },
-  {
-    id: "iium",
-    name: { en: "International Islamic University Malaysia", zh: "马来西亚国际伊斯兰大学" },
-    abbreviation: "IIUM",
-    type: "Public University",
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: "Selangor",
-    website: "https://www.iium.edu.my/",
-    campuses: [],
-    dataStatus: "directory",
-    source: "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
-    lastVerified: "2026-11-15"
-  },
-  {
-    id: "umpsa",
-    name: { en: "Universiti Malaysia Pahang Al-Sultan Abdullah", zh: "苏丹阿都拉大学" },
-    abbreviation: "UMPSA",
-    type: "Public University",
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: "Pahang",
-    website: "https://www.umpsa.edu.my/",
-    campuses: [],
-    dataStatus: "directory",
-    source: "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
-    lastVerified: "2026-11-15"
-  },
-  {
-    id: "umt",
-    name: { en: "Universiti Malaysia Terengganu", zh: "马来西亚登嘉楼大学" },
-    abbreviation: "UMT",
-    type: "Public University",
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: "Terengganu",
-    website: "https://www.umt.edu.my/",
-    campuses: [],
-    dataStatus: "directory",
-    source: "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
-    lastVerified: "2026-11-15"
-  },
-  {
-    id: "unimap",
-    name: { en: "Universiti Malaysia Perlis", zh: "马来西亚玻璃市大学" },
-    abbreviation: "UniMAP",
-    type: "Public University",
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: "Perlis",
-    website: "https://www.unimap.edu.my/",
-    campuses: [],
-    dataStatus: "directory",
-    source: "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
-    lastVerified: "2026-11-15"
-  },
-  {
-    id: "upsi",
-    name: { en: "Universiti Pendidikan Sultan Idris", zh: "苏丹依德理斯教育大学" },
-    abbreviation: "UPSI",
-    type: "Public University",
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: "Perak",
-    website: "https://www.upsi.edu.my/",
-    campuses: [],
-    dataStatus: "directory",
-    source: "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
-    lastVerified: "2026-11-15"
-  },
-  {
-    id: "uthm",
-    name: { en: "Universiti Tun Hussein Onn Malaysia", zh: "马来西亚敦胡先翁大学" },
-    abbreviation: "UTHM",
-    type: "Public University",
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: "Johor",
-    website: "https://www.uthm.edu.my/",
-    campuses: [],
-    dataStatus: "directory",
-    source: "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
-    lastVerified: "2026-11-15"
-  },
-  {
-    id: "utem",
-    name: { en: "Universiti Teknikal Malaysia Melaka", zh: "马六甲技术大学" },
-    abbreviation: "UTeM",
-    type: "Public University",
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: "Melaka",
-    website: "https://www.utem.edu.my/",
-    campuses: [],
-    dataStatus: "directory",
-    source: "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
-    lastVerified: "2026-11-15"
-  },
-  {
-    id: "unisza",
-    name: { en: "Universiti Sultan Zainal Abidin", zh: "苏丹再纳阿比丁大学" },
-    abbreviation: "UniSZA",
-    type: "Public University",
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: "Terengganu",
-    website: "https://www.unisza.edu.my/",
-    campuses: [],
-    dataStatus: "directory",
-    source: "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
-    lastVerified: "2026-11-15"
-  },
-  {
-    id: "usim",
-    name: { en: "Universiti Sains Islam Malaysia", zh: "马来西亚伊斯兰科学大学" },
-    abbreviation: "USIM",
-    type: "Public University",
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: "Negeri Sembilan",
-    website: "https://www.usim.edu.my/",
-    campuses: [],
-    dataStatus: "directory",
-    source: "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
-    lastVerified: "2026-11-15"
-  },
-  {
-    id: "umk",
-    name: { en: "Universiti Malaysia Kelantan", zh: "马来西亚吉兰丹大学" },
-    abbreviation: "UMK",
-    type: "Public University",
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: "Kelantan",
-    website: "https://www.umk.edu.my/",
-    campuses: [],
-    dataStatus: "directory",
-    source: "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
-    lastVerified: "2026-11-15"
-  },
-  {
-    id: "upnm",
-    name: { en: "National Defence University of Malaysia", zh: "马来西亚国防大学" },
-    abbreviation: "UPNM",
-    type: "Public University",
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: "Kuala Lumpur",
-    website: "https://www.upnm.edu.my/",
-    campuses: [],
-    dataStatus: "directory",
-    source: "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
-    lastVerified: "2026-11-15"
-  }  ,
-  {
-    id: 'aimst',
-    name: { en: 'AIMST University', zh: '亚太科技与创新大学' },
-    abbreviation: 'AIMST',
-    type: "Private Higher Education Institution",
-    country: 'Malaysia',
-    studyLocation: 'domestic',
-    ownership: 'private',
-    state: 'Kedah',
-    website: 'https://www.aimst.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    description: { en: 'Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.', zh: '院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。' },
-    dataStatus: "directory",
-    source: 'https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'albukhary',
-    name: { en: 'Albukhary International University', zh: '亚布卡里国际大学' },
-    abbreviation: 'AIU',
-    type: "Private Higher Education Institution",
-    country: 'Malaysia',
-    studyLocation: 'domestic',
-    ownership: 'private',
-    state: 'Kedah',
-    website: 'https://aiu.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    description: { en: 'Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.', zh: '院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。' },
-    dataStatus: "directory",
-    source: 'https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'mediu',
-    name: { en: 'Al-Madinah International University', zh: '麦地那国际大学' },
-    abbreviation: 'MEDIU',
-    type: "Private Higher Education Institution",
-    country: 'Malaysia',
-    studyLocation: 'domestic',
-    ownership: 'private',
-    state: 'Selangor',
-    website: 'https://www.mediu.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    description: { en: 'Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.', zh: '院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。' },
-    dataStatus: "directory",
-    source: 'https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'aeu',
-    name: { en: 'Asia e University', zh: '亚洲电子大学' },
-    abbreviation: 'AeU',
-    type: "Private Higher Education Institution",
-    country: 'Malaysia',
-    studyLocation: 'domestic',
-    ownership: 'private',
-    state: 'Selangor',
-    website: 'https://aeu.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    description: { en: 'Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.', zh: '院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。' },
-    dataStatus: "directory",
-    source: 'https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'asia-metropolitan',
-    name: { en: 'Asia Metropolitan University', zh: '亚洲都会大学' },
-    abbreviation: 'AMU',
-    type: "Private Higher Education Institution",
-    country: 'Malaysia',
-    studyLocation: 'domestic',
-    ownership: 'private',
-    state: 'Johor',
-    website: 'https://amu.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    description: { en: 'Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.', zh: '院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。' },
-    dataStatus: "directory",
-    source: 'https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'asia-school-business',
-    name: { en: 'Asia School of Business', zh: '亚洲商学院' },
-    abbreviation: 'ASB',
-    type: "Private Higher Education Institution",
-    country: 'Malaysia',
-    studyLocation: 'domestic',
-    ownership: 'private',
-    state: 'Kuala Lumpur',
-    website: 'https://asb.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    description: { en: 'Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.', zh: '院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。' },
-    dataStatus: "directory",
-    source: 'https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'binary',
-    name: { en: 'Binary University', zh: '百纳利大学' },
-    abbreviation: 'BINARY',
-    type: "Private Higher Education Institution",
-    country: 'Malaysia',
-    studyLocation: 'domestic',
-    ownership: 'private',
-    state: 'Selangor',
-    website: 'https://binary.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    description: { en: 'Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.', zh: '院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。' },
-    dataStatus: "directory",
-    source: 'https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'city-university',
-    name: { en: 'City University Malaysia', zh: '城市大学' },
-    abbreviation: 'CITY',
-    type: "Private Higher Education Institution",
-    country: 'Malaysia',
-    studyLocation: 'domestic',
-    ownership: 'private',
-    state: 'Selangor',
-    website: 'https://city.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    description: { en: 'Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.', zh: '院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。' },
-    dataStatus: "directory",
-    source: 'https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'drb-hicom',
-    name: { en: 'DRB-HICOM University of Automotive Malaysia', zh: 'DRB-HICOM 汽车大学' },
-    abbreviation: 'DRB-HICOM',
-    type: "Private Higher Education Institution",
-    country: 'Malaysia',
-    studyLocation: 'domestic',
-    ownership: 'private',
-    state: 'Pahang',
-    website: 'https://www.dhu.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    description: { en: 'Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.', zh: '院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。' },
-    dataStatus: "directory",
-    source: 'https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'globalnxt',
-    name: { en: 'GlobalNxt University', zh: 'GlobalNxt 大学' },
-    abbreviation: 'GNU',
-    type: "Private Higher Education Institution",
-    country: 'Malaysia',
-    studyLocation: 'domestic',
-    ownership: 'private',
-    state: 'Kuala Lumpur',
-    website: 'https://www.globalnxt.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    description: { en: 'Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.', zh: '院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。' },
-    dataStatus: "directory",
-    source: 'https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'imu',
-    name: { en: 'IMU University', zh: '国际医药大学' },
-    abbreviation: 'IMU',
-    type: "Private Higher Education Institution",
-    country: 'Malaysia',
-    studyLocation: 'domestic',
-    ownership: 'private',
-    state: 'Kuala Lumpur',
-    website: 'https://imu.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    description: { en: 'Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.', zh: '院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。' },
-    dataStatus: "directory",
-    source: 'https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'inceif',
-    name: { en: 'INCEIF University', zh: '国际伊斯兰金融教育中心大学' },
-    abbreviation: 'INCEIF',
-    type: "Private Higher Education Institution",
-    country: 'Malaysia',
-    studyLocation: 'domestic',
-    ownership: 'private',
-    state: 'Kuala Lumpur',
-    website: 'https://inceif.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    description: { en: 'Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.', zh: '院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。' },
-    dataStatus: "directory",
-    source: 'https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'inti',
-    name: { en: 'INTI International University', zh: '英迪国际大学' },
-    abbreviation: 'INTI',
-    type: "Private Higher Education Institution",
-    country: 'Malaysia',
-    studyLocation: 'domestic',
-    ownership: 'private',
-    state: 'Negeri Sembilan',
-    website: 'https://newinti.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    description: { en: 'Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.', zh: '院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。' },
-    dataStatus: "directory",
-    source: 'https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'kpj-healthcare',
-    name: { en: 'KPJ Healthcare University', zh: 'KPJ 医疗保健大学' },
-    abbreviation: 'KPJ',
-    type: "Private Higher Education Institution",
-    country: 'Malaysia',
-    studyLocation: 'domestic',
-    ownership: 'private',
-    state: 'Negeri Sembilan',
-    website: 'https://kpju.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    description: { en: 'Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.', zh: '院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。' },
-    dataStatus: "directory",
-    source: 'https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'klust',
-    name: { en: 'Kuala Lumpur University of Science and Technology', zh: '吉隆坡科技大学' },
-    abbreviation: 'KLUST',
-    type: "Private Higher Education Institution",
-    country: 'Malaysia',
-    studyLocation: 'domestic',
-    ownership: 'private',
-    state: 'Selangor',
-    website: 'https://klust.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    description: { en: 'Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.', zh: '院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。' },
-    dataStatus: "directory",
-    source: 'https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'limkokwing',
-    name: { en: 'Limkokwing University of Creative Technology', zh: '林国荣创意科技大学' },
-    abbreviation: 'LUCT',
-    type: "Private Higher Education Institution",
-    country: 'Malaysia',
-    studyLocation: 'domestic',
-    ownership: 'private',
-    state: 'Selangor',
-    website: 'https://www.limkokwing.net/',
-    institutionIds: [],
-    campuses: [],
-    description: { en: 'Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.', zh: '院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。' },
-    dataStatus: "directory",
-    source: 'https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'mahsa',
-    name: { en: 'MAHSA University', zh: '玛莎大学' },
-    abbreviation: 'MAHSA',
-    type: "Private Higher Education Institution",
-    country: 'Malaysia',
-    studyLocation: 'domestic',
-    ownership: 'private',
-    state: 'Selangor',
-    website: 'https://mahsa.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    description: { en: 'Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.', zh: '院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。' },
-    dataStatus: "directory",
-    source: 'https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'must',
-    name: { en: 'Malaysia University of Science and Technology', zh: '马来西亚科技大学' },
-    abbreviation: 'MUST',
-    type: "Private Higher Education Institution",
-    country: 'Malaysia',
-    studyLocation: 'domestic',
-    ownership: 'private',
-    state: 'Selangor',
-    website: 'https://must.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    description: { en: 'Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.', zh: '院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。' },
-    dataStatus: "directory",
-    source: 'https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'msu',
-    name: { en: 'Management and Science University', zh: '管理与科学大学' },
-    abbreviation: 'MSU',
-    type: "Private Higher Education Institution",
-    country: 'Malaysia',
-    studyLocation: 'domestic',
-    ownership: 'private',
-    state: 'Selangor',
-    website: 'https://www.msu.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    description: { en: 'Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.', zh: '院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。' },
-    dataStatus: "directory",
-    source: 'https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'mila',
-    name: { en: 'MILA University', zh: 'MILA 大学' },
-    abbreviation: 'MILA',
-    type: "Private Higher Education Institution",
-    country: 'Malaysia',
-    studyLocation: 'domestic',
-    ownership: 'private',
-    state: 'Negeri Sembilan',
-    website: 'https://mila.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    description: { en: 'Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.', zh: '院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。' },
-    dataStatus: "directory",
-    source: 'https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'nilai',
-    name: { en: 'Nilai University', zh: '汝来大学' },
-    abbreviation: 'NILAI',
-    type: "Private Higher Education Institution",
-    country: 'Malaysia',
-    studyLocation: 'domestic',
-    ownership: 'private',
-    state: 'Negeri Sembilan',
-    website: 'https://www.nilai.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    description: { en: 'Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.', zh: '院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。' },
-    dataStatus: "directory",
-    source: 'https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'segi',
-    name: { en: 'SEGi University', zh: '世纪大学' },
-    abbreviation: 'SEGi',
-    type: "Private Higher Education Institution",
-    country: 'Malaysia',
-    studyLocation: 'domestic',
-    ownership: 'private',
-    state: 'Selangor',
-    website: 'https://www.segi.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    description: { en: 'Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.', zh: '院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。' },
-    dataStatus: "directory",
-    source: 'https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'unitar',
-    name: { en: 'UNITAR International University', zh: 'UNITAR 国际大学' },
-    abbreviation: 'UNITAR',
-    type: "Private Higher Education Institution",
-    country: 'Malaysia',
-    studyLocation: 'domestic',
-    ownership: 'private',
-    state: 'Selangor',
-    website: 'https://www.unitar.my/',
-    institutionIds: [],
-    campuses: [],
-    description: { en: 'Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.', zh: '院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。' },
-    dataStatus: "directory",
-    source: 'https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'uniten',
-    name: { en: 'Universiti Tenaga Nasional', zh: '国家能源大学' },
-    abbreviation: 'UNITEN',
-    type: "Private Higher Education Institution",
-    country: 'Malaysia',
-    studyLocation: 'domestic',
-    ownership: 'private',
-    state: 'Selangor',
-    website: 'https://www.uniten.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    description: { en: 'Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.', zh: '院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。' },
-    dataStatus: "directory",
-    source: 'https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'unikl',
-    name: { en: 'Universiti Kuala Lumpur', zh: '吉隆坡大学' },
-    abbreviation: 'UniKL',
-    type: "Private Higher Education Institution",
-    country: 'Malaysia',
-    studyLocation: 'domestic',
-    ownership: 'private',
-    state: 'Kuala Lumpur',
-    website: 'https://www.unikl.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    description: { en: 'Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.', zh: '院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。' },
-    dataStatus: "directory",
-    source: 'https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'curtin-malaysia',
-    name: { en: 'Curtin University Malaysia', zh: '科廷大学马来西亚校区' },
-    abbreviation: 'CURTIN',
-    type: 'Foreign Branch Campus',
-    country: 'Malaysia',
-    studyLocation: 'domestic',
-    ownership: 'foreign-branch',
-    state: 'Sarawak',
-    website: 'https://www.curtin.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    parentUniversity: 'Curtin University',
-    parentCountry: "Australia",
-    description: { en: 'Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.', zh: '院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。' },
-    dataStatus: "directory",
-    source: 'https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'swinburne-sarawak',
-    name: { en: 'Swinburne University of Technology Sarawak Campus', zh: '斯威本科技大学砂拉越校区' },
-    abbreviation: 'SWINBURNE',
-    type: 'Foreign Branch Campus',
-    country: 'Malaysia',
-    studyLocation: 'domestic',
-    ownership: 'foreign-branch',
-    state: 'Sarawak',
-    website: 'https://www.swinburne.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    parentUniversity: 'Swinburne University of Technology',
-    parentCountry: "Australia",
-    description: { en: 'Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.', zh: '院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。' },
-    dataStatus: "directory",
-    source: 'https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'heriot-watt-malaysia',
-    name: { en: 'Heriot-Watt University Malaysia', zh: '赫瑞瓦特大学马来西亚校区' },
-    abbreviation: 'HWUM',
-    type: 'Foreign Branch Campus',
-    country: 'Malaysia',
-    studyLocation: 'domestic',
-    ownership: 'foreign-branch',
-    state: 'Putrajaya',
-    website: 'https://www.hw.ac.uk/malaysia/',
-    institutionIds: [],
-    campuses: [],
-    parentUniversity: 'Heriot-Watt University',
-    parentCountry: "United Kingdom",
-    description: { en: 'Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.', zh: '院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。' },
-    dataStatus: "directory",
-    source: 'https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'newcastle-medicine-malaysia',
-    name: { en: 'Newcastle University Medicine Malaysia', zh: '纽卡斯尔大学医学马来西亚校区' },
-    abbreviation: 'NUMed',
-    type: 'Foreign Branch Campus',
-    country: 'Malaysia',
-    studyLocation: 'domestic',
-    ownership: 'foreign-branch',
-    state: 'Johor',
-    website: 'https://www.ncl.ac.uk/numed/',
-    institutionIds: [],
-    campuses: [],
-    parentUniversity: 'Newcastle University',
-    parentCountry: "United Kingdom",
-    description: { en: 'Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.', zh: '院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。' },
-    dataStatus: "directory",
-    source: 'https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'southampton-malaysia',
-    name: { en: 'University of Southampton Malaysia', zh: '南安普顿大学马来西亚校区' },
-    abbreviation: 'UoSM',
-    type: 'Foreign Branch Campus',
-    country: 'Malaysia',
-    studyLocation: 'domestic',
-    ownership: 'foreign-branch',
-    state: 'Johor',
-    website: 'https://www.southamptonmalaysia.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    parentUniversity: 'University of Southampton',
-    parentCountry: "United Kingdom",
-    description: { en: 'Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.', zh: '院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。' },
-    dataStatus: "directory",
-    source: 'https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'xiamen-malaysia',
-    name: { en: 'Xiamen University Malaysia', zh: '厦门大学马来西亚分校' },
-    abbreviation: 'XMUM',
-    type: 'Foreign Branch Campus',
-    country: 'Malaysia',
-    studyLocation: 'domestic',
-    ownership: 'foreign-branch',
-    state: 'Selangor',
-    website: 'https://www.xmu.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    parentUniversity: 'Xiamen University',
-    parentCountry: "China",
-    description: { en: 'Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.', zh: '院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。' },
-    dataStatus: "directory",
-    source: 'https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'reading-malaysia',
-    name: { en: 'University of Reading Malaysia', zh: '雷丁大学马来西亚校区' },
-    abbreviation: 'UoRM',
-    type: 'Foreign Branch Campus',
-    country: 'Malaysia',
-    studyLocation: 'domestic',
-    ownership: 'foreign-branch',
-    state: 'Johor',
-    website: 'https://www.reading.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    parentUniversity: 'University of Reading',
-    parentCountry: "United Kingdom",
-    description: { en: 'Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.', zh: '院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。' },
-    dataStatus: "directory",
-    source: 'https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'rcsi-ucd-malaysia',
-    name: { en: 'RCSI & UCD Malaysia Campus', zh: '爱尔兰皇家外科医学院与都柏林大学学院马来西亚校区' },
-    abbreviation: 'RUMC',
-    type: 'Foreign Branch Campus',
-    country: 'Malaysia',
-    studyLocation: 'domestic',
-    ownership: 'foreign-branch',
-    state: 'Penang',
-    website: 'https://www.rcsiucd.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    parentUniversity: 'Royal College of Surgeons in Ireland & University College Dublin',
-    parentCountry: "Ireland",
-    description: { en: 'Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.', zh: '院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。' },
-    dataStatus: "directory",
-    source: 'https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'nus',
-    name: { en: 'National University of Singapore', zh: '新加坡国立大学' },
-    abbreviation: 'NUS',
-    type: 'International University',
-    country: 'Singapore',
-    studyLocation: 'international',
-    ownership: 'public',
-    state: 'Singapore',
-    website: 'https://www.nus.edu.sg/',
-    institutionIds: [],
-    campuses: [],
-    description: { en: 'International institution directory entry. Confirm programme availability, admissions, fees and recognition with the institution and the relevant national authority.', zh: '国际院校目录记录。课程、入学条件、学费及学历认可须向院校及当地监管机构核实。' },
-    dataStatus: "directory",
-    source: 'https://www.nus.edu.sg/',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'ntu',
-    name: { en: 'Nanyang Technological University', zh: '南洋理工大学' },
-    abbreviation: 'NTU',
-    type: 'International University',
-    country: 'Singapore',
-    studyLocation: 'international',
-    ownership: 'public',
-    state: 'Singapore',
-    website: 'https://www.ntu.edu.sg/',
-    institutionIds: [],
-    campuses: [],
-    description: { en: 'International institution directory entry. Confirm programme availability, admissions, fees and recognition with the institution and the relevant national authority.', zh: '国际院校目录记录。课程、入学条件、学费及学历认可须向院校及当地监管机构核实。' },
-    dataStatus: "directory",
-    source: 'https://www.ntu.edu.sg/',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'oxford',
-    name: { en: 'University of Oxford', zh: '牛津大学' },
-    abbreviation: 'Oxford',
-    type: 'International University',
-    country: 'United Kingdom',
-    studyLocation: 'international',
-    ownership: 'public',
-    state: 'Oxford',
-    website: 'https://www.ox.ac.uk/',
-    institutionIds: [],
-    campuses: [],
-    description: { en: 'International institution directory entry. Confirm programme availability, admissions, fees and recognition with the institution and the relevant national authority.', zh: '国际院校目录记录。课程、入学条件、学费及学历认可须向院校及当地监管机构核实。' },
-    dataStatus: "directory",
-    source: 'https://www.ox.ac.uk/',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'imperial',
-    name: { en: 'Imperial College London', zh: '帝国理工学院' },
-    abbreviation: 'Imperial',
-    type: 'International University',
-    country: 'United Kingdom',
-    studyLocation: 'international',
-    ownership: 'public',
-    state: 'London',
-    website: 'https://www.imperial.ac.uk/',
-    institutionIds: [],
-    campuses: [],
-    description: { en: 'International institution directory entry. Confirm programme availability, admissions, fees and recognition with the institution and the relevant national authority.', zh: '国际院校目录记录。课程、入学条件、学费及学历认可须向院校及当地监管机构核实。' },
-    dataStatus: "directory",
-    source: 'https://www.imperial.ac.uk/',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'melbourne',
-    name: { en: 'The University of Melbourne', zh: '墨尔本大学' },
-    abbreviation: 'UniMelb',
-    type: 'International University',
-    country: 'Australia',
-    studyLocation: 'international',
-    ownership: 'public',
-    state: 'Victoria',
-    website: 'https://www.unimelb.edu.au/',
-    institutionIds: [],
-    campuses: [],
-    description: { en: 'International institution directory entry. Confirm programme availability, admissions, fees and recognition with the institution and the relevant national authority.', zh: '国际院校目录记录。课程、入学条件、学费及学历认可须向院校及当地监管机构核实。' },
-    dataStatus: "directory",
-    source: 'https://www.unimelb.edu.au/',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'unsw',
-    name: { en: 'The University of New South Wales', zh: '新南威尔士大学' },
-    abbreviation: 'UNSW',
-    type: 'International University',
-    country: 'Australia',
-    studyLocation: 'international',
-    ownership: 'public',
-    state: 'New South Wales',
-    website: 'https://www.unsw.edu.au/',
-    institutionIds: [],
-    campuses: [],
-    description: { en: 'International institution directory entry. Confirm programme availability, admissions, fees and recognition with the institution and the relevant national authority.', zh: '国际院校目录记录。课程、入学条件、学费及学历认可须向院校及当地监管机构核实。' },
-    dataStatus: "directory",
-    source: 'https://www.unsw.edu.au/',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'mit',
-    name: { en: 'Massachusetts Institute of Technology', zh: '麻省理工学院' },
-    abbreviation: 'MIT',
-    type: 'International University',
-    country: 'United States',
-    studyLocation: 'international',
-    ownership: 'private',
-    state: 'Massachusetts',
-    website: 'https://www.mit.edu/',
-    institutionIds: [],
-    campuses: [],
-    description: { en: 'International institution directory entry. Confirm programme availability, admissions, fees and recognition with the institution and the relevant national authority.', zh: '国际院校目录记录。课程、入学条件、学费及学历认可须向院校及当地监管机构核实。' },
-    dataStatus: "directory",
-    source: 'https://www.mit.edu/',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'stanford',
-    name: { en: 'Stanford University', zh: '斯坦福大学' },
-    abbreviation: 'Stanford',
-    type: 'International University',
-    country: 'United States',
-    studyLocation: 'international',
-    ownership: 'private',
-    state: 'California',
-    website: 'https://www.stanford.edu/',
-    institutionIds: [],
-    campuses: [],
-    description: { en: 'International institution directory entry. Confirm programme availability, admissions, fees and recognition with the institution and the relevant national authority.', zh: '国际院校目录记录。课程、入学条件、学费及学历认可须向院校及当地监管机构核实。' },
-    dataStatus: "directory",
-    source: 'https://www.stanford.edu/',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'tokyo',
-    name: { en: 'The University of Tokyo', zh: '东京大学' },
-    abbreviation: 'UTokyo',
-    type: 'International University',
-    country: 'Japan',
-    studyLocation: 'international',
-    ownership: 'public',
-    state: 'Tokyo',
-    website: 'https://www.u-tokyo.ac.jp/en/',
-    institutionIds: [],
-    campuses: [],
-    description: { en: 'International institution directory entry. Confirm programme availability, admissions, fees and recognition with the institution and the relevant national authority.', zh: '国际院校目录记录。课程、入学条件、学费及学历认可须向院校及当地监管机构核实。' },
-    dataStatus: "directory",
-    source: 'https://www.u-tokyo.ac.jp/en/',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'kyoto',
-    name: { en: 'Kyoto University', zh: '京都大学' },
-    abbreviation: 'KyotoU',
-    type: 'International University',
-    country: 'Japan',
-    studyLocation: 'international',
-    ownership: 'public',
-    state: 'Kyoto',
-    website: 'https://www.kyoto-u.ac.jp/en',
-    institutionIds: [],
-    campuses: [],
-    description: { en: 'International institution directory entry. Confirm programme availability, admissions, fees and recognition with the institution and the relevant national authority.', zh: '国际院校目录记录。课程、入学条件、学费及学历认可须向院校及当地监管机构核实。' },
-    dataStatus: "directory",
-    source: 'https://www.kyoto-u.ac.jp/en',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'snu',
-    name: { en: 'Seoul National University', zh: '首尔大学' },
-    abbreviation: 'SNU',
-    type: 'International University',
-    country: 'South Korea',
-    studyLocation: 'international',
-    ownership: 'public',
-    state: 'Seoul',
-    website: 'https://en.snu.ac.kr/',
-    institutionIds: [],
-    campuses: [],
-    description: { en: 'International institution directory entry. Confirm programme availability, admissions, fees and recognition with the institution and the relevant national authority.', zh: '国际院校目录记录。课程、入学条件、学费及学历认可须向院校及当地监管机构核实。' },
-    dataStatus: "directory",
-    source: 'https://en.snu.ac.kr/',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'kaist',
-    name: { en: 'Korea Advanced Institute of Science and Technology', zh: '韩国科学技术院' },
-    abbreviation: 'KAIST',
-    type: 'International University',
-    country: 'South Korea',
-    studyLocation: 'international',
-    ownership: 'public',
-    state: 'Daejeon',
-    website: 'https://www.kaist.ac.kr/en/',
-    institutionIds: [],
-    campuses: [],
-    description: { en: 'International institution directory entry. Confirm programme availability, admissions, fees and recognition with the institution and the relevant national authority.', zh: '国际院校目录记录。课程、入学条件、学费及学历认可须向院校及当地监管机构核实。' },
-    dataStatus: "directory",
-    source: 'https://www.kaist.ac.kr/en/',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'tsinghua',
-    name: { en: 'Tsinghua University', zh: '清华大学' },
-    abbreviation: 'THU',
-    type: 'International University',
-    country: 'China',
-    studyLocation: 'international',
-    ownership: 'public',
-    state: 'Beijing',
-    website: 'https://www.tsinghua.edu.cn/en/',
-    institutionIds: [],
-    campuses: [],
-    description: { en: 'International institution directory entry. Confirm programme availability, admissions, fees and recognition with the institution and the relevant national authority.', zh: '国际院校目录记录。课程、入学条件、学费及学历认可须向院校及当地监管机构核实。' },
-    dataStatus: "directory",
-    source: 'https://www.tsinghua.edu.cn/en/',
-    lastVerified: null
-  }
-  ,
-  {
-    id: 'peking',
-    name: { en: 'Peking University', zh: '北京大学' },
-    abbreviation: 'PKU',
-    type: 'International University',
-    country: 'China',
-    studyLocation: 'international',
-    ownership: 'public',
-    state: 'Beijing',
-    website: 'https://english.pku.edu.cn/',
-    institutionIds: [],
-    campuses: [],
-    description: { en: 'International institution directory entry. Confirm programme availability, admissions, fees and recognition with the institution and the relevant national authority.', zh: '国际院校目录记录。课程、入学条件、学费及学历认可须向院校及当地监管机构核实。' },
-    dataStatus: "directory",
-    source: 'https://english.pku.edu.cn/',
-    lastVerified: null
-  }  ,
-  {
-    id: 'poly-politeknik-sultan-haji-ahmad-shah',
-    name: { en: 'Politeknik Sultan Haji Ahmad Shah', zh: 'Politeknik Sultan Haji Ahmad Shah' },
-    abbreviation: 'POLISAS',
-    type: 'Polytechnic',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Pahang',
-    website: 'https://www.polisas.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik',
-    lastVerified: null
-  },
-  {
-    id: 'poly-politeknik-sultan-abdul-halim-muadzam-shah',
-    name: { en: 'Politeknik Sultan Abdul Halim Mu’adzam Shah', zh: 'Politeknik Sultan Abdul Halim Mu’adzam Shah' },
-    abbreviation: 'POLIMAS',
-    type: 'Polytechnic',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Kedah',
-    website: 'https://polimas.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik',
-    lastVerified: null
-  },
-  {
-    id: 'poly-politeknik-kota-bharu',
-    name: { en: 'Politeknik Kota Bharu', zh: 'Politeknik Kota Bharu' },
-    abbreviation: 'PKB',
-    type: 'Polytechnic',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Kelantan',
-    website: 'https://pkb.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik',
-    lastVerified: null
-  },
-  {
-    id: 'poly-politeknik-kuching-sarawak',
-    name: { en: 'Politeknik Kuching Sarawak', zh: 'Politeknik Kuching Sarawak' },
-    abbreviation: 'PKS',
-    type: 'Polytechnic',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Sarawak',
-    website: 'https://poliku.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik',
-    lastVerified: null
-  },
-  {
-    id: 'poly-politeknik-port-dickson',
-    name: { en: 'Politeknik Port Dickson', zh: 'Politeknik Port Dickson' },
-    abbreviation: 'PPD',
-    type: 'Polytechnic',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Negeri Sembilan',
-    website: 'https://polipd.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik',
-    lastVerified: null
-  },
-  {
-    id: 'poly-politeknik-kota-kinabalu',
-    name: { en: 'Politeknik Kota Kinabalu', zh: 'Politeknik Kota Kinabalu' },
-    abbreviation: 'PKK',
-    type: 'Polytechnic',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Sabah',
-    website: 'https://polikk.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik',
-    lastVerified: null
-  },
-  {
-    id: 'poly-politeknik-sultan-salahuddin-abdul-aziz-shah',
-    name: { en: 'Politeknik Sultan Salahuddin Abdul Aziz Shah', zh: 'Politeknik Sultan Salahuddin Abdul Aziz Shah' },
-    abbreviation: 'PSA',
-    type: 'Polytechnic',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Selangor',
-    website: 'https://psa.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik',
-    lastVerified: null
-  },
-  {
-    id: 'poly-politeknik-seberang-perai',
-    name: { en: 'Politeknik Seberang Perai', zh: 'Politeknik Seberang Perai' },
-    abbreviation: 'PSP',
-    type: 'Polytechnic',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Penang',
-    website: 'https://www.psp.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik',
-    lastVerified: null
-  },
-  {
-    id: 'poly-politeknik-melaka',
-    name: { en: 'Politeknik Melaka', zh: 'Politeknik Melaka' },
-    abbreviation: 'PMK',
-    type: 'Polytechnic',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Melaka',
-    website: 'https://polimelaka.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik',
-    lastVerified: null
-  },
-  {
-    id: 'poly-politeknik-kuala-terengganu',
-    name: { en: 'Politeknik Kuala Terengganu', zh: 'Politeknik Kuala Terengganu' },
-    abbreviation: 'PKT',
-    type: 'Polytechnic',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Terengganu',
-    website: 'https://pkt.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik',
-    lastVerified: null
-  },
-  {
-    id: 'poly-politeknik-sultan-mizan-zainal-abidin',
-    name: { en: 'Politeknik Sultan Mizan Zainal Abidin', zh: 'Politeknik Sultan Mizan Zainal Abidin' },
-    abbreviation: 'PSMZA',
-    type: 'Polytechnic',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Terengganu',
-    website: 'https://psmza.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik',
-    lastVerified: null
-  },
-  {
-    id: 'poly-politeknik-merlimau',
-    name: { en: 'Politeknik Merlimau', zh: 'Politeknik Merlimau' },
-    abbreviation: 'PMM',
-    type: 'Polytechnic',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Melaka',
-    website: 'https://pmm.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik',
-    lastVerified: null
-  },
-  {
-    id: 'poly-politeknik-sultan-azlan-shah',
-    name: { en: 'Politeknik Sultan Azlan Shah', zh: 'Politeknik Sultan Azlan Shah' },
-    abbreviation: 'PSAS',
-    type: 'Polytechnic',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Perak',
-    website: 'https://psas.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik',
-    lastVerified: null
-  },
-  {
-    id: 'poly-politeknik-tuanku-sultanah-bahiyah',
-    name: { en: 'Politeknik Tuanku Sultanah Bahiyah', zh: 'Politeknik Tuanku Sultanah Bahiyah' },
-    abbreviation: 'PTSB',
-    type: 'Polytechnic',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Kedah',
-    website: 'https://ptsb.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik',
-    lastVerified: null
-  },
-  {
-    id: 'poly-politeknik-sultan-idris-shah',
-    name: { en: 'Politeknik Sultan Idris Shah', zh: 'Politeknik Sultan Idris Shah' },
-    abbreviation: 'PSIS',
-    type: 'Polytechnic',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Selangor',
-    website: 'https://psis.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik',
-    lastVerified: null
-  },
-  {
-    id: 'poly-politeknik-tuanku-syed-sirajuddin',
-    name: { en: 'Politeknik Tuanku Syed Sirajuddin', zh: 'Politeknik Tuanku Syed Sirajuddin' },
-    abbreviation: 'PTSS',
-    type: 'Polytechnic',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Perlis',
-    website: 'https://ptss.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik',
-    lastVerified: null
-  },
-  {
-    id: 'poly-politeknik-muadzam-shah',
-    name: { en: 'Politeknik Muadzam Shah', zh: 'Politeknik Muadzam Shah' },
-    abbreviation: 'PMS',
-    type: 'Polytechnic',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Pahang',
-    website: 'https://pms.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik',
-    lastVerified: null
-  },
-  {
-    id: 'poly-politeknik-mukah-sarawak',
-    name: { en: 'Politeknik Mukah Sarawak', zh: 'Politeknik Mukah Sarawak' },
-    abbreviation: 'PMU',
-    type: 'Polytechnic',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Sarawak',
-    website: 'https://pmu.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik',
-    lastVerified: null
-  },
-  {
-    id: 'poly-politeknik-balik-pulau',
-    name: { en: 'Politeknik Balik Pulau', zh: 'Politeknik Balik Pulau' },
-    abbreviation: 'PBU',
-    type: 'Polytechnic',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Penang',
-    website: 'https://pbu.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik',
-    lastVerified: null
-  },
-  {
-    id: 'poly-politeknik-jeli',
-    name: { en: 'Politeknik Jeli', zh: 'Politeknik Jeli' },
-    abbreviation: 'PJK',
-    type: 'Polytechnic',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Kelantan',
-    website: null,
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik',
-    lastVerified: null
-  },
-  {
-    id: 'poly-politeknik-nilai',
-    name: { en: 'Politeknik Nilai', zh: 'Politeknik Nilai' },
-    abbreviation: 'PNS',
-    type: 'Polytechnic',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Negeri Sembilan',
-    website: null,
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik',
-    lastVerified: null
-  },
-  {
-    id: 'poly-politeknik-banting',
-    name: { en: 'Politeknik Banting', zh: 'Politeknik Banting' },
-    abbreviation: 'PBS',
-    type: 'Polytechnic',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Selangor',
-    website: 'https://pbs.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik',
-    lastVerified: null
-  },
-  {
-    id: 'poly-politeknik-mersing',
-    name: { en: 'Politeknik Mersing', zh: 'Politeknik Mersing' },
-    abbreviation: 'PMJ',
-    type: 'Polytechnic',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Johor',
-    website: 'https://pmj.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik',
-    lastVerified: null
-  },
-  {
-    id: 'poly-politeknik-hulu-terengganu',
-    name: { en: 'Politeknik Hulu Terengganu', zh: 'Politeknik Hulu Terengganu' },
-    abbreviation: 'PHT',
-    type: 'Polytechnic',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Terengganu',
-    website: 'https://pht.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik',
-    lastVerified: null
-  },
-  {
-    id: 'poly-politeknik-sandakan-sabah',
-    name: { en: 'Politeknik Sandakan Sabah', zh: 'Politeknik Sandakan Sabah' },
-    abbreviation: 'PSS',
-    type: 'Polytechnic',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Sabah',
-    website: 'https://pss.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik',
-    lastVerified: null
-  },
-  {
-    id: 'poly-politeknik-metro-kuala-lumpur',
-    name: { en: 'Politeknik METrO Kuala Lumpur', zh: 'Politeknik METrO Kuala Lumpur' },
-    abbreviation: 'PMKL',
-    type: 'Polytechnic',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Kuala Lumpur',
-    website: 'https://pmkl.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik',
-    lastVerified: null
-  },
-  {
-    id: 'poly-politeknik-metro-kuantan',
-    name: { en: 'Politeknik METrO Kuantan', zh: 'Politeknik METrO Kuantan' },
-    abbreviation: 'PMKU',
-    type: 'Polytechnic',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Pahang',
-    website: 'https://pmku.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik',
-    lastVerified: null
-  },
-  {
-    id: 'poly-politeknik-metro-johor-bahru',
-    name: { en: 'Politeknik METrO Johor Bahru', zh: 'Politeknik METrO Johor Bahru' },
-    abbreviation: 'PMJB',
-    type: 'Polytechnic',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Johor',
-    website: 'https://pmjb.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik',
-    lastVerified: null
-  },
-  {
-    id: 'poly-politeknik-metro-betong-sarawak',
-    name: { en: 'Politeknik METrO Betong Sarawak', zh: 'Politeknik METrO Betong Sarawak' },
-    abbreviation: 'PMBS',
-    type: 'Polytechnic',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Sarawak',
-    website: 'https://www.pmbs.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik',
-    lastVerified: null
-  },
-  {
-    id: 'poly-politeknik-metro-tasek-gelugor',
-    name: { en: 'Politeknik METrO Tasek Gelugor', zh: 'Politeknik METrO Tasek Gelugor' },
-    abbreviation: 'PMTG',
-    type: 'Polytechnic',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Penang',
-    website: 'https://pmtg.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik',
-    lastVerified: null
-  },
-  {
-    id: 'poly-politeknik-tun-syed-nasir-syed-ismail',
-    name: { en: 'Politeknik Tun Syed Nasir Syed Ismail', zh: 'Politeknik Tun Syed Nasir Syed Ismail' },
-    abbreviation: 'PTSN',
-    type: 'Polytechnic',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Johor',
-    website: 'https://ptsn.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik',
-    lastVerified: null
-  },
-  {
-    id: 'poly-politeknik-besut',
-    name: { en: 'Politeknik Besut', zh: 'Politeknik Besut' },
-    abbreviation: 'PBT',
-    type: 'Polytechnic',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Terengganu',
-    website: 'https://polibesut.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik',
-    lastVerified: null
-  },
-  {
-    id: 'poly-politeknik-maritim-sultan-nazrin-shah',
-    name: { en: 'Politeknik Maritim Sultan Nazrin Shah', zh: 'Politeknik Maritim Sultan Nazrin Shah' },
-    abbreviation: 'PMSN',
-    type: 'Polytechnic',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Perak',
-    website: 'https://pbd.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik',
-    lastVerified: null
-  },
-  {
-    id: 'poly-politeknik-tawau',
-    name: { en: 'Politeknik Tawau', zh: 'Politeknik Tawau' },
-    abbreviation: 'PTS',
-    type: 'Polytechnic',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Sabah',
-    website: 'https://politawau.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-arau',
-    name: { en: 'Kolej Komuniti Arau', zh: 'Kolej Komuniti Arau' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Kedah',
-    website: 'https://kkarau.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-cawangan-kangar-kolej-induk-kolej-komuniti-arau',
-    name: { en: 'Kolej Komuniti Cawangan Kangar (Kolej Induk – Kolej Komuniti Arau)', zh: 'Kolej Komuniti Cawangan Kangar (Kolej Induk – Kolej Komuniti Arau)' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Kedah',
-    website: 'https://kkkangar.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-bandar-darul-aman',
-    name: { en: 'Kolej Komuniti Bandar Darul Aman', zh: 'Kolej Komuniti Bandar Darul Aman' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Kedah',
-    website: 'https://kkbandardarulaman.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-jerai',
-    name: { en: 'Kolej Komuniti Jerai', zh: 'Kolej Komuniti Jerai' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Kedah',
-    website: 'https://kkjerai.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-bandar-baharu',
-    name: { en: 'Kolej Komuniti Bandar Baharu', zh: 'Kolej Komuniti Bandar Baharu' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Kedah',
-    website: 'https://kkbandarbaharu.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-langkawi-tourism-academy-kolej-komuniti-langkawi',
-    name: { en: 'Langkawi Tourism Academy @ Kolej Komuniti Langkawi', zh: 'Langkawi Tourism Academy @ Kolej Komuniti Langkawi' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Kedah',
-    website: 'https://ltaklangkawi.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-kulim',
-    name: { en: 'Kolej Komuniti Kulim', zh: 'Kolej Komuniti Kulim' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Kedah',
-    website: 'https://kkkulim.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-sungai-petani',
-    name: { en: 'Kolej Komuniti Sungai Petani', zh: 'Kolej Komuniti Sungai Petani' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Kedah',
-    website: 'https://kksungaipetani.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-baling',
-    name: { en: 'Kolej Komuniti Baling', zh: 'Kolej Komuniti Baling' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Kedah',
-    website: 'https://kkbaling.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-padang-terap',
-    name: { en: 'Kolej Komuniti Padang Terap', zh: 'Kolej Komuniti Padang Terap' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Kedah',
-    website: 'https://kkpadangterap.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-sik',
-    name: { en: 'Kolej Komuniti Sik', zh: 'Kolej Komuniti Sik' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Kedah',
-    website: 'https://kksik.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-cawangan-jerlun',
-    name: { en: 'Kolej Komuniti Cawangan Jerlun', zh: 'Kolej Komuniti Cawangan Jerlun' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Kedah',
-    website: 'https://kkjerlun.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-kepala-batas',
-    name: { en: 'Kolej Komuniti Kepala Batas', zh: 'Kolej Komuniti Kepala Batas' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Penang',
-    website: 'https://kkkepalabatas.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-nibong-tebal',
-    name: { en: 'Kolej Komuniti Nibong Tebal', zh: 'Kolej Komuniti Nibong Tebal' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Penang',
-    website: 'https://kknibongtebal.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-bukit-mertajam',
-    name: { en: 'Kolej Komuniti Bukit Mertajam', zh: 'Kolej Komuniti Bukit Mertajam' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Penang',
-    website: 'https://kkbukitmertajam.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-bayan-baru',
-    name: { en: 'Kolej Komuniti Bayan Baru', zh: 'Kolej Komuniti Bayan Baru' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Penang',
-    website: 'https://kkbayanbaru.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-tasek-gelugor',
-    name: { en: 'Kolej Komuniti Tasek Gelugor', zh: 'Kolej Komuniti Tasek Gelugor' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Penang',
-    website: 'https://kktasekgelugor.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-seberang-jaya',
-    name: { en: 'Kolej Komuniti Seberang Jaya', zh: 'Kolej Komuniti Seberang Jaya' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Penang',
-    website: 'https://kkseberangjaya.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-chenderoh',
-    name: { en: 'Kolej Komuniti Chenderoh', zh: 'Kolej Komuniti Chenderoh' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Perak',
-    website: 'https://kkchenderoh.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-kuala-kangsar',
-    name: { en: 'Kolej Komuniti Kuala Kangsar', zh: 'Kolej Komuniti Kuala Kangsar' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Perak',
-    website: 'https://kkkualakangsar.mypolycc.edu.my/v2/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-gerik',
-    name: { en: 'Kolej Komuniti Gerik', zh: 'Kolej Komuniti Gerik' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Perak',
-    website: 'https://kkgerik.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-sungai-siput',
-    name: { en: 'Kolej Komuniti Sungai Siput', zh: 'Kolej Komuniti Sungai Siput' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Perak',
-    website: 'https://kksungaisiput.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-cawangan-lenggong-kolej-induk-kolej-komuniti-sungai-siput',
-    name: { en: 'Kolej Komuniti Cawangan Lenggong (Kolej Induk – Kolej Komuniti Sungai Siput)', zh: 'Kolej Komuniti Cawangan Lenggong (Kolej Induk – Kolej Komuniti Sungai Siput)' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Perak',
-    website: null,
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-pasir-salak',
-    name: { en: 'Kolej Komuniti Pasir Salak', zh: 'Kolej Komuniti Pasir Salak' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Perak',
-    website: 'https://kkpasirsalak.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-tapah',
-    name: { en: 'Kolej Komuniti Tapah', zh: 'Kolej Komuniti Tapah' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Perak',
-    website: 'https://kktapah.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-teluk-intan',
-    name: { en: 'Kolej Komuniti Teluk Intan', zh: 'Kolej Komuniti Teluk Intan' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Perak',
-    website: 'https://kktelukintan.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-manjung',
-    name: { en: 'Kolej Komuniti Manjung', zh: 'Kolej Komuniti Manjung' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Perak',
-    website: 'https://kkmanjung.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-taiping',
-    name: { en: 'Kolej Komuniti Taiping', zh: 'Kolej Komuniti Taiping' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Perak',
-    website: 'https://kktaiping.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-batu-gajah',
-    name: { en: 'Kolej Komuniti Batu Gajah', zh: 'Kolej Komuniti Batu Gajah' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Perak',
-    website: 'https://kkbatugajah.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-rtc-gopeng',
-    name: { en: 'Kolej Komuniti RTC Gopeng', zh: 'Kolej Komuniti RTC Gopeng' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Perak',
-    website: 'https://kkrtcgopeng.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-bagan-serai',
-    name: { en: 'Kolej Komuniti Bagan Serai', zh: 'Kolej Komuniti Bagan Serai' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Perak',
-    website: 'https://kkbaganserai.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-bagan-datuk',
-    name: { en: 'Kolej Komuniti Bagan Datuk', zh: 'Kolej Komuniti Bagan Datuk' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Perak',
-    website: 'https://kkbagandatuk.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-sabak-bernam',
-    name: { en: 'Kolej Komuniti Sabak Bernam', zh: 'Kolej Komuniti Sabak Bernam' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Selangor',
-    website: 'https://kksabakbernam.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-tanjong-karang',
-    name: { en: 'Kolej Komuniti Tanjong Karang', zh: 'Kolej Komuniti Tanjong Karang' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Selangor',
-    website: 'https://kktanjongkarang.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-hulu-selangor',
-    name: { en: 'Kolej Komuniti Hulu Selangor', zh: 'Kolej Komuniti Hulu Selangor' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Selangor',
-    website: 'https://kktanjongkarang.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-selayang',
-    name: { en: 'Kolej Komuniti Selayang', zh: 'Kolej Komuniti Selayang' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Selangor',
-    website: 'https://kkselayang.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-kuala-langat',
-    name: { en: 'Kolej Komuniti Kuala Langat', zh: 'Kolej Komuniti Kuala Langat' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Selangor',
-    website: 'https://kkkualalangat.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-cawangan-sepang-kolej-induk-kolej-komuniti-kuala-langat',
-    name: { en: 'Kolej Komuniti Cawangan Sepang (Kolej Induk – Kolej Komuniti Kuala Langat)', zh: 'Kolej Komuniti Cawangan Sepang (Kolej Induk – Kolej Komuniti Kuala Langat)' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Selangor',
-    website: null,
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-klang',
-    name: { en: 'Kolej Komuniti Klang', zh: 'Kolej Komuniti Klang' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Selangor',
-    website: 'https://kkklang.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-hulu-langat',
-    name: { en: 'Kolej Komuniti Hulu Langat', zh: 'Kolej Komuniti Hulu Langat' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Selangor',
-    website: 'https://kkhululangat.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-shah-alam',
-    name: { en: 'Kolej Komuniti Shah Alam', zh: 'Kolej Komuniti Shah Alam' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Selangor',
-    website: 'https://kkshahalam.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-ampang',
-    name: { en: 'Kolej Komuniti Ampang', zh: 'Kolej Komuniti Ampang' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Selangor',
-    website: 'https://kkampang.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-kelana-jaya',
-    name: { en: 'Kolej Komuniti Kelana Jaya', zh: 'Kolej Komuniti Kelana Jaya' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Selangor',
-    website: 'https://kkkelanajaya.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-jempol',
-    name: { en: 'Kolej Komuniti Jempol', zh: 'Kolej Komuniti Jempol' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Negeri Sembilan',
-    website: 'https://kkjempol.mypolycc.edu.my/v1/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-jelebu',
-    name: { en: 'Kolej Komuniti Jelebu', zh: 'Kolej Komuniti Jelebu' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Negeri Sembilan',
-    website: 'https://kkjelebu.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-tampin',
-    name: { en: 'Kolej Komuniti Tampin', zh: 'Kolej Komuniti Tampin' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Negeri Sembilan',
-    website: 'https://kktampin.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-rembau',
-    name: { en: 'Kolej Komuniti Rembau', zh: 'Kolej Komuniti Rembau' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Negeri Sembilan',
-    website: 'https://kkrembau.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-kuala-pilah',
-    name: { en: 'Kolej Komuniti Kuala Pilah', zh: 'Kolej Komuniti Kuala Pilah' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Negeri Sembilan',
-    website: 'https://kkkualapilah.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-masjid-tanah',
-    name: { en: 'Kolej Komuniti Masjid Tanah', zh: 'Kolej Komuniti Masjid Tanah' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Melaka',
-    website: 'https://kkmasjidtanah.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-tangga-batu',
-    name: { en: 'Kolej Komuniti Tangga Batu', zh: 'Kolej Komuniti Tangga Batu' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Melaka',
-    website: 'http://kktanggabatu.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-selandar',
-    name: { en: 'Kolej Komuniti Selandar', zh: 'Kolej Komuniti Selandar' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Melaka',
-    website: 'https://kkselandar.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-bukit-beruang',
-    name: { en: 'Kolej Komuniti Bukit Beruang', zh: 'Kolej Komuniti Bukit Beruang' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Melaka',
-    website: 'http://kkbukitberuang.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-kota-melaka',
-    name: { en: 'Kolej Komuniti Kota Melaka', zh: 'Kolej Komuniti Kota Melaka' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Melaka',
-    website: 'http://kkotamelaka.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-jasin',
-    name: { en: 'Kolej Komuniti Jasin', zh: 'Kolej Komuniti Jasin' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Melaka',
-    website: 'https://kkjasin.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-ledang',
-    name: { en: 'Kolej Komuniti Ledang', zh: 'Kolej Komuniti Ledang' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Johor',
-    website: 'http://www.kklej.edu.my/v3/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-pagoh',
-    name: { en: 'Kolej Komuniti Pagoh', zh: 'Kolej Komuniti Pagoh' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Johor',
-    website: 'https://kkpagoh.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-muar',
-    name: { en: 'Kolej Komuniti Muar', zh: 'Kolej Komuniti Muar' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Johor',
-    website: 'https://kkmuar.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-segamat',
-    name: { en: 'Kolej Komuniti Segamat', zh: 'Kolej Komuniti Segamat' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Johor',
-    website: 'https://kksegamat.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-segamat-2',
-    name: { en: 'Kolej Komuniti Segamat 2', zh: 'Kolej Komuniti Segamat 2' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Johor',
-    website: 'https://kksegamat2.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-bandar-penawar',
-    name: { en: 'Kolej Komuniti Bandar Penawar', zh: 'Kolej Komuniti Bandar Penawar' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Johor',
-    website: 'https://kkbandarpenawar.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-bandar-tenggara',
-    name: { en: 'Kolej Komuniti Bandar Tenggara', zh: 'Kolej Komuniti Bandar Tenggara' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Johor',
-    website: 'https://kkbandartenggara.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-pasir-gudang',
-    name: { en: 'Kolej Komuniti Pasir Gudang', zh: 'Kolej Komuniti Pasir Gudang' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Johor',
-    website: 'https://kkpasirgudang.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-tanjung-piai',
-    name: { en: 'Kolej Komuniti Tanjung Piai', zh: 'Kolej Komuniti Tanjung Piai' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Johor',
-    website: 'https://kktanjungpiai.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-kota-tinggi',
-    name: { en: 'Kolej Komuniti Kota Tinggi', zh: 'Kolej Komuniti Kota Tinggi' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Johor',
-    website: 'https://kkkotatinggi.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-batu-pahat',
-    name: { en: 'Kolej Komuniti Batu Pahat', zh: 'Kolej Komuniti Batu Pahat' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Johor',
-    website: 'https://kkbatupahat.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-kluang',
-    name: { en: 'Kolej Komuniti Kluang', zh: 'Kolej Komuniti Kluang' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Johor',
-    website: 'https://kkkluang.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-simpang-renggam',
-    name: { en: 'Kolej Komuniti Simpang Renggam', zh: 'Kolej Komuniti Simpang Renggam' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Johor',
-    website: null,
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-cawangan-gelang-patah-kolej-induk-kolej-komuniti-bandar-penawar',
-    name: { en: 'Kolej Komuniti Cawangan Gelang Patah (Kolej Induk – Kolej Komuniti Bandar Penawar)', zh: 'Kolej Komuniti Cawangan Gelang Patah (Kolej Induk – Kolej Komuniti Bandar Penawar)' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Johor',
-    website: 'https://kkgelangpatah.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-rompin',
-    name: { en: 'Kolej Komuniti Rompin', zh: 'Kolej Komuniti Rompin' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Pahang',
-    website: 'https://kkrompin.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-bentong',
-    name: { en: 'Kolej Komuniti Bentong', zh: 'Kolej Komuniti Bentong' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Pahang',
-    website: 'https://kkbentong.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-raub',
-    name: { en: 'Kolej Komuniti Raub', zh: 'Kolej Komuniti Raub' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Pahang',
-    website: 'https://kkraub.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-temerloh',
-    name: { en: 'Kolej Komuniti Temerloh', zh: 'Kolej Komuniti Temerloh' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Pahang',
-    website: 'https://kktemerloh.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-bera',
-    name: { en: 'Kolej Komuniti Bera', zh: 'Kolej Komuniti Bera' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Pahang',
-    website: 'http://kbera.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-lipis',
-    name: { en: 'Kolej Komuniti Lipis', zh: 'Kolej Komuniti Lipis' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Pahang',
-    website: 'https://kklipis.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-kuantan',
-    name: { en: 'Kolej Komuniti Kuantan', zh: 'Kolej Komuniti Kuantan' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Pahang',
-    website: 'https://kkkuantan.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-paya-besar',
-    name: { en: 'Kolej Komuniti Paya Besar', zh: 'Kolej Komuniti Paya Besar' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Pahang',
-    website: 'https://kkpayabesar.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-pekan',
-    name: { en: 'Kolej Komuniti Pekan', zh: 'Kolej Komuniti Pekan' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Pahang',
-    website: 'https://kkpekan.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-jerantut',
-    name: { en: 'Kolej Komuniti Jerantut', zh: 'Kolej Komuniti Jerantut' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Pahang',
-    website: 'https://kkjerantut.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-cawangan-maran-kolej-induk-kolej-komuniti-paya-besar',
-    name: { en: 'Kolej Komuniti Cawangan Maran (Kolej Induk – Kolej Komuniti Paya Besar)', zh: 'Kolej Komuniti Cawangan Maran (Kolej Induk – Kolej Komuniti Paya Besar)' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Pahang',
-    website: null,
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-kuala-terengganu',
-    name: { en: 'Kolej Komuniti Kuala Terengganu', zh: 'Kolej Komuniti Kuala Terengganu' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Terengganu',
-    website: 'https://kkkualaterengganu.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-kemaman',
-    name: { en: 'Kolej Komuniti Kemaman', zh: 'Kolej Komuniti Kemaman' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Terengganu',
-    website: 'https://kkkemaman.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-besut',
-    name: { en: 'Kolej Komuniti Besut', zh: 'Kolej Komuniti Besut' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Terengganu',
-    website: 'https://kkbesut.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-cawangan-hulu-terengganu-kolej-induk-kolej-komuniti-kuala-terengganu',
-    name: { en: 'Kolej Komuniti Cawangan Hulu Terengganu (Kolej Induk – Kolej Komuniti Kuala Terengganu)', zh: 'Kolej Komuniti Cawangan Hulu Terengganu (Kolej Induk – Kolej Komuniti Kuala Terengganu)' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Terengganu',
-    website: 'https://kkhuluterengganu.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-cawangan-kuala-nerus',
-    name: { en: 'Kolej Komuniti Cawangan Kuala Nerus', zh: 'Kolej Komuniti Cawangan Kuala Nerus' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Terengganu',
-    website: 'https://kkkualanerus.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-cawangan-setiu-kolej-induk-kolej-komuniti-kuala-terengganu',
-    name: { en: 'Kolej Komuniti Cawangan Setiu (Kolej Induk – Kolej Komuniti Kuala Terengganu)', zh: 'Kolej Komuniti Cawangan Setiu (Kolej Induk – Kolej Komuniti Kuala Terengganu)' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Terengganu',
-    website: 'https://kksetiu.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-pasir-mas',
-    name: { en: 'Kolej Komuniti Pasir Mas', zh: 'Kolej Komuniti Pasir Mas' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Kelantan',
-    website: 'https://kkpasirmas.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-cawangan-rantau-panjang-kolej-induk-kolej-komuniti-pasir-mas',
-    name: { en: 'Kolej Komuniti Cawangan Rantau Panjang (Kolej Induk – Kolej Komuniti Pasir Mas)', zh: 'Kolej Komuniti Cawangan Rantau Panjang (Kolej Induk – Kolej Komuniti Pasir Mas)' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Kelantan',
-    website: null,
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-jeli',
-    name: { en: 'Kolej Komuniti Jeli', zh: 'Kolej Komuniti Jeli' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Kelantan',
-    website: 'https://kkjeli.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-cawangan-tanah-merah-kolej-induk-kolej-komuniti-jeli',
-    name: { en: 'Kolej Komuniti Cawangan Tanah Merah (Kolej Induk – Kolej Komuniti Jeli)', zh: 'Kolej Komuniti Cawangan Tanah Merah (Kolej Induk – Kolej Komuniti Jeli)' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Kelantan',
-    website: null,
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-kok-lanas',
-    name: { en: 'Kolej Komuniti Kok Lanas', zh: 'Kolej Komuniti Kok Lanas' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Kelantan',
-    website: 'https://kkkoklanas.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-kuching',
-    name: { en: 'Kolej Komuniti Kuching', zh: 'Kolej Komuniti Kuching' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Sarawak',
-    website: 'https://kkkuching.mypolycc.edu.my/v1/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-mas-gading',
-    name: { en: 'Kolej Komuniti Mas Gading', zh: 'Kolej Komuniti Mas Gading' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Sarawak',
-    website: 'https://kkmasgading.mypolycc.edu.my/v1/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-miri',
-    name: { en: 'Kolej Komuniti Miri', zh: 'Kolej Komuniti Miri' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Sarawak',
-    website: 'https://kkmiri.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-betong',
-    name: { en: 'Kolej Komuniti Betong', zh: 'Kolej Komuniti Betong' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Sarawak',
-    website: 'http://kkbetong.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-santubong',
-    name: { en: 'Kolej Komuniti Santubong', zh: 'Kolej Komuniti Santubong' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Sarawak',
-    website: 'https://kksantubong.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-sarikei',
-    name: { en: 'Kolej Komuniti Sarikei', zh: 'Kolej Komuniti Sarikei' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Sarawak',
-    website: 'https://kksarikei.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-cawangan-sibu-kolej-induk-kolej-komuniti-sarikei',
-    name: { en: 'Kolej Komuniti Cawangan Sibu (Kolej Induk – Kolej Komuniti Sarikei)', zh: 'Kolej Komuniti Cawangan Sibu (Kolej Induk – Kolej Komuniti Sarikei)' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Sarawak',
-    website: null,
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-tawau',
-    name: { en: 'Kolej Komuniti Tawau', zh: 'Kolej Komuniti Tawau' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Sabah',
-    website: 'http://kktawau.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-semporna',
-    name: { en: 'Kolej Komuniti Semporna', zh: 'Kolej Komuniti Semporna' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Sabah',
-    website: 'https://kksemporna.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-lahad-datu',
-    name: { en: 'Kolej Komuniti Lahad Datu', zh: 'Kolej Komuniti Lahad Datu' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Sabah',
-    website: 'https://kklahaddatu.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-sandakan',
-    name: { en: 'Kolej Komuniti Sandakan', zh: 'Kolej Komuniti Sandakan' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Sabah',
-    website: 'https://kksandakan.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-tambunan',
-    name: { en: 'Kolej Komuniti Tambunan', zh: 'Kolej Komuniti Tambunan' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Sabah',
-    website: 'https://kktambunan.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-beaufort',
-    name: { en: 'Kolej Komuniti Beaufort', zh: 'Kolej Komuniti Beaufort' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Sabah',
-    website: 'https://kkbeaufort.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-penampang',
-    name: { en: 'Kolej Komuniti Penampang', zh: 'Kolej Komuniti Penampang' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Sabah',
-    website: 'https://kkpenampang.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-kota-marudu',
-    name: { en: 'Kolej Komuniti Kota Marudu', zh: 'Kolej Komuniti Kota Marudu' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Sabah',
-    website: 'http://kkkotamarudu.mypolycc.edu.my/',
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
-  },
-  {
-    id: 'cc-kolej-komuniti-papar',
-    name: { en: 'Kolej Komuniti Papar', zh: 'Kolej Komuniti Papar' },
-    abbreviation: '',
-    type: 'Community College',
-    country: "Malaysia",
-    studyLocation: "domestic",
-    ownership: "public",
-    state: 'Sabah',
-    website: null,
-    institutionIds: [],
-    campuses: [],
-    dataStatus: "directory",
-    source: 'https://www.mohe.gov.my/muat-turun?id=52&view=category',
-    lastVerified: null
+    "abbreviation": "PIS",
+    "type": "Polytechnic",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Johor",
+    "website": "https://www.pis.edu.my/",
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.pis.edu.my/",
+    "lastVerified": null
+  },
+  {
+    "id": "uum",
+    "name": {
+      "en": "Universiti Utara Malaysia",
+      "zh": "马来西亚北方大学"
+    },
+    "abbreviation": "UUM",
+    "type": "Public University",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Kedah",
+    "website": "https://www.uum.edu.my/",
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
+    "lastVerified": "2026-11-15"
+  },
+  {
+    "id": "iium",
+    "name": {
+      "en": "International Islamic University Malaysia",
+      "zh": "马来西亚国际伊斯兰大学"
+    },
+    "abbreviation": "IIUM",
+    "type": "Public University",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Selangor",
+    "website": "https://www.iium.edu.my/",
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
+    "lastVerified": "2026-11-15"
+  },
+  {
+    "id": "umpsa",
+    "name": {
+      "en": "Universiti Malaysia Pahang Al-Sultan Abdullah",
+      "zh": "苏丹阿都拉大学"
+    },
+    "abbreviation": "UMPSA",
+    "type": "Public University",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Pahang",
+    "website": "https://www.umpsa.edu.my/",
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
+    "lastVerified": "2026-11-15"
+  },
+  {
+    "id": "umt",
+    "name": {
+      "en": "Universiti Malaysia Terengganu",
+      "zh": "马来西亚登嘉楼大学"
+    },
+    "abbreviation": "UMT",
+    "type": "Public University",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Terengganu",
+    "website": "https://www.umt.edu.my/",
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
+    "lastVerified": "2026-11-15"
+  },
+  {
+    "id": "unimap",
+    "name": {
+      "en": "Universiti Malaysia Perlis",
+      "zh": "马来西亚玻璃市大学"
+    },
+    "abbreviation": "UniMAP",
+    "type": "Public University",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Perlis",
+    "website": "https://www.unimap.edu.my/",
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
+    "lastVerified": "2026-11-15"
+  },
+  {
+    "id": "upsi",
+    "name": {
+      "en": "Universiti Pendidikan Sultan Idris",
+      "zh": "苏丹依德理斯教育大学"
+    },
+    "abbreviation": "UPSI",
+    "type": "Public University",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Perak",
+    "website": "https://www.upsi.edu.my/",
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
+    "lastVerified": "2026-11-15"
+  },
+  {
+    "id": "uthm",
+    "name": {
+      "en": "Universiti Tun Hussein Onn Malaysia",
+      "zh": "马来西亚敦胡先翁大学"
+    },
+    "abbreviation": "UTHM",
+    "type": "Public University",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Johor",
+    "website": "https://www.uthm.edu.my/",
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
+    "lastVerified": "2026-11-15"
+  },
+  {
+    "id": "utem",
+    "name": {
+      "en": "Universiti Teknikal Malaysia Melaka",
+      "zh": "马六甲技术大学"
+    },
+    "abbreviation": "UTeM",
+    "type": "Public University",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Melaka",
+    "website": "https://www.utem.edu.my/",
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
+    "lastVerified": "2026-11-15"
+  },
+  {
+    "id": "unisza",
+    "name": {
+      "en": "Universiti Sultan Zainal Abidin",
+      "zh": "苏丹再纳阿比丁大学"
+    },
+    "abbreviation": "UniSZA",
+    "type": "Public University",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Terengganu",
+    "website": "https://www.unisza.edu.my/",
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
+    "lastVerified": "2026-11-15"
+  },
+  {
+    "id": "usim",
+    "name": {
+      "en": "Universiti Sains Islam Malaysia",
+      "zh": "马来西亚伊斯兰科学大学"
+    },
+    "abbreviation": "USIM",
+    "type": "Public University",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Negeri Sembilan",
+    "website": "https://www.usim.edu.my/",
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
+    "lastVerified": "2026-11-15"
+  },
+  {
+    "id": "umk",
+    "name": {
+      "en": "Universiti Malaysia Kelantan",
+      "zh": "马来西亚吉兰丹大学"
+    },
+    "abbreviation": "UMK",
+    "type": "Public University",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Kelantan",
+    "website": "https://www.umk.edu.my/",
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
+    "lastVerified": "2026-11-15"
+  },
+  {
+    "id": "upnm",
+    "name": {
+      "en": "National Defence University of Malaysia",
+      "zh": "马来西亚国防大学"
+    },
+    "abbreviation": "UPNM",
+    "type": "Public University",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Kuala Lumpur",
+    "website": "https://www.upnm.edu.my/",
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://jpt.mohe.gov.my/portal/index.php/ms/korporat/19-ipt",
+    "lastVerified": "2026-11-15"
+  },
+  {
+    "id": "aimst",
+    "name": {
+      "en": "AIMST University",
+      "zh": "亚太科技与创新大学"
+    },
+    "abbreviation": "AIMST",
+    "type": "Private Higher Education Institution",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "private",
+    "state": "Kedah",
+    "website": "https://www.aimst.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "description": {
+      "en": "Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.",
+      "zh": "院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm",
+    "lastVerified": null
+  },
+  {
+    "id": "albukhary",
+    "name": {
+      "en": "Albukhary International University",
+      "zh": "亚布卡里国际大学"
+    },
+    "abbreviation": "AIU",
+    "type": "Private Higher Education Institution",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "private",
+    "state": "Kedah",
+    "website": "https://aiu.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "description": {
+      "en": "Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.",
+      "zh": "院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm",
+    "lastVerified": null
+  },
+  {
+    "id": "mediu",
+    "name": {
+      "en": "Al-Madinah International University",
+      "zh": "麦地那国际大学"
+    },
+    "abbreviation": "MEDIU",
+    "type": "Private Higher Education Institution",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "private",
+    "state": "Selangor",
+    "website": "https://www.mediu.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "description": {
+      "en": "Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.",
+      "zh": "院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm",
+    "lastVerified": null
+  },
+  {
+    "id": "aeu",
+    "name": {
+      "en": "Asia e University",
+      "zh": "亚洲电子大学"
+    },
+    "abbreviation": "AeU",
+    "type": "Private Higher Education Institution",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "private",
+    "state": "Selangor",
+    "website": "https://aeu.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "description": {
+      "en": "Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.",
+      "zh": "院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm",
+    "lastVerified": null
+  },
+  {
+    "id": "asia-metropolitan",
+    "name": {
+      "en": "Asia Metropolitan University",
+      "zh": "亚洲都会大学"
+    },
+    "abbreviation": "AMU",
+    "type": "Private Higher Education Institution",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "private",
+    "state": "Johor",
+    "website": "https://amu.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "description": {
+      "en": "Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.",
+      "zh": "院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm",
+    "lastVerified": null
+  },
+  {
+    "id": "asia-school-business",
+    "name": {
+      "en": "Asia School of Business",
+      "zh": "亚洲商学院"
+    },
+    "abbreviation": "ASB",
+    "type": "Private Higher Education Institution",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "private",
+    "state": "Kuala Lumpur",
+    "website": "https://asb.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "description": {
+      "en": "Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.",
+      "zh": "院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm",
+    "lastVerified": null
+  },
+  {
+    "id": "binary",
+    "name": {
+      "en": "Binary University",
+      "zh": "百纳利大学"
+    },
+    "abbreviation": "BINARY",
+    "type": "Private Higher Education Institution",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "private",
+    "state": "Selangor",
+    "website": "https://binary.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "description": {
+      "en": "Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.",
+      "zh": "院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm",
+    "lastVerified": null
+  },
+  {
+    "id": "city-university",
+    "name": {
+      "en": "City University Malaysia",
+      "zh": "城市大学"
+    },
+    "abbreviation": "CITY",
+    "type": "Private Higher Education Institution",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "private",
+    "state": "Selangor",
+    "website": "https://city.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "description": {
+      "en": "Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.",
+      "zh": "院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm",
+    "lastVerified": null
+  },
+  {
+    "id": "drb-hicom",
+    "name": {
+      "en": "DRB-HICOM University of Automotive Malaysia",
+      "zh": "DRB-HICOM 汽车大学"
+    },
+    "abbreviation": "DRB-HICOM",
+    "type": "Private Higher Education Institution",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "private",
+    "state": "Pahang",
+    "website": "https://www.dhu.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "description": {
+      "en": "Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.",
+      "zh": "院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm",
+    "lastVerified": null
+  },
+  {
+    "id": "globalnxt",
+    "name": {
+      "en": "GlobalNxt University",
+      "zh": "GlobalNxt 大学"
+    },
+    "abbreviation": "GNU",
+    "type": "Private Higher Education Institution",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "private",
+    "state": "Kuala Lumpur",
+    "website": "https://www.globalnxt.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "description": {
+      "en": "Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.",
+      "zh": "院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm",
+    "lastVerified": null
+  },
+  {
+    "id": "imu",
+    "name": {
+      "en": "IMU University",
+      "zh": "国际医药大学"
+    },
+    "abbreviation": "IMU",
+    "type": "Private Higher Education Institution",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "private",
+    "state": "Kuala Lumpur",
+    "website": "https://imu.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "description": {
+      "en": "Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.",
+      "zh": "院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm",
+    "lastVerified": null
+  },
+  {
+    "id": "inceif",
+    "name": {
+      "en": "INCEIF University",
+      "zh": "国际伊斯兰金融教育中心大学"
+    },
+    "abbreviation": "INCEIF",
+    "type": "Private Higher Education Institution",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "private",
+    "state": "Kuala Lumpur",
+    "website": "https://inceif.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "description": {
+      "en": "Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.",
+      "zh": "院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm",
+    "lastVerified": null
+  },
+  {
+    "id": "inti",
+    "name": {
+      "en": "INTI International University",
+      "zh": "英迪国际大学"
+    },
+    "abbreviation": "INTI",
+    "type": "Private Higher Education Institution",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "private",
+    "state": "Negeri Sembilan",
+    "website": "https://newinti.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "description": {
+      "en": "Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.",
+      "zh": "院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm",
+    "lastVerified": null
+  },
+  {
+    "id": "kpj-healthcare",
+    "name": {
+      "en": "KPJ Healthcare University",
+      "zh": "KPJ 医疗保健大学"
+    },
+    "abbreviation": "KPJ",
+    "type": "Private Higher Education Institution",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "private",
+    "state": "Negeri Sembilan",
+    "website": "https://kpju.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "description": {
+      "en": "Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.",
+      "zh": "院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm",
+    "lastVerified": null
+  },
+  {
+    "id": "klust",
+    "name": {
+      "en": "Kuala Lumpur University of Science and Technology",
+      "zh": "吉隆坡科技大学"
+    },
+    "abbreviation": "KLUST",
+    "type": "Private Higher Education Institution",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "private",
+    "state": "Selangor",
+    "website": "https://klust.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "description": {
+      "en": "Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.",
+      "zh": "院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm",
+    "lastVerified": null
+  },
+  {
+    "id": "limkokwing",
+    "name": {
+      "en": "Limkokwing University of Creative Technology",
+      "zh": "林国荣创意科技大学"
+    },
+    "abbreviation": "LUCT",
+    "type": "Private Higher Education Institution",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "private",
+    "state": "Selangor",
+    "website": "https://www.limkokwing.net/",
+    "institutionIds": [],
+    "campuses": [],
+    "description": {
+      "en": "Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.",
+      "zh": "院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm",
+    "lastVerified": null
+  },
+  {
+    "id": "mahsa",
+    "name": {
+      "en": "MAHSA University",
+      "zh": "玛莎大学"
+    },
+    "abbreviation": "MAHSA",
+    "type": "Private Higher Education Institution",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "private",
+    "state": "Selangor",
+    "website": "https://mahsa.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "description": {
+      "en": "Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.",
+      "zh": "院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm",
+    "lastVerified": null
+  },
+  {
+    "id": "must",
+    "name": {
+      "en": "Malaysia University of Science and Technology",
+      "zh": "马来西亚科技大学"
+    },
+    "abbreviation": "MUST",
+    "type": "Private Higher Education Institution",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "private",
+    "state": "Selangor",
+    "website": "https://must.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "description": {
+      "en": "Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.",
+      "zh": "院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm",
+    "lastVerified": null
+  },
+  {
+    "id": "msu",
+    "name": {
+      "en": "Management and Science University",
+      "zh": "管理与科学大学"
+    },
+    "abbreviation": "MSU",
+    "type": "Private Higher Education Institution",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "private",
+    "state": "Selangor",
+    "website": "https://www.msu.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "description": {
+      "en": "Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.",
+      "zh": "院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm",
+    "lastVerified": null
+  },
+  {
+    "id": "mila",
+    "name": {
+      "en": "MILA University",
+      "zh": "MILA 大学"
+    },
+    "abbreviation": "MILA",
+    "type": "Private Higher Education Institution",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "private",
+    "state": "Negeri Sembilan",
+    "website": "https://mila.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "description": {
+      "en": "Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.",
+      "zh": "院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm",
+    "lastVerified": null
+  },
+  {
+    "id": "nilai",
+    "name": {
+      "en": "Nilai University",
+      "zh": "汝来大学"
+    },
+    "abbreviation": "NILAI",
+    "type": "Private Higher Education Institution",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "private",
+    "state": "Negeri Sembilan",
+    "website": "https://www.nilai.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "description": {
+      "en": "Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.",
+      "zh": "院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm",
+    "lastVerified": null
+  },
+  {
+    "id": "segi",
+    "name": {
+      "en": "SEGi University",
+      "zh": "世纪大学"
+    },
+    "abbreviation": "SEGi",
+    "type": "Private Higher Education Institution",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "private",
+    "state": "Selangor",
+    "website": "https://www.segi.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "description": {
+      "en": "Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.",
+      "zh": "院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm",
+    "lastVerified": null
+  },
+  {
+    "id": "unitar",
+    "name": {
+      "en": "UNITAR International University",
+      "zh": "UNITAR 国际大学"
+    },
+    "abbreviation": "UNITAR",
+    "type": "Private Higher Education Institution",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "private",
+    "state": "Selangor",
+    "website": "https://www.unitar.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "description": {
+      "en": "Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.",
+      "zh": "院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm",
+    "lastVerified": null
+  },
+  {
+    "id": "uniten",
+    "name": {
+      "en": "Universiti Tenaga Nasional",
+      "zh": "国家能源大学"
+    },
+    "abbreviation": "UNITEN",
+    "type": "Private Higher Education Institution",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "private",
+    "state": "Selangor",
+    "website": "https://www.uniten.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "description": {
+      "en": "Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.",
+      "zh": "院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm",
+    "lastVerified": null
+  },
+  {
+    "id": "unikl",
+    "name": {
+      "en": "Universiti Kuala Lumpur",
+      "zh": "吉隆坡大学"
+    },
+    "abbreviation": "UniKL",
+    "type": "Private Higher Education Institution",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "private",
+    "state": "Kuala Lumpur",
+    "website": "https://www.unikl.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "description": {
+      "en": "Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.",
+      "zh": "院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm",
+    "lastVerified": null
+  },
+  {
+    "id": "curtin-malaysia",
+    "name": {
+      "en": "Curtin University Malaysia",
+      "zh": "科廷大学马来西亚校区"
+    },
+    "abbreviation": "CURTIN",
+    "type": "Foreign Branch Campus",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "foreign-branch",
+    "state": "Sarawak",
+    "website": "https://www.curtin.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "parentUniversity": "Curtin University",
+    "parentCountry": "Australia",
+    "description": {
+      "en": "Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.",
+      "zh": "院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm",
+    "lastVerified": null
+  },
+  {
+    "id": "swinburne-sarawak",
+    "name": {
+      "en": "Swinburne University of Technology Sarawak Campus",
+      "zh": "斯威本科技大学砂拉越校区"
+    },
+    "abbreviation": "SWINBURNE",
+    "type": "Foreign Branch Campus",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "foreign-branch",
+    "state": "Sarawak",
+    "website": "https://www.swinburne.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "parentUniversity": "Swinburne University of Technology",
+    "parentCountry": "Australia",
+    "description": {
+      "en": "Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.",
+      "zh": "院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm",
+    "lastVerified": null
+  },
+  {
+    "id": "heriot-watt-malaysia",
+    "name": {
+      "en": "Heriot-Watt University Malaysia",
+      "zh": "赫瑞瓦特大学马来西亚校区"
+    },
+    "abbreviation": "HWUM",
+    "type": "Foreign Branch Campus",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "foreign-branch",
+    "state": "Putrajaya",
+    "website": "https://www.hw.ac.uk/malaysia/",
+    "institutionIds": [],
+    "campuses": [],
+    "parentUniversity": "Heriot-Watt University",
+    "parentCountry": "United Kingdom",
+    "description": {
+      "en": "Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.",
+      "zh": "院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm",
+    "lastVerified": null
+  },
+  {
+    "id": "newcastle-medicine-malaysia",
+    "name": {
+      "en": "Newcastle University Medicine Malaysia",
+      "zh": "纽卡斯尔大学医学马来西亚校区"
+    },
+    "abbreviation": "NUMed",
+    "type": "Foreign Branch Campus",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "foreign-branch",
+    "state": "Johor",
+    "website": "https://www.ncl.ac.uk/numed/",
+    "institutionIds": [],
+    "campuses": [],
+    "parentUniversity": "Newcastle University",
+    "parentCountry": "United Kingdom",
+    "description": {
+      "en": "Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.",
+      "zh": "院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm",
+    "lastVerified": null
+  },
+  {
+    "id": "southampton-malaysia",
+    "name": {
+      "en": "University of Southampton Malaysia",
+      "zh": "南安普顿大学马来西亚校区"
+    },
+    "abbreviation": "UoSM",
+    "type": "Foreign Branch Campus",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "foreign-branch",
+    "state": "Johor",
+    "website": "https://www.southamptonmalaysia.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "parentUniversity": "University of Southampton",
+    "parentCountry": "United Kingdom",
+    "description": {
+      "en": "Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.",
+      "zh": "院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm",
+    "lastVerified": null
+  },
+  {
+    "id": "xiamen-malaysia",
+    "name": {
+      "en": "Xiamen University Malaysia",
+      "zh": "厦门大学马来西亚分校"
+    },
+    "abbreviation": "XMUM",
+    "type": "Foreign Branch Campus",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "foreign-branch",
+    "state": "Selangor",
+    "website": "https://www.xmu.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "parentUniversity": "Xiamen University",
+    "parentCountry": "China",
+    "description": {
+      "en": "Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.",
+      "zh": "院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm",
+    "lastVerified": null
+  },
+  {
+    "id": "reading-malaysia",
+    "name": {
+      "en": "University of Reading Malaysia",
+      "zh": "雷丁大学马来西亚校区"
+    },
+    "abbreviation": "UoRM",
+    "type": "Foreign Branch Campus",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "foreign-branch",
+    "state": "Johor",
+    "website": "https://www.reading.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "parentUniversity": "University of Reading",
+    "parentCountry": "United Kingdom",
+    "description": {
+      "en": "Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.",
+      "zh": "院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm",
+    "lastVerified": null
+  },
+  {
+    "id": "rcsi-ucd-malaysia",
+    "name": {
+      "en": "RCSI & UCD Malaysia Campus",
+      "zh": "爱尔兰皇家外科医学院与都柏林大学学院马来西亚校区"
+    },
+    "abbreviation": "RUMC",
+    "type": "Foreign Branch Campus",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "foreign-branch",
+    "state": "Penang",
+    "website": "https://www.rcsiucd.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "parentUniversity": "Royal College of Surgeons in Ireland & University College Dublin",
+    "parentCountry": "Ireland",
+    "description": {
+      "en": "Official institutional directory entry. Programme availability, admission requirements, fees and accreditation must be checked on the institution website and relevant regulator register.",
+      "zh": "院校目录记录。具体课程、入学条件、学费及认证状态须以院校官网和相关监管机构登记为准。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www2.mqa.gov.my/mqr/english/eakrbyipts.cfm",
+    "lastVerified": null
+  },
+  {
+    "id": "nus",
+    "name": {
+      "en": "National University of Singapore",
+      "zh": "新加坡国立大学"
+    },
+    "abbreviation": "NUS",
+    "type": "International University",
+    "country": "Singapore",
+    "studyLocation": "international",
+    "ownership": "public",
+    "state": "Singapore",
+    "website": "https://www.nus.edu.sg/",
+    "institutionIds": [],
+    "campuses": [],
+    "description": {
+      "en": "International institution directory entry. Confirm programme availability, admissions, fees and recognition with the institution and the relevant national authority.",
+      "zh": "国际院校目录记录。课程、入学条件、学费及学历认可须向院校及当地监管机构核实。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www.nus.edu.sg/",
+    "lastVerified": null
+  },
+  {
+    "id": "ntu",
+    "name": {
+      "en": "Nanyang Technological University",
+      "zh": "南洋理工大学"
+    },
+    "abbreviation": "NTU",
+    "type": "International University",
+    "country": "Singapore",
+    "studyLocation": "international",
+    "ownership": "public",
+    "state": "Singapore",
+    "website": "https://www.ntu.edu.sg/",
+    "institutionIds": [],
+    "campuses": [],
+    "description": {
+      "en": "International institution directory entry. Confirm programme availability, admissions, fees and recognition with the institution and the relevant national authority.",
+      "zh": "国际院校目录记录。课程、入学条件、学费及学历认可须向院校及当地监管机构核实。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www.ntu.edu.sg/",
+    "lastVerified": null
+  },
+  {
+    "id": "oxford",
+    "name": {
+      "en": "University of Oxford",
+      "zh": "牛津大学"
+    },
+    "abbreviation": "Oxford",
+    "type": "International University",
+    "country": "United Kingdom",
+    "studyLocation": "international",
+    "ownership": "public",
+    "state": "Oxford",
+    "website": "https://www.ox.ac.uk/",
+    "institutionIds": [],
+    "campuses": [],
+    "description": {
+      "en": "International institution directory entry. Confirm programme availability, admissions, fees and recognition with the institution and the relevant national authority.",
+      "zh": "国际院校目录记录。课程、入学条件、学费及学历认可须向院校及当地监管机构核实。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www.ox.ac.uk/",
+    "lastVerified": null
+  },
+  {
+    "id": "imperial",
+    "name": {
+      "en": "Imperial College London",
+      "zh": "帝国理工学院"
+    },
+    "abbreviation": "Imperial",
+    "type": "International University",
+    "country": "United Kingdom",
+    "studyLocation": "international",
+    "ownership": "public",
+    "state": "London",
+    "website": "https://www.imperial.ac.uk/",
+    "institutionIds": [],
+    "campuses": [],
+    "description": {
+      "en": "International institution directory entry. Confirm programme availability, admissions, fees and recognition with the institution and the relevant national authority.",
+      "zh": "国际院校目录记录。课程、入学条件、学费及学历认可须向院校及当地监管机构核实。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www.imperial.ac.uk/",
+    "lastVerified": null
+  },
+  {
+    "id": "melbourne",
+    "name": {
+      "en": "The University of Melbourne",
+      "zh": "墨尔本大学"
+    },
+    "abbreviation": "UniMelb",
+    "type": "International University",
+    "country": "Australia",
+    "studyLocation": "international",
+    "ownership": "public",
+    "state": "Victoria",
+    "website": "https://www.unimelb.edu.au/",
+    "institutionIds": [],
+    "campuses": [],
+    "description": {
+      "en": "International institution directory entry. Confirm programme availability, admissions, fees and recognition with the institution and the relevant national authority.",
+      "zh": "国际院校目录记录。课程、入学条件、学费及学历认可须向院校及当地监管机构核实。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www.unimelb.edu.au/",
+    "lastVerified": null
+  },
+  {
+    "id": "unsw",
+    "name": {
+      "en": "The University of New South Wales",
+      "zh": "新南威尔士大学"
+    },
+    "abbreviation": "UNSW",
+    "type": "International University",
+    "country": "Australia",
+    "studyLocation": "international",
+    "ownership": "public",
+    "state": "New South Wales",
+    "website": "https://www.unsw.edu.au/",
+    "institutionIds": [],
+    "campuses": [],
+    "description": {
+      "en": "International institution directory entry. Confirm programme availability, admissions, fees and recognition with the institution and the relevant national authority.",
+      "zh": "国际院校目录记录。课程、入学条件、学费及学历认可须向院校及当地监管机构核实。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www.unsw.edu.au/",
+    "lastVerified": null
+  },
+  {
+    "id": "mit",
+    "name": {
+      "en": "Massachusetts Institute of Technology",
+      "zh": "麻省理工学院"
+    },
+    "abbreviation": "MIT",
+    "type": "International University",
+    "country": "United States",
+    "studyLocation": "international",
+    "ownership": "private",
+    "state": "Massachusetts",
+    "website": "https://www.mit.edu/",
+    "institutionIds": [],
+    "campuses": [],
+    "description": {
+      "en": "International institution directory entry. Confirm programme availability, admissions, fees and recognition with the institution and the relevant national authority.",
+      "zh": "国际院校目录记录。课程、入学条件、学费及学历认可须向院校及当地监管机构核实。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www.mit.edu/",
+    "lastVerified": null
+  },
+  {
+    "id": "stanford",
+    "name": {
+      "en": "Stanford University",
+      "zh": "斯坦福大学"
+    },
+    "abbreviation": "Stanford",
+    "type": "International University",
+    "country": "United States",
+    "studyLocation": "international",
+    "ownership": "private",
+    "state": "California",
+    "website": "https://www.stanford.edu/",
+    "institutionIds": [],
+    "campuses": [],
+    "description": {
+      "en": "International institution directory entry. Confirm programme availability, admissions, fees and recognition with the institution and the relevant national authority.",
+      "zh": "国际院校目录记录。课程、入学条件、学费及学历认可须向院校及当地监管机构核实。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www.stanford.edu/",
+    "lastVerified": null
+  },
+  {
+    "id": "tokyo",
+    "name": {
+      "en": "The University of Tokyo",
+      "zh": "东京大学"
+    },
+    "abbreviation": "UTokyo",
+    "type": "International University",
+    "country": "Japan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "state": "Tokyo",
+    "website": "https://www.u-tokyo.ac.jp/en/",
+    "institutionIds": [],
+    "campuses": [],
+    "description": {
+      "en": "International institution directory entry. Confirm programme availability, admissions, fees and recognition with the institution and the relevant national authority.",
+      "zh": "国际院校目录记录。课程、入学条件、学费及学历认可须向院校及当地监管机构核实。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www.u-tokyo.ac.jp/en/",
+    "lastVerified": null
+  },
+  {
+    "id": "kyoto",
+    "name": {
+      "en": "Kyoto University",
+      "zh": "京都大学"
+    },
+    "abbreviation": "KyotoU",
+    "type": "International University",
+    "country": "Japan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "state": "Kyoto",
+    "website": "https://www.kyoto-u.ac.jp/en",
+    "institutionIds": [],
+    "campuses": [],
+    "description": {
+      "en": "International institution directory entry. Confirm programme availability, admissions, fees and recognition with the institution and the relevant national authority.",
+      "zh": "国际院校目录记录。课程、入学条件、学费及学历认可须向院校及当地监管机构核实。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www.kyoto-u.ac.jp/en",
+    "lastVerified": null
+  },
+  {
+    "id": "snu",
+    "name": {
+      "en": "Seoul National University",
+      "zh": "首尔大学"
+    },
+    "abbreviation": "SNU",
+    "type": "International University",
+    "country": "South Korea",
+    "studyLocation": "international",
+    "ownership": "public",
+    "state": "Seoul",
+    "website": "https://en.snu.ac.kr/",
+    "institutionIds": [],
+    "campuses": [],
+    "description": {
+      "en": "International institution directory entry. Confirm programme availability, admissions, fees and recognition with the institution and the relevant national authority.",
+      "zh": "国际院校目录记录。课程、入学条件、学费及学历认可须向院校及当地监管机构核实。"
+    },
+    "dataStatus": "directory",
+    "source": "https://en.snu.ac.kr/",
+    "lastVerified": null
+  },
+  {
+    "id": "kaist",
+    "name": {
+      "en": "Korea Advanced Institute of Science and Technology",
+      "zh": "韩国科学技术院"
+    },
+    "abbreviation": "KAIST",
+    "type": "International University",
+    "country": "South Korea",
+    "studyLocation": "international",
+    "ownership": "public",
+    "state": "Daejeon",
+    "website": "https://www.kaist.ac.kr/en/",
+    "institutionIds": [],
+    "campuses": [],
+    "description": {
+      "en": "International institution directory entry. Confirm programme availability, admissions, fees and recognition with the institution and the relevant national authority.",
+      "zh": "国际院校目录记录。课程、入学条件、学费及学历认可须向院校及当地监管机构核实。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www.kaist.ac.kr/en/",
+    "lastVerified": null
+  },
+  {
+    "id": "tsinghua",
+    "name": {
+      "en": "Tsinghua University",
+      "zh": "清华大学"
+    },
+    "abbreviation": "THU",
+    "type": "Public University · Project 985",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "state": "Beijing",
+    "website": "https://www.tsinghua.edu.cn/en/",
+    "institutionIds": [],
+    "campuses": [],
+    "description": {
+      "en": "International institution directory entry. Confirm programme availability, admissions, fees and recognition with the institution and the relevant national authority.",
+      "zh": "国际院校目录记录。课程、入学条件、学费及学历认可须向院校及当地监管机构核实。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+    "lastVerified": null,
+    "classificationTags": [
+      "985",
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "ownershipLabel": "Public University"
+  },
+  {
+    "id": "peking",
+    "name": {
+      "en": "Peking University",
+      "zh": "北京大学"
+    },
+    "abbreviation": "PKU",
+    "type": "Public University · Project 985",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "state": "Beijing",
+    "website": "https://english.pku.edu.cn/",
+    "institutionIds": [],
+    "campuses": [],
+    "description": {
+      "en": "International institution directory entry. Confirm programme availability, admissions, fees and recognition with the institution and the relevant national authority.",
+      "zh": "国际院校目录记录。课程、入学条件、学费及学历认可须向院校及当地监管机构核实。"
+    },
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+    "lastVerified": null,
+    "classificationTags": [
+      "985",
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "ownershipLabel": "Public University"
+  },
+  {
+    "id": "poly-politeknik-sultan-haji-ahmad-shah",
+    "name": {
+      "en": "Politeknik Sultan Haji Ahmad Shah",
+      "zh": "Politeknik Sultan Haji Ahmad Shah"
+    },
+    "abbreviation": "POLISAS",
+    "type": "Polytechnic",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Pahang",
+    "website": "https://www.polisas.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik",
+    "lastVerified": null
+  },
+  {
+    "id": "poly-politeknik-sultan-abdul-halim-muadzam-shah",
+    "name": {
+      "en": "Politeknik Sultan Abdul Halim Mu’adzam Shah",
+      "zh": "Politeknik Sultan Abdul Halim Mu’adzam Shah"
+    },
+    "abbreviation": "POLIMAS",
+    "type": "Polytechnic",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Kedah",
+    "website": "https://polimas.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik",
+    "lastVerified": null
+  },
+  {
+    "id": "poly-politeknik-kota-bharu",
+    "name": {
+      "en": "Politeknik Kota Bharu",
+      "zh": "Politeknik Kota Bharu"
+    },
+    "abbreviation": "PKB",
+    "type": "Polytechnic",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Kelantan",
+    "website": "https://pkb.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik",
+    "lastVerified": null
+  },
+  {
+    "id": "poly-politeknik-kuching-sarawak",
+    "name": {
+      "en": "Politeknik Kuching Sarawak",
+      "zh": "Politeknik Kuching Sarawak"
+    },
+    "abbreviation": "PKS",
+    "type": "Polytechnic",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Sarawak",
+    "website": "https://poliku.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik",
+    "lastVerified": null
+  },
+  {
+    "id": "poly-politeknik-port-dickson",
+    "name": {
+      "en": "Politeknik Port Dickson",
+      "zh": "Politeknik Port Dickson"
+    },
+    "abbreviation": "PPD",
+    "type": "Polytechnic",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Negeri Sembilan",
+    "website": "https://polipd.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik",
+    "lastVerified": null
+  },
+  {
+    "id": "poly-politeknik-kota-kinabalu",
+    "name": {
+      "en": "Politeknik Kota Kinabalu",
+      "zh": "Politeknik Kota Kinabalu"
+    },
+    "abbreviation": "PKK",
+    "type": "Polytechnic",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Sabah",
+    "website": "https://polikk.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik",
+    "lastVerified": null
+  },
+  {
+    "id": "poly-politeknik-sultan-salahuddin-abdul-aziz-shah",
+    "name": {
+      "en": "Politeknik Sultan Salahuddin Abdul Aziz Shah",
+      "zh": "Politeknik Sultan Salahuddin Abdul Aziz Shah"
+    },
+    "abbreviation": "PSA",
+    "type": "Polytechnic",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Selangor",
+    "website": "https://psa.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik",
+    "lastVerified": null
+  },
+  {
+    "id": "poly-politeknik-seberang-perai",
+    "name": {
+      "en": "Politeknik Seberang Perai",
+      "zh": "Politeknik Seberang Perai"
+    },
+    "abbreviation": "PSP",
+    "type": "Polytechnic",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Penang",
+    "website": "https://www.psp.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik",
+    "lastVerified": null
+  },
+  {
+    "id": "poly-politeknik-melaka",
+    "name": {
+      "en": "Politeknik Melaka",
+      "zh": "Politeknik Melaka"
+    },
+    "abbreviation": "PMK",
+    "type": "Polytechnic",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Melaka",
+    "website": "https://polimelaka.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik",
+    "lastVerified": null
+  },
+  {
+    "id": "poly-politeknik-kuala-terengganu",
+    "name": {
+      "en": "Politeknik Kuala Terengganu",
+      "zh": "Politeknik Kuala Terengganu"
+    },
+    "abbreviation": "PKT",
+    "type": "Polytechnic",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Terengganu",
+    "website": "https://pkt.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik",
+    "lastVerified": null
+  },
+  {
+    "id": "poly-politeknik-sultan-mizan-zainal-abidin",
+    "name": {
+      "en": "Politeknik Sultan Mizan Zainal Abidin",
+      "zh": "Politeknik Sultan Mizan Zainal Abidin"
+    },
+    "abbreviation": "PSMZA",
+    "type": "Polytechnic",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Terengganu",
+    "website": "https://psmza.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik",
+    "lastVerified": null
+  },
+  {
+    "id": "poly-politeknik-merlimau",
+    "name": {
+      "en": "Politeknik Merlimau",
+      "zh": "Politeknik Merlimau"
+    },
+    "abbreviation": "PMM",
+    "type": "Polytechnic",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Melaka",
+    "website": "https://pmm.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik",
+    "lastVerified": null
+  },
+  {
+    "id": "poly-politeknik-sultan-azlan-shah",
+    "name": {
+      "en": "Politeknik Sultan Azlan Shah",
+      "zh": "Politeknik Sultan Azlan Shah"
+    },
+    "abbreviation": "PSAS",
+    "type": "Polytechnic",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Perak",
+    "website": "https://psas.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik",
+    "lastVerified": null
+  },
+  {
+    "id": "poly-politeknik-tuanku-sultanah-bahiyah",
+    "name": {
+      "en": "Politeknik Tuanku Sultanah Bahiyah",
+      "zh": "Politeknik Tuanku Sultanah Bahiyah"
+    },
+    "abbreviation": "PTSB",
+    "type": "Polytechnic",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Kedah",
+    "website": "https://ptsb.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik",
+    "lastVerified": null
+  },
+  {
+    "id": "poly-politeknik-sultan-idris-shah",
+    "name": {
+      "en": "Politeknik Sultan Idris Shah",
+      "zh": "Politeknik Sultan Idris Shah"
+    },
+    "abbreviation": "PSIS",
+    "type": "Polytechnic",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Selangor",
+    "website": "https://psis.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik",
+    "lastVerified": null
+  },
+  {
+    "id": "poly-politeknik-tuanku-syed-sirajuddin",
+    "name": {
+      "en": "Politeknik Tuanku Syed Sirajuddin",
+      "zh": "Politeknik Tuanku Syed Sirajuddin"
+    },
+    "abbreviation": "PTSS",
+    "type": "Polytechnic",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Perlis",
+    "website": "https://ptss.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik",
+    "lastVerified": null
+  },
+  {
+    "id": "poly-politeknik-muadzam-shah",
+    "name": {
+      "en": "Politeknik Muadzam Shah",
+      "zh": "Politeknik Muadzam Shah"
+    },
+    "abbreviation": "PMS",
+    "type": "Polytechnic",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Pahang",
+    "website": "https://pms.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik",
+    "lastVerified": null
+  },
+  {
+    "id": "poly-politeknik-mukah-sarawak",
+    "name": {
+      "en": "Politeknik Mukah Sarawak",
+      "zh": "Politeknik Mukah Sarawak"
+    },
+    "abbreviation": "PMU",
+    "type": "Polytechnic",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Sarawak",
+    "website": "https://pmu.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik",
+    "lastVerified": null
+  },
+  {
+    "id": "poly-politeknik-balik-pulau",
+    "name": {
+      "en": "Politeknik Balik Pulau",
+      "zh": "Politeknik Balik Pulau"
+    },
+    "abbreviation": "PBU",
+    "type": "Polytechnic",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Penang",
+    "website": "https://pbu.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik",
+    "lastVerified": null
+  },
+  {
+    "id": "poly-politeknik-jeli",
+    "name": {
+      "en": "Politeknik Jeli",
+      "zh": "Politeknik Jeli"
+    },
+    "abbreviation": "PJK",
+    "type": "Polytechnic",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Kelantan",
+    "website": null,
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik",
+    "lastVerified": null
+  },
+  {
+    "id": "poly-politeknik-nilai",
+    "name": {
+      "en": "Politeknik Nilai",
+      "zh": "Politeknik Nilai"
+    },
+    "abbreviation": "PNS",
+    "type": "Polytechnic",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Negeri Sembilan",
+    "website": null,
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik",
+    "lastVerified": null
+  },
+  {
+    "id": "poly-politeknik-banting",
+    "name": {
+      "en": "Politeknik Banting",
+      "zh": "Politeknik Banting"
+    },
+    "abbreviation": "PBS",
+    "type": "Polytechnic",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Selangor",
+    "website": "https://pbs.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik",
+    "lastVerified": null
+  },
+  {
+    "id": "poly-politeknik-mersing",
+    "name": {
+      "en": "Politeknik Mersing",
+      "zh": "Politeknik Mersing"
+    },
+    "abbreviation": "PMJ",
+    "type": "Polytechnic",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Johor",
+    "website": "https://pmj.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik",
+    "lastVerified": null
+  },
+  {
+    "id": "poly-politeknik-hulu-terengganu",
+    "name": {
+      "en": "Politeknik Hulu Terengganu",
+      "zh": "Politeknik Hulu Terengganu"
+    },
+    "abbreviation": "PHT",
+    "type": "Polytechnic",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Terengganu",
+    "website": "https://pht.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik",
+    "lastVerified": null
+  },
+  {
+    "id": "poly-politeknik-sandakan-sabah",
+    "name": {
+      "en": "Politeknik Sandakan Sabah",
+      "zh": "Politeknik Sandakan Sabah"
+    },
+    "abbreviation": "PSS",
+    "type": "Polytechnic",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Sabah",
+    "website": "https://pss.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik",
+    "lastVerified": null
+  },
+  {
+    "id": "poly-politeknik-metro-kuala-lumpur",
+    "name": {
+      "en": "Politeknik METrO Kuala Lumpur",
+      "zh": "Politeknik METrO Kuala Lumpur"
+    },
+    "abbreviation": "PMKL",
+    "type": "Polytechnic",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Kuala Lumpur",
+    "website": "https://pmkl.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik",
+    "lastVerified": null
+  },
+  {
+    "id": "poly-politeknik-metro-kuantan",
+    "name": {
+      "en": "Politeknik METrO Kuantan",
+      "zh": "Politeknik METrO Kuantan"
+    },
+    "abbreviation": "PMKU",
+    "type": "Polytechnic",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Pahang",
+    "website": "https://pmku.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik",
+    "lastVerified": null
+  },
+  {
+    "id": "poly-politeknik-metro-johor-bahru",
+    "name": {
+      "en": "Politeknik METrO Johor Bahru",
+      "zh": "Politeknik METrO Johor Bahru"
+    },
+    "abbreviation": "PMJB",
+    "type": "Polytechnic",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Johor",
+    "website": "https://pmjb.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik",
+    "lastVerified": null
+  },
+  {
+    "id": "poly-politeknik-metro-betong-sarawak",
+    "name": {
+      "en": "Politeknik METrO Betong Sarawak",
+      "zh": "Politeknik METrO Betong Sarawak"
+    },
+    "abbreviation": "PMBS",
+    "type": "Polytechnic",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Sarawak",
+    "website": "https://www.pmbs.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik",
+    "lastVerified": null
+  },
+  {
+    "id": "poly-politeknik-metro-tasek-gelugor",
+    "name": {
+      "en": "Politeknik METrO Tasek Gelugor",
+      "zh": "Politeknik METrO Tasek Gelugor"
+    },
+    "abbreviation": "PMTG",
+    "type": "Polytechnic",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Penang",
+    "website": "https://pmtg.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik",
+    "lastVerified": null
+  },
+  {
+    "id": "poly-politeknik-tun-syed-nasir-syed-ismail",
+    "name": {
+      "en": "Politeknik Tun Syed Nasir Syed Ismail",
+      "zh": "Politeknik Tun Syed Nasir Syed Ismail"
+    },
+    "abbreviation": "PTSN",
+    "type": "Polytechnic",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Johor",
+    "website": "https://ptsn.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik",
+    "lastVerified": null
+  },
+  {
+    "id": "poly-politeknik-besut",
+    "name": {
+      "en": "Politeknik Besut",
+      "zh": "Politeknik Besut"
+    },
+    "abbreviation": "PBT",
+    "type": "Polytechnic",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Terengganu",
+    "website": "https://polibesut.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik",
+    "lastVerified": null
+  },
+  {
+    "id": "poly-politeknik-maritim-sultan-nazrin-shah",
+    "name": {
+      "en": "Politeknik Maritim Sultan Nazrin Shah",
+      "zh": "Politeknik Maritim Sultan Nazrin Shah"
+    },
+    "abbreviation": "PMSN",
+    "type": "Polytechnic",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Perak",
+    "website": "https://pbd.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik",
+    "lastVerified": null
+  },
+  {
+    "id": "poly-politeknik-tawau",
+    "name": {
+      "en": "Politeknik Tawau",
+      "zh": "Politeknik Tawau"
+    },
+    "abbreviation": "PTS",
+    "type": "Polytechnic",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Sabah",
+    "website": "https://politawau.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://ambilan.mypolycc.edu.my/PORTALBPP2/index.asp?pg=politeknik",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-arau",
+    "name": {
+      "en": "Kolej Komuniti Arau",
+      "zh": "Kolej Komuniti Arau"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Kedah",
+    "website": "https://kkarau.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-cawangan-kangar-kolej-induk-kolej-komuniti-arau",
+    "name": {
+      "en": "Kolej Komuniti Cawangan Kangar (Kolej Induk – Kolej Komuniti Arau)",
+      "zh": "Kolej Komuniti Cawangan Kangar (Kolej Induk – Kolej Komuniti Arau)"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Kedah",
+    "website": "https://kkkangar.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-bandar-darul-aman",
+    "name": {
+      "en": "Kolej Komuniti Bandar Darul Aman",
+      "zh": "Kolej Komuniti Bandar Darul Aman"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Kedah",
+    "website": "https://kkbandardarulaman.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-jerai",
+    "name": {
+      "en": "Kolej Komuniti Jerai",
+      "zh": "Kolej Komuniti Jerai"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Kedah",
+    "website": "https://kkjerai.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-bandar-baharu",
+    "name": {
+      "en": "Kolej Komuniti Bandar Baharu",
+      "zh": "Kolej Komuniti Bandar Baharu"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Kedah",
+    "website": "https://kkbandarbaharu.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-langkawi-tourism-academy-kolej-komuniti-langkawi",
+    "name": {
+      "en": "Langkawi Tourism Academy @ Kolej Komuniti Langkawi",
+      "zh": "Langkawi Tourism Academy @ Kolej Komuniti Langkawi"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Kedah",
+    "website": "https://ltaklangkawi.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-kulim",
+    "name": {
+      "en": "Kolej Komuniti Kulim",
+      "zh": "Kolej Komuniti Kulim"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Kedah",
+    "website": "https://kkkulim.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-sungai-petani",
+    "name": {
+      "en": "Kolej Komuniti Sungai Petani",
+      "zh": "Kolej Komuniti Sungai Petani"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Kedah",
+    "website": "https://kksungaipetani.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-baling",
+    "name": {
+      "en": "Kolej Komuniti Baling",
+      "zh": "Kolej Komuniti Baling"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Kedah",
+    "website": "https://kkbaling.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-padang-terap",
+    "name": {
+      "en": "Kolej Komuniti Padang Terap",
+      "zh": "Kolej Komuniti Padang Terap"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Kedah",
+    "website": "https://kkpadangterap.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-sik",
+    "name": {
+      "en": "Kolej Komuniti Sik",
+      "zh": "Kolej Komuniti Sik"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Kedah",
+    "website": "https://kksik.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-cawangan-jerlun",
+    "name": {
+      "en": "Kolej Komuniti Cawangan Jerlun",
+      "zh": "Kolej Komuniti Cawangan Jerlun"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Kedah",
+    "website": "https://kkjerlun.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-kepala-batas",
+    "name": {
+      "en": "Kolej Komuniti Kepala Batas",
+      "zh": "Kolej Komuniti Kepala Batas"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Penang",
+    "website": "https://kkkepalabatas.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-nibong-tebal",
+    "name": {
+      "en": "Kolej Komuniti Nibong Tebal",
+      "zh": "Kolej Komuniti Nibong Tebal"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Penang",
+    "website": "https://kknibongtebal.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-bukit-mertajam",
+    "name": {
+      "en": "Kolej Komuniti Bukit Mertajam",
+      "zh": "Kolej Komuniti Bukit Mertajam"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Penang",
+    "website": "https://kkbukitmertajam.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-bayan-baru",
+    "name": {
+      "en": "Kolej Komuniti Bayan Baru",
+      "zh": "Kolej Komuniti Bayan Baru"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Penang",
+    "website": "https://kkbayanbaru.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-tasek-gelugor",
+    "name": {
+      "en": "Kolej Komuniti Tasek Gelugor",
+      "zh": "Kolej Komuniti Tasek Gelugor"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Penang",
+    "website": "https://kktasekgelugor.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-seberang-jaya",
+    "name": {
+      "en": "Kolej Komuniti Seberang Jaya",
+      "zh": "Kolej Komuniti Seberang Jaya"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Penang",
+    "website": "https://kkseberangjaya.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-chenderoh",
+    "name": {
+      "en": "Kolej Komuniti Chenderoh",
+      "zh": "Kolej Komuniti Chenderoh"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Perak",
+    "website": "https://kkchenderoh.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-kuala-kangsar",
+    "name": {
+      "en": "Kolej Komuniti Kuala Kangsar",
+      "zh": "Kolej Komuniti Kuala Kangsar"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Perak",
+    "website": "https://kkkualakangsar.mypolycc.edu.my/v2/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-gerik",
+    "name": {
+      "en": "Kolej Komuniti Gerik",
+      "zh": "Kolej Komuniti Gerik"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Perak",
+    "website": "https://kkgerik.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-sungai-siput",
+    "name": {
+      "en": "Kolej Komuniti Sungai Siput",
+      "zh": "Kolej Komuniti Sungai Siput"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Perak",
+    "website": "https://kksungaisiput.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-cawangan-lenggong-kolej-induk-kolej-komuniti-sungai-siput",
+    "name": {
+      "en": "Kolej Komuniti Cawangan Lenggong (Kolej Induk – Kolej Komuniti Sungai Siput)",
+      "zh": "Kolej Komuniti Cawangan Lenggong (Kolej Induk – Kolej Komuniti Sungai Siput)"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Perak",
+    "website": null,
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-pasir-salak",
+    "name": {
+      "en": "Kolej Komuniti Pasir Salak",
+      "zh": "Kolej Komuniti Pasir Salak"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Perak",
+    "website": "https://kkpasirsalak.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-tapah",
+    "name": {
+      "en": "Kolej Komuniti Tapah",
+      "zh": "Kolej Komuniti Tapah"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Perak",
+    "website": "https://kktapah.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-teluk-intan",
+    "name": {
+      "en": "Kolej Komuniti Teluk Intan",
+      "zh": "Kolej Komuniti Teluk Intan"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Perak",
+    "website": "https://kktelukintan.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-manjung",
+    "name": {
+      "en": "Kolej Komuniti Manjung",
+      "zh": "Kolej Komuniti Manjung"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Perak",
+    "website": "https://kkmanjung.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-taiping",
+    "name": {
+      "en": "Kolej Komuniti Taiping",
+      "zh": "Kolej Komuniti Taiping"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Perak",
+    "website": "https://kktaiping.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-batu-gajah",
+    "name": {
+      "en": "Kolej Komuniti Batu Gajah",
+      "zh": "Kolej Komuniti Batu Gajah"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Perak",
+    "website": "https://kkbatugajah.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-rtc-gopeng",
+    "name": {
+      "en": "Kolej Komuniti RTC Gopeng",
+      "zh": "Kolej Komuniti RTC Gopeng"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Perak",
+    "website": "https://kkrtcgopeng.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-bagan-serai",
+    "name": {
+      "en": "Kolej Komuniti Bagan Serai",
+      "zh": "Kolej Komuniti Bagan Serai"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Perak",
+    "website": "https://kkbaganserai.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-bagan-datuk",
+    "name": {
+      "en": "Kolej Komuniti Bagan Datuk",
+      "zh": "Kolej Komuniti Bagan Datuk"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Perak",
+    "website": "https://kkbagandatuk.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-sabak-bernam",
+    "name": {
+      "en": "Kolej Komuniti Sabak Bernam",
+      "zh": "Kolej Komuniti Sabak Bernam"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Selangor",
+    "website": "https://kksabakbernam.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-tanjong-karang",
+    "name": {
+      "en": "Kolej Komuniti Tanjong Karang",
+      "zh": "Kolej Komuniti Tanjong Karang"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Selangor",
+    "website": "https://kktanjongkarang.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-hulu-selangor",
+    "name": {
+      "en": "Kolej Komuniti Hulu Selangor",
+      "zh": "Kolej Komuniti Hulu Selangor"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Selangor",
+    "website": "https://kktanjongkarang.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-selayang",
+    "name": {
+      "en": "Kolej Komuniti Selayang",
+      "zh": "Kolej Komuniti Selayang"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Selangor",
+    "website": "https://kkselayang.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-kuala-langat",
+    "name": {
+      "en": "Kolej Komuniti Kuala Langat",
+      "zh": "Kolej Komuniti Kuala Langat"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Selangor",
+    "website": "https://kkkualalangat.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-cawangan-sepang-kolej-induk-kolej-komuniti-kuala-langat",
+    "name": {
+      "en": "Kolej Komuniti Cawangan Sepang (Kolej Induk – Kolej Komuniti Kuala Langat)",
+      "zh": "Kolej Komuniti Cawangan Sepang (Kolej Induk – Kolej Komuniti Kuala Langat)"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Selangor",
+    "website": null,
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-klang",
+    "name": {
+      "en": "Kolej Komuniti Klang",
+      "zh": "Kolej Komuniti Klang"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Selangor",
+    "website": "https://kkklang.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-hulu-langat",
+    "name": {
+      "en": "Kolej Komuniti Hulu Langat",
+      "zh": "Kolej Komuniti Hulu Langat"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Selangor",
+    "website": "https://kkhululangat.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-shah-alam",
+    "name": {
+      "en": "Kolej Komuniti Shah Alam",
+      "zh": "Kolej Komuniti Shah Alam"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Selangor",
+    "website": "https://kkshahalam.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-ampang",
+    "name": {
+      "en": "Kolej Komuniti Ampang",
+      "zh": "Kolej Komuniti Ampang"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Selangor",
+    "website": "https://kkampang.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-kelana-jaya",
+    "name": {
+      "en": "Kolej Komuniti Kelana Jaya",
+      "zh": "Kolej Komuniti Kelana Jaya"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Selangor",
+    "website": "https://kkkelanajaya.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-jempol",
+    "name": {
+      "en": "Kolej Komuniti Jempol",
+      "zh": "Kolej Komuniti Jempol"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Negeri Sembilan",
+    "website": "https://kkjempol.mypolycc.edu.my/v1/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-jelebu",
+    "name": {
+      "en": "Kolej Komuniti Jelebu",
+      "zh": "Kolej Komuniti Jelebu"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Negeri Sembilan",
+    "website": "https://kkjelebu.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-tampin",
+    "name": {
+      "en": "Kolej Komuniti Tampin",
+      "zh": "Kolej Komuniti Tampin"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Negeri Sembilan",
+    "website": "https://kktampin.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-rembau",
+    "name": {
+      "en": "Kolej Komuniti Rembau",
+      "zh": "Kolej Komuniti Rembau"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Negeri Sembilan",
+    "website": "https://kkrembau.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-kuala-pilah",
+    "name": {
+      "en": "Kolej Komuniti Kuala Pilah",
+      "zh": "Kolej Komuniti Kuala Pilah"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Negeri Sembilan",
+    "website": "https://kkkualapilah.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-masjid-tanah",
+    "name": {
+      "en": "Kolej Komuniti Masjid Tanah",
+      "zh": "Kolej Komuniti Masjid Tanah"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Melaka",
+    "website": "https://kkmasjidtanah.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-tangga-batu",
+    "name": {
+      "en": "Kolej Komuniti Tangga Batu",
+      "zh": "Kolej Komuniti Tangga Batu"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Melaka",
+    "website": "http://kktanggabatu.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-selandar",
+    "name": {
+      "en": "Kolej Komuniti Selandar",
+      "zh": "Kolej Komuniti Selandar"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Melaka",
+    "website": "https://kkselandar.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-bukit-beruang",
+    "name": {
+      "en": "Kolej Komuniti Bukit Beruang",
+      "zh": "Kolej Komuniti Bukit Beruang"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Melaka",
+    "website": "http://kkbukitberuang.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-kota-melaka",
+    "name": {
+      "en": "Kolej Komuniti Kota Melaka",
+      "zh": "Kolej Komuniti Kota Melaka"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Melaka",
+    "website": "http://kkotamelaka.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-jasin",
+    "name": {
+      "en": "Kolej Komuniti Jasin",
+      "zh": "Kolej Komuniti Jasin"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Melaka",
+    "website": "https://kkjasin.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-ledang",
+    "name": {
+      "en": "Kolej Komuniti Ledang",
+      "zh": "Kolej Komuniti Ledang"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Johor",
+    "website": "http://www.kklej.edu.my/v3/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-pagoh",
+    "name": {
+      "en": "Kolej Komuniti Pagoh",
+      "zh": "Kolej Komuniti Pagoh"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Johor",
+    "website": "https://kkpagoh.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-muar",
+    "name": {
+      "en": "Kolej Komuniti Muar",
+      "zh": "Kolej Komuniti Muar"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Johor",
+    "website": "https://kkmuar.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-segamat",
+    "name": {
+      "en": "Kolej Komuniti Segamat",
+      "zh": "Kolej Komuniti Segamat"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Johor",
+    "website": "https://kksegamat.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-segamat-2",
+    "name": {
+      "en": "Kolej Komuniti Segamat 2",
+      "zh": "Kolej Komuniti Segamat 2"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Johor",
+    "website": "https://kksegamat2.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-bandar-penawar",
+    "name": {
+      "en": "Kolej Komuniti Bandar Penawar",
+      "zh": "Kolej Komuniti Bandar Penawar"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Johor",
+    "website": "https://kkbandarpenawar.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-bandar-tenggara",
+    "name": {
+      "en": "Kolej Komuniti Bandar Tenggara",
+      "zh": "Kolej Komuniti Bandar Tenggara"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Johor",
+    "website": "https://kkbandartenggara.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-pasir-gudang",
+    "name": {
+      "en": "Kolej Komuniti Pasir Gudang",
+      "zh": "Kolej Komuniti Pasir Gudang"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Johor",
+    "website": "https://kkpasirgudang.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-tanjung-piai",
+    "name": {
+      "en": "Kolej Komuniti Tanjung Piai",
+      "zh": "Kolej Komuniti Tanjung Piai"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Johor",
+    "website": "https://kktanjungpiai.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-kota-tinggi",
+    "name": {
+      "en": "Kolej Komuniti Kota Tinggi",
+      "zh": "Kolej Komuniti Kota Tinggi"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Johor",
+    "website": "https://kkkotatinggi.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-batu-pahat",
+    "name": {
+      "en": "Kolej Komuniti Batu Pahat",
+      "zh": "Kolej Komuniti Batu Pahat"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Johor",
+    "website": "https://kkbatupahat.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-kluang",
+    "name": {
+      "en": "Kolej Komuniti Kluang",
+      "zh": "Kolej Komuniti Kluang"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Johor",
+    "website": "https://kkkluang.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-simpang-renggam",
+    "name": {
+      "en": "Kolej Komuniti Simpang Renggam",
+      "zh": "Kolej Komuniti Simpang Renggam"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Johor",
+    "website": null,
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-cawangan-gelang-patah-kolej-induk-kolej-komuniti-bandar-penawar",
+    "name": {
+      "en": "Kolej Komuniti Cawangan Gelang Patah (Kolej Induk – Kolej Komuniti Bandar Penawar)",
+      "zh": "Kolej Komuniti Cawangan Gelang Patah (Kolej Induk – Kolej Komuniti Bandar Penawar)"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Johor",
+    "website": "https://kkgelangpatah.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-rompin",
+    "name": {
+      "en": "Kolej Komuniti Rompin",
+      "zh": "Kolej Komuniti Rompin"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Pahang",
+    "website": "https://kkrompin.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-bentong",
+    "name": {
+      "en": "Kolej Komuniti Bentong",
+      "zh": "Kolej Komuniti Bentong"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Pahang",
+    "website": "https://kkbentong.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-raub",
+    "name": {
+      "en": "Kolej Komuniti Raub",
+      "zh": "Kolej Komuniti Raub"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Pahang",
+    "website": "https://kkraub.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-temerloh",
+    "name": {
+      "en": "Kolej Komuniti Temerloh",
+      "zh": "Kolej Komuniti Temerloh"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Pahang",
+    "website": "https://kktemerloh.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-bera",
+    "name": {
+      "en": "Kolej Komuniti Bera",
+      "zh": "Kolej Komuniti Bera"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Pahang",
+    "website": "http://kbera.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-lipis",
+    "name": {
+      "en": "Kolej Komuniti Lipis",
+      "zh": "Kolej Komuniti Lipis"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Pahang",
+    "website": "https://kklipis.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-kuantan",
+    "name": {
+      "en": "Kolej Komuniti Kuantan",
+      "zh": "Kolej Komuniti Kuantan"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Pahang",
+    "website": "https://kkkuantan.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-paya-besar",
+    "name": {
+      "en": "Kolej Komuniti Paya Besar",
+      "zh": "Kolej Komuniti Paya Besar"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Pahang",
+    "website": "https://kkpayabesar.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-pekan",
+    "name": {
+      "en": "Kolej Komuniti Pekan",
+      "zh": "Kolej Komuniti Pekan"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Pahang",
+    "website": "https://kkpekan.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-jerantut",
+    "name": {
+      "en": "Kolej Komuniti Jerantut",
+      "zh": "Kolej Komuniti Jerantut"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Pahang",
+    "website": "https://kkjerantut.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-cawangan-maran-kolej-induk-kolej-komuniti-paya-besar",
+    "name": {
+      "en": "Kolej Komuniti Cawangan Maran (Kolej Induk – Kolej Komuniti Paya Besar)",
+      "zh": "Kolej Komuniti Cawangan Maran (Kolej Induk – Kolej Komuniti Paya Besar)"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Pahang",
+    "website": null,
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-kuala-terengganu",
+    "name": {
+      "en": "Kolej Komuniti Kuala Terengganu",
+      "zh": "Kolej Komuniti Kuala Terengganu"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Terengganu",
+    "website": "https://kkkualaterengganu.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-kemaman",
+    "name": {
+      "en": "Kolej Komuniti Kemaman",
+      "zh": "Kolej Komuniti Kemaman"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Terengganu",
+    "website": "https://kkkemaman.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-besut",
+    "name": {
+      "en": "Kolej Komuniti Besut",
+      "zh": "Kolej Komuniti Besut"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Terengganu",
+    "website": "https://kkbesut.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-cawangan-hulu-terengganu-kolej-induk-kolej-komuniti-kuala-terengganu",
+    "name": {
+      "en": "Kolej Komuniti Cawangan Hulu Terengganu (Kolej Induk – Kolej Komuniti Kuala Terengganu)",
+      "zh": "Kolej Komuniti Cawangan Hulu Terengganu (Kolej Induk – Kolej Komuniti Kuala Terengganu)"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Terengganu",
+    "website": "https://kkhuluterengganu.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-cawangan-kuala-nerus",
+    "name": {
+      "en": "Kolej Komuniti Cawangan Kuala Nerus",
+      "zh": "Kolej Komuniti Cawangan Kuala Nerus"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Terengganu",
+    "website": "https://kkkualanerus.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-cawangan-setiu-kolej-induk-kolej-komuniti-kuala-terengganu",
+    "name": {
+      "en": "Kolej Komuniti Cawangan Setiu (Kolej Induk – Kolej Komuniti Kuala Terengganu)",
+      "zh": "Kolej Komuniti Cawangan Setiu (Kolej Induk – Kolej Komuniti Kuala Terengganu)"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Terengganu",
+    "website": "https://kksetiu.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-pasir-mas",
+    "name": {
+      "en": "Kolej Komuniti Pasir Mas",
+      "zh": "Kolej Komuniti Pasir Mas"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Kelantan",
+    "website": "https://kkpasirmas.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-cawangan-rantau-panjang-kolej-induk-kolej-komuniti-pasir-mas",
+    "name": {
+      "en": "Kolej Komuniti Cawangan Rantau Panjang (Kolej Induk – Kolej Komuniti Pasir Mas)",
+      "zh": "Kolej Komuniti Cawangan Rantau Panjang (Kolej Induk – Kolej Komuniti Pasir Mas)"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Kelantan",
+    "website": null,
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-jeli",
+    "name": {
+      "en": "Kolej Komuniti Jeli",
+      "zh": "Kolej Komuniti Jeli"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Kelantan",
+    "website": "https://kkjeli.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-cawangan-tanah-merah-kolej-induk-kolej-komuniti-jeli",
+    "name": {
+      "en": "Kolej Komuniti Cawangan Tanah Merah (Kolej Induk – Kolej Komuniti Jeli)",
+      "zh": "Kolej Komuniti Cawangan Tanah Merah (Kolej Induk – Kolej Komuniti Jeli)"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Kelantan",
+    "website": null,
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-kok-lanas",
+    "name": {
+      "en": "Kolej Komuniti Kok Lanas",
+      "zh": "Kolej Komuniti Kok Lanas"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Kelantan",
+    "website": "https://kkkoklanas.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-kuching",
+    "name": {
+      "en": "Kolej Komuniti Kuching",
+      "zh": "Kolej Komuniti Kuching"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Sarawak",
+    "website": "https://kkkuching.mypolycc.edu.my/v1/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-mas-gading",
+    "name": {
+      "en": "Kolej Komuniti Mas Gading",
+      "zh": "Kolej Komuniti Mas Gading"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Sarawak",
+    "website": "https://kkmasgading.mypolycc.edu.my/v1/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-miri",
+    "name": {
+      "en": "Kolej Komuniti Miri",
+      "zh": "Kolej Komuniti Miri"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Sarawak",
+    "website": "https://kkmiri.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-betong",
+    "name": {
+      "en": "Kolej Komuniti Betong",
+      "zh": "Kolej Komuniti Betong"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Sarawak",
+    "website": "http://kkbetong.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-santubong",
+    "name": {
+      "en": "Kolej Komuniti Santubong",
+      "zh": "Kolej Komuniti Santubong"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Sarawak",
+    "website": "https://kksantubong.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-sarikei",
+    "name": {
+      "en": "Kolej Komuniti Sarikei",
+      "zh": "Kolej Komuniti Sarikei"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Sarawak",
+    "website": "https://kksarikei.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-cawangan-sibu-kolej-induk-kolej-komuniti-sarikei",
+    "name": {
+      "en": "Kolej Komuniti Cawangan Sibu (Kolej Induk – Kolej Komuniti Sarikei)",
+      "zh": "Kolej Komuniti Cawangan Sibu (Kolej Induk – Kolej Komuniti Sarikei)"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Sarawak",
+    "website": null,
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-tawau",
+    "name": {
+      "en": "Kolej Komuniti Tawau",
+      "zh": "Kolej Komuniti Tawau"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Sabah",
+    "website": "http://kktawau.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-semporna",
+    "name": {
+      "en": "Kolej Komuniti Semporna",
+      "zh": "Kolej Komuniti Semporna"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Sabah",
+    "website": "https://kksemporna.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-lahad-datu",
+    "name": {
+      "en": "Kolej Komuniti Lahad Datu",
+      "zh": "Kolej Komuniti Lahad Datu"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Sabah",
+    "website": "https://kklahaddatu.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-sandakan",
+    "name": {
+      "en": "Kolej Komuniti Sandakan",
+      "zh": "Kolej Komuniti Sandakan"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Sabah",
+    "website": "https://kksandakan.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-tambunan",
+    "name": {
+      "en": "Kolej Komuniti Tambunan",
+      "zh": "Kolej Komuniti Tambunan"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Sabah",
+    "website": "https://kktambunan.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-beaufort",
+    "name": {
+      "en": "Kolej Komuniti Beaufort",
+      "zh": "Kolej Komuniti Beaufort"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Sabah",
+    "website": "https://kkbeaufort.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-penampang",
+    "name": {
+      "en": "Kolej Komuniti Penampang",
+      "zh": "Kolej Komuniti Penampang"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Sabah",
+    "website": "https://kkpenampang.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-kota-marudu",
+    "name": {
+      "en": "Kolej Komuniti Kota Marudu",
+      "zh": "Kolej Komuniti Kota Marudu"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Sabah",
+    "website": "http://kkkotamarudu.mypolycc.edu.my/",
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cc-kolej-komuniti-papar",
+    "name": {
+      "en": "Kolej Komuniti Papar",
+      "zh": "Kolej Komuniti Papar"
+    },
+    "abbreviation": "",
+    "type": "Community College",
+    "country": "Malaysia",
+    "studyLocation": "domestic",
+    "ownership": "public",
+    "state": "Sabah",
+    "website": null,
+    "institutionIds": [],
+    "campuses": [],
+    "dataStatus": "directory",
+    "source": "https://www.mohe.gov.my/muat-turun?id=52&view=category",
+    "lastVerified": null
+  },
+  {
+    "id": "cn-2",
+    "name": {
+      "en": "Renmin University of China",
+      "zh": "中国人民大学"
+    },
+    "type": "Public University · Project 985",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Beijing",
+    "classificationTags": [
+      "985",
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-4",
+    "name": {
+      "en": "Beihang University",
+      "zh": "北京航空航天大学"
+    },
+    "type": "Public University · Project 985",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Beijing",
+    "classificationTags": [
+      "985",
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-5",
+    "name": {
+      "en": "Beijing Institute of Technology",
+      "zh": "北京理工大学"
+    },
+    "type": "Public University · Project 985",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Beijing",
+    "classificationTags": [
+      "985",
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-6",
+    "name": {
+      "en": "China Agricultural University",
+      "zh": "中国农业大学"
+    },
+    "type": "Public University · Project 985",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Beijing",
+    "classificationTags": [
+      "985",
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-7",
+    "name": {
+      "en": "Beijing Normal University",
+      "zh": "北京师范大学"
+    },
+    "type": "Public University · Project 985",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Beijing",
+    "classificationTags": [
+      "985",
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-8",
+    "name": {
+      "en": "Minzu University of China",
+      "zh": "中央民族大学"
+    },
+    "type": "Public University · Project 985",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Beijing",
+    "classificationTags": [
+      "985",
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-9",
+    "name": {
+      "en": "Nankai University",
+      "zh": "南开大学"
+    },
+    "type": "Public University · Project 985",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Tianjin",
+    "classificationTags": [
+      "985",
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-10",
+    "name": {
+      "en": "Tianjin University",
+      "zh": "天津大学"
+    },
+    "type": "Public University · Project 985",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Tianjin",
+    "classificationTags": [
+      "985",
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-11",
+    "name": {
+      "en": "Dalian University of Technology",
+      "zh": "大连理工大学"
+    },
+    "type": "Public University · Project 985",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Dalian",
+    "classificationTags": [
+      "985",
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-12",
+    "name": {
+      "en": "Northeastern University",
+      "zh": "东北大学"
+    },
+    "type": "Public University · Project 985",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Shenyang",
+    "classificationTags": [
+      "985",
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-13",
+    "name": {
+      "en": "Jilin University",
+      "zh": "吉林大学"
+    },
+    "type": "Public University · Project 985",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Changchun",
+    "classificationTags": [
+      "985",
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-14",
+    "name": {
+      "en": "Harbin Institute of Technology",
+      "zh": "哈尔滨工业大学"
+    },
+    "type": "Public University · Project 985",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Harbin",
+    "classificationTags": [
+      "985",
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-15",
+    "name": {
+      "en": "Fudan University",
+      "zh": "复旦大学"
+    },
+    "type": "Public University · Project 985",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Shanghai",
+    "classificationTags": [
+      "985",
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-16",
+    "name": {
+      "en": "Tongji University",
+      "zh": "同济大学"
+    },
+    "type": "Public University · Project 985",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Shanghai",
+    "classificationTags": [
+      "985",
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-17",
+    "name": {
+      "en": "Shanghai Jiao Tong University",
+      "zh": "上海交通大学"
+    },
+    "type": "Public University · Project 985",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Shanghai",
+    "classificationTags": [
+      "985",
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-18",
+    "name": {
+      "en": "East China Normal University",
+      "zh": "华东师范大学"
+    },
+    "type": "Public University · Project 985",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Shanghai",
+    "classificationTags": [
+      "985",
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-19",
+    "name": {
+      "en": "Nanjing University",
+      "zh": "南京大学"
+    },
+    "type": "Public University · Project 985",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Nanjing",
+    "classificationTags": [
+      "985",
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-20",
+    "name": {
+      "en": "Southeast University",
+      "zh": "东南大学"
+    },
+    "type": "Public University · Project 985",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Nanjing",
+    "classificationTags": [
+      "985",
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-21",
+    "name": {
+      "en": "Zhejiang University",
+      "zh": "浙江大学"
+    },
+    "type": "Public University · Project 985",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Hangzhou",
+    "classificationTags": [
+      "985",
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-22",
+    "name": {
+      "en": "University of Science and Technology of China",
+      "zh": "中国科学技术大学"
+    },
+    "type": "Public University · Project 985",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Hefei",
+    "classificationTags": [
+      "985",
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-23",
+    "name": {
+      "en": "Xiamen University",
+      "zh": "厦门大学"
+    },
+    "type": "Public University · Project 985",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Xiamen",
+    "classificationTags": [
+      "985",
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-24",
+    "name": {
+      "en": "Shandong University",
+      "zh": "山东大学"
+    },
+    "type": "Public University · Project 985",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Jinan",
+    "classificationTags": [
+      "985",
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-25",
+    "name": {
+      "en": "Ocean University of China",
+      "zh": "中国海洋大学"
+    },
+    "type": "Public University · Project 985",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Qingdao",
+    "classificationTags": [
+      "985",
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-26",
+    "name": {
+      "en": "Wuhan University",
+      "zh": "武汉大学"
+    },
+    "type": "Public University · Project 985",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Wuhan",
+    "classificationTags": [
+      "985",
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-27",
+    "name": {
+      "en": "Huazhong University of Science and Technology",
+      "zh": "华中科技大学"
+    },
+    "type": "Public University · Project 985",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Wuhan",
+    "classificationTags": [
+      "985",
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-28",
+    "name": {
+      "en": "Hunan University",
+      "zh": "湖南大学"
+    },
+    "type": "Public University · Project 985",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Changsha",
+    "classificationTags": [
+      "985",
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-29",
+    "name": {
+      "en": "Central South University",
+      "zh": "中南大学"
+    },
+    "type": "Public University · Project 985",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Changsha",
+    "classificationTags": [
+      "985",
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-30",
+    "name": {
+      "en": "National University of Defense Technology",
+      "zh": "国防科技大学"
+    },
+    "type": "Public University · Project 985",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Changsha",
+    "classificationTags": [
+      "985",
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-31",
+    "name": {
+      "en": "Sun Yat-sen University",
+      "zh": "中山大学"
+    },
+    "type": "Public University · Project 985",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Guangzhou",
+    "classificationTags": [
+      "985",
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-32",
+    "name": {
+      "en": "South China University of Technology",
+      "zh": "华南理工大学"
+    },
+    "type": "Public University · Project 985",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Guangzhou",
+    "classificationTags": [
+      "985",
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-33",
+    "name": {
+      "en": "Sichuan University",
+      "zh": "四川大学"
+    },
+    "type": "Public University · Project 985",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Chengdu",
+    "classificationTags": [
+      "985",
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-34",
+    "name": {
+      "en": "University of Electronic Science and Technology of China",
+      "zh": "电子科技大学"
+    },
+    "type": "Public University · Project 985",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Chengdu",
+    "classificationTags": [
+      "985",
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-35",
+    "name": {
+      "en": "Chongqing University",
+      "zh": "重庆大学"
+    },
+    "type": "Public University · Project 985",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Chongqing",
+    "classificationTags": [
+      "985",
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-36",
+    "name": {
+      "en": "Xi’an Jiaotong University",
+      "zh": "西安交通大学"
+    },
+    "type": "Public University · Project 985",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Xi’an",
+    "classificationTags": [
+      "985",
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-37",
+    "name": {
+      "en": "Northwestern Polytechnical University",
+      "zh": "西北工业大学"
+    },
+    "type": "Public University · Project 985",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Xi’an",
+    "classificationTags": [
+      "985",
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-38",
+    "name": {
+      "en": "Northwest A&F University",
+      "zh": "西北农林科技大学"
+    },
+    "type": "Public University · Project 985",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Yangling",
+    "classificationTags": [
+      "985",
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-39",
+    "name": {
+      "en": "Lanzhou University",
+      "zh": "兰州大学"
+    },
+    "type": "Public University · Project 985",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Lanzhou",
+    "classificationTags": [
+      "985",
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-40",
+    "name": {
+      "en": "Beijing Jiaotong University",
+      "zh": "北京交通大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Beijing",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-41",
+    "name": {
+      "en": "Beijing University of Technology",
+      "zh": "北京工业大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Beijing",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-42",
+    "name": {
+      "en": "University of Science and Technology Beijing",
+      "zh": "北京科技大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Beijing",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-43",
+    "name": {
+      "en": "Beijing University of Chemical Technology",
+      "zh": "北京化工大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Beijing",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-44",
+    "name": {
+      "en": "Beijing University of Posts and Telecommunications",
+      "zh": "北京邮电大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Beijing",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-45",
+    "name": {
+      "en": "Beijing Forestry University",
+      "zh": "北京林业大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Beijing",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-46",
+    "name": {
+      "en": "Beijing University of Chinese Medicine",
+      "zh": "北京中医药大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Beijing",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-47",
+    "name": {
+      "en": "Beijing Foreign Studies University",
+      "zh": "北京外国语大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Beijing",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-48",
+    "name": {
+      "en": "Communication University of China",
+      "zh": "中国传媒大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Beijing",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-49",
+    "name": {
+      "en": "Central University of Finance and Economics",
+      "zh": "中央财经大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Beijing",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-50",
+    "name": {
+      "en": "University of International Business and Economics",
+      "zh": "对外经济贸易大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Beijing",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-51",
+    "name": {
+      "en": "China University of Political Science and Law",
+      "zh": "中国政法大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Beijing",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-52",
+    "name": {
+      "en": "North China Electric Power University",
+      "zh": "华北电力大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Beijing",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-53",
+    "name": {
+      "en": "Tianjin Medical University",
+      "zh": "天津医科大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Tianjin",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-54",
+    "name": {
+      "en": "Hebei University of Technology",
+      "zh": "河北工业大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Tianjin",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-55",
+    "name": {
+      "en": "Taiyuan University of Technology",
+      "zh": "太原理工大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Taiyuan",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-56",
+    "name": {
+      "en": "Inner Mongolia University",
+      "zh": "内蒙古大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Hohhot",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-57",
+    "name": {
+      "en": "Liaoning University",
+      "zh": "辽宁大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Shenyang",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-58",
+    "name": {
+      "en": "Dalian Maritime University",
+      "zh": "大连海事大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Dalian",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-59",
+    "name": {
+      "en": "Yanbian University",
+      "zh": "延边大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Yanji",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-60",
+    "name": {
+      "en": "Northeast Normal University",
+      "zh": "东北师范大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Changchun",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-61",
+    "name": {
+      "en": "Harbin Engineering University",
+      "zh": "哈尔滨工程大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Harbin",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-62",
+    "name": {
+      "en": "Northeast Agricultural University",
+      "zh": "东北农业大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Harbin",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-63",
+    "name": {
+      "en": "Northeast Forestry University",
+      "zh": "东北林业大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Harbin",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-64",
+    "name": {
+      "en": "East China University of Science and Technology",
+      "zh": "华东理工大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Shanghai",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-65",
+    "name": {
+      "en": "Donghua University",
+      "zh": "东华大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Shanghai",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-66",
+    "name": {
+      "en": "Shanghai University",
+      "zh": "上海大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Shanghai",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-67",
+    "name": {
+      "en": "Soochow University",
+      "zh": "苏州大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Suzhou",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-68",
+    "name": {
+      "en": "Nanjing University of Aeronautics and Astronautics",
+      "zh": "南京航空航天大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Nanjing",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-69",
+    "name": {
+      "en": "Nanjing University of Science and Technology",
+      "zh": "南京理工大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Nanjing",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-70",
+    "name": {
+      "en": "Hohai University",
+      "zh": "河海大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Nanjing",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-71",
+    "name": {
+      "en": "Jiangnan University",
+      "zh": "江南大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Wuxi",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-72",
+    "name": {
+      "en": "Nanjing Agricultural University",
+      "zh": "南京农业大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Nanjing",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-73",
+    "name": {
+      "en": "China Pharmaceutical University",
+      "zh": "中国药科大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Nanjing",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-74",
+    "name": {
+      "en": "Nanjing Normal University",
+      "zh": "南京师范大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Nanjing",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-75",
+    "name": {
+      "en": "Anhui University",
+      "zh": "安徽大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Hefei",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-76",
+    "name": {
+      "en": "Hefei University of Technology",
+      "zh": "合肥工业大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Hefei",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-77",
+    "name": {
+      "en": "Fuzhou University",
+      "zh": "福州大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Fuzhou",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-78",
+    "name": {
+      "en": "Nanchang University",
+      "zh": "南昌大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Nanchang",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-79",
+    "name": {
+      "en": "Zhengzhou University",
+      "zh": "郑州大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Zhengzhou",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-80",
+    "name": {
+      "en": "Jinan University",
+      "zh": "暨南大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Guangzhou",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-81",
+    "name": {
+      "en": "South China Normal University",
+      "zh": "华南师范大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Guangzhou",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-82",
+    "name": {
+      "en": "Guangxi University",
+      "zh": "广西大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Nanning",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-83",
+    "name": {
+      "en": "Hainan University",
+      "zh": "海南大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Haikou",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-84",
+    "name": {
+      "en": "Southwest Jiaotong University",
+      "zh": "西南交通大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Chengdu",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-85",
+    "name": {
+      "en": "Sichuan Agricultural University",
+      "zh": "四川农业大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Ya’an",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-86",
+    "name": {
+      "en": "Southwestern University of Finance and Economics",
+      "zh": "西南财经大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Chengdu",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-87",
+    "name": {
+      "en": "Southwest University",
+      "zh": "西南大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Chongqing",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-88",
+    "name": {
+      "en": "Guizhou University",
+      "zh": "贵州大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Guiyang",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-89",
+    "name": {
+      "en": "Yunnan University",
+      "zh": "云南大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Kunming",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-90",
+    "name": {
+      "en": "Northwest University",
+      "zh": "西北大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Xi’an",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-91",
+    "name": {
+      "en": "Xidian University",
+      "zh": "西安电子科技大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Xi’an",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-92",
+    "name": {
+      "en": "Chang’an University",
+      "zh": "长安大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Xi’an",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-93",
+    "name": {
+      "en": "Shaanxi Normal University",
+      "zh": "陕西师范大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Xi’an",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-94",
+    "name": {
+      "en": "Qinghai University",
+      "zh": "青海大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Xining",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-95",
+    "name": {
+      "en": "Ningxia University",
+      "zh": "宁夏大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Yinchuan",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-96",
+    "name": {
+      "en": "Xinjiang University",
+      "zh": "新疆大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Urumqi",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-97",
+    "name": {
+      "en": "Shihezi University",
+      "zh": "石河子大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Shihezi",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-98",
+    "name": {
+      "en": "National Taiwan University",
+      "zh": "國立臺灣大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "National University",
+    "state": "Taipei",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-99",
+    "name": {
+      "en": "National Tsing Hua University",
+      "zh": "國立清華大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "National University",
+    "state": "Hsinchu",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-100",
+    "name": {
+      "en": "National Yang Ming Chiao Tung University",
+      "zh": "國立陽明交通大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "National University",
+    "state": "Hsinchu",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-101",
+    "name": {
+      "en": "National Cheng Kung University",
+      "zh": "國立成功大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "National University",
+    "state": "Tainan",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-102",
+    "name": {
+      "en": "National Chengchi University",
+      "zh": "國立政治大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "National University",
+    "state": "Taipei",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-103",
+    "name": {
+      "en": "National Central University",
+      "zh": "國立中央大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "National University",
+    "state": "Taoyuan",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-104",
+    "name": {
+      "en": "National Chung Hsing University",
+      "zh": "國立中興大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "National University",
+    "state": "Taichung",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-105",
+    "name": {
+      "en": "National Chung Cheng University",
+      "zh": "國立中正大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "National University",
+    "state": "Chiayi",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-106",
+    "name": {
+      "en": "National Sun Yat-sen University",
+      "zh": "國立中山大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "National University",
+    "state": "Kaohsiung",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-107",
+    "name": {
+      "en": "National Taiwan Normal University",
+      "zh": "國立臺灣師範大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "National University",
+    "state": "Taipei",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-108",
+    "name": {
+      "en": "National Taiwan University of Science and Technology",
+      "zh": "國立臺灣科技大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "National University",
+    "state": "Taipei",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-109",
+    "name": {
+      "en": "National Taipei University of Technology",
+      "zh": "國立臺北科技大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "National University",
+    "state": "Taipei",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-110",
+    "name": {
+      "en": "National Taiwan Ocean University",
+      "zh": "國立臺灣海洋大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "National University",
+    "state": "Keelung",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-111",
+    "name": {
+      "en": "National Taipei University",
+      "zh": "國立臺北大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "National University",
+    "state": "New Taipei",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-112",
+    "name": {
+      "en": "National Dong Hwa University",
+      "zh": "國立東華大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "National University",
+    "state": "Hualien",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-113",
+    "name": {
+      "en": "National Chi Nan University",
+      "zh": "國立暨南國際大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "National University",
+    "state": "Nantou",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-114",
+    "name": {
+      "en": "National Chiayi University",
+      "zh": "國立嘉義大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "National University",
+    "state": "Chiayi",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-115",
+    "name": {
+      "en": "National Changhua University of Education",
+      "zh": "國立彰化師範大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "National University",
+    "state": "Changhua",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-116",
+    "name": {
+      "en": "National Kaohsiung Normal University",
+      "zh": "國立高雄師範大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "National University",
+    "state": "Kaohsiung",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-117",
+    "name": {
+      "en": "National University of Kaohsiung",
+      "zh": "國立高雄大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "National University",
+    "state": "Kaohsiung",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-118",
+    "name": {
+      "en": "National University of Tainan",
+      "zh": "國立臺南大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "National University",
+    "state": "Tainan",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-119",
+    "name": {
+      "en": "National Taitung University",
+      "zh": "國立臺東大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "National University",
+    "state": "Taitung",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-120",
+    "name": {
+      "en": "National Ilan University",
+      "zh": "國立宜蘭大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "National University",
+    "state": "Yilan",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-121",
+    "name": {
+      "en": "National Pingtung University",
+      "zh": "國立屏東大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "National University",
+    "state": "Pingtung",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-122",
+    "name": {
+      "en": "National Yunlin University of Science and Technology",
+      "zh": "國立雲林科技大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "National University",
+    "state": "Yunlin",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-123",
+    "name": {
+      "en": "National Pingtung University of Science and Technology",
+      "zh": "國立屏東科技大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "National University",
+    "state": "Pingtung",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-124",
+    "name": {
+      "en": "National Kaohsiung University of Science and Technology",
+      "zh": "國立高雄科技大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "National University",
+    "state": "Kaohsiung",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-125",
+    "name": {
+      "en": "National Taichung University of Science and Technology",
+      "zh": "國立臺中科技大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "National University",
+    "state": "Taichung",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-126",
+    "name": {
+      "en": "National Formosa University",
+      "zh": "國立虎尾科技大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "National University",
+    "state": "Yunlin",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-127",
+    "name": {
+      "en": "National Taipei University of Nursing and Health Sciences",
+      "zh": "國立臺北護理健康大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "National University",
+    "state": "Taipei",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-128",
+    "name": {
+      "en": "National Taipei University of Education",
+      "zh": "國立臺北教育大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "National University",
+    "state": "Taipei",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-129",
+    "name": {
+      "en": "National Taichung University of Education",
+      "zh": "國立臺中教育大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "National University",
+    "state": "Taichung",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-130",
+    "name": {
+      "en": "National Taiwan University of Arts",
+      "zh": "國立臺灣藝術大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "National University",
+    "state": "New Taipei",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-131",
+    "name": {
+      "en": "Tainan National University of the Arts",
+      "zh": "國立臺南藝術大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "National University",
+    "state": "Tainan",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-132",
+    "name": {
+      "en": "National Taiwan Sport University",
+      "zh": "國立體育大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "National University",
+    "state": "Taoyuan",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-133",
+    "name": {
+      "en": "National Taiwan University of Sport",
+      "zh": "國立臺灣體育運動大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "National University",
+    "state": "Taichung",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-134",
+    "name": {
+      "en": "National Kaohsiung University of Hospitality and Tourism",
+      "zh": "國立高雄餐旅大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "National University",
+    "state": "Kaohsiung",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-135",
+    "name": {
+      "en": "National Quemoy University",
+      "zh": "國立金門大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "National University",
+    "state": "Kinmen",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-136",
+    "name": {
+      "en": "National United University",
+      "zh": "國立聯合大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "National University",
+    "state": "Miaoli",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-137",
+    "name": {
+      "en": "University of Taipei",
+      "zh": "臺北市立大學"
+    },
+    "type": "National / Public University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Taipei",
+    "classificationTags": [
+      "Taiwan",
+      "National"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://ws.moe.edu.tw/Download.ashx?icon=..pdf&n=95DEEF0FD2631E14D84FA11C534B1329169F6F0F24D6C929CD4FBE5D664BF291076CCCFC242E02EFCE57990EF520E2FFC0252C0437C7CA1EDA4CEC506CE37471A751CF3956FB2193&u=C099358C81D4876CB0CF3DEEC9DAD008F1B55CAB56DE13DB48FBDEAA8134BE9ABE790C65442B5391F127137CFCCF5EF6AF7469E625AD231EA456F176DD362E895999EADDAE978B5206D520AF83CF99A0",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-138",
+    "name": {
+      "en": "Fu Jen Catholic University",
+      "zh": "輔仁大學"
+    },
+    "type": "Private University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "private",
+    "ownershipLabel": "Private University",
+    "state": "New Taipei",
+    "classificationTags": [
+      "Taiwan",
+      "Private"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://cmn-hant.overseas.ncnu.edu.tw/en/schools-individual-admission/university-admission-list/",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-139",
+    "name": {
+      "en": "Tunghai University",
+      "zh": "東海大學"
+    },
+    "type": "Private University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "private",
+    "ownershipLabel": "Private University",
+    "state": "Taichung",
+    "classificationTags": [
+      "Taiwan",
+      "Private"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://cmn-hant.overseas.ncnu.edu.tw/en/schools-individual-admission/university-admission-list/",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-140",
+    "name": {
+      "en": "Soochow University",
+      "zh": "東吳大學"
+    },
+    "type": "Private University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "private",
+    "ownershipLabel": "Private University",
+    "state": "Taipei",
+    "classificationTags": [
+      "Taiwan",
+      "Private"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://cmn-hant.overseas.ncnu.edu.tw/en/schools-individual-admission/university-admission-list/",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-141",
+    "name": {
+      "en": "Tamkang University",
+      "zh": "淡江大學"
+    },
+    "type": "Private University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "private",
+    "ownershipLabel": "Private University",
+    "state": "New Taipei",
+    "classificationTags": [
+      "Taiwan",
+      "Private"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://cmn-hant.overseas.ncnu.edu.tw/en/schools-individual-admission/university-admission-list/",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-142",
+    "name": {
+      "en": "Chung Yuan Christian University",
+      "zh": "中原大學"
+    },
+    "type": "Private University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "private",
+    "ownershipLabel": "Private University",
+    "state": "Taoyuan",
+    "classificationTags": [
+      "Taiwan",
+      "Private"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://cmn-hant.overseas.ncnu.edu.tw/en/schools-individual-admission/university-admission-list/",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-143",
+    "name": {
+      "en": "Feng Chia University",
+      "zh": "逢甲大學"
+    },
+    "type": "Private University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "private",
+    "ownershipLabel": "Private University",
+    "state": "Taichung",
+    "classificationTags": [
+      "Taiwan",
+      "Private"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://cmn-hant.overseas.ncnu.edu.tw/en/schools-individual-admission/university-admission-list/",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-144",
+    "name": {
+      "en": "Chinese Culture University",
+      "zh": "中國文化大學"
+    },
+    "type": "Private University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "private",
+    "ownershipLabel": "Private University",
+    "state": "Taipei",
+    "classificationTags": [
+      "Taiwan",
+      "Private"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://cmn-hant.overseas.ncnu.edu.tw/en/schools-individual-admission/university-admission-list/",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-145",
+    "name": {
+      "en": "Yuan Ze University",
+      "zh": "元智大學"
+    },
+    "type": "Private University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "private",
+    "ownershipLabel": "Private University",
+    "state": "Taoyuan",
+    "classificationTags": [
+      "Taiwan",
+      "Private"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://cmn-hant.overseas.ncnu.edu.tw/en/schools-individual-admission/university-admission-list/",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-146",
+    "name": {
+      "en": "Chang Gung University",
+      "zh": "長庚大學"
+    },
+    "type": "Private University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "private",
+    "ownershipLabel": "Private University",
+    "state": "Taoyuan",
+    "classificationTags": [
+      "Taiwan",
+      "Private"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://cmn-hant.overseas.ncnu.edu.tw/en/schools-individual-admission/university-admission-list/",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-147",
+    "name": {
+      "en": "Chung Shan Medical University",
+      "zh": "中山醫學大學"
+    },
+    "type": "Private University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "private",
+    "ownershipLabel": "Private University",
+    "state": "Taichung",
+    "classificationTags": [
+      "Taiwan",
+      "Private"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://cmn-hant.overseas.ncnu.edu.tw/en/schools-individual-admission/university-admission-list/",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-148",
+    "name": {
+      "en": "China Medical University",
+      "zh": "中國醫藥大學"
+    },
+    "type": "Private University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "private",
+    "ownershipLabel": "Private University",
+    "state": "Taichung",
+    "classificationTags": [
+      "Taiwan",
+      "Private"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://cmn-hant.overseas.ncnu.edu.tw/en/schools-individual-admission/university-admission-list/",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-149",
+    "name": {
+      "en": "Kaohsiung Medical University",
+      "zh": "高雄醫學大學"
+    },
+    "type": "Private University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "private",
+    "ownershipLabel": "Private University",
+    "state": "Kaohsiung",
+    "classificationTags": [
+      "Taiwan",
+      "Private"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://cmn-hant.overseas.ncnu.edu.tw/en/schools-individual-admission/university-admission-list/",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-150",
+    "name": {
+      "en": "Taipei Medical University",
+      "zh": "臺北醫學大學"
+    },
+    "type": "Private University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "private",
+    "ownershipLabel": "Private University",
+    "state": "Taipei",
+    "classificationTags": [
+      "Taiwan",
+      "Private"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://cmn-hant.overseas.ncnu.edu.tw/en/schools-individual-admission/university-admission-list/",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-151",
+    "name": {
+      "en": "Tzu Chi University",
+      "zh": "慈濟大學"
+    },
+    "type": "Private University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "private",
+    "ownershipLabel": "Private University",
+    "state": "Hualien",
+    "classificationTags": [
+      "Taiwan",
+      "Private"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://cmn-hant.overseas.ncnu.edu.tw/en/schools-individual-admission/university-admission-list/",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-152",
+    "name": {
+      "en": "Asia University",
+      "zh": "亞洲大學"
+    },
+    "type": "Private University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "private",
+    "ownershipLabel": "Private University",
+    "state": "Taichung",
+    "classificationTags": [
+      "Taiwan",
+      "Private"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://cmn-hant.overseas.ncnu.edu.tw/en/schools-individual-admission/university-admission-list/",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-153",
+    "name": {
+      "en": "Ming Chuan University",
+      "zh": "銘傳大學"
+    },
+    "type": "Private University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "private",
+    "ownershipLabel": "Private University",
+    "state": "Taipei",
+    "classificationTags": [
+      "Taiwan",
+      "Private"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://cmn-hant.overseas.ncnu.edu.tw/en/schools-individual-admission/university-admission-list/",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-154",
+    "name": {
+      "en": "Shih Hsin University",
+      "zh": "世新大學"
+    },
+    "type": "Private University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "private",
+    "ownershipLabel": "Private University",
+    "state": "Taipei",
+    "classificationTags": [
+      "Taiwan",
+      "Private"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://cmn-hant.overseas.ncnu.edu.tw/en/schools-individual-admission/university-admission-list/",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-155",
+    "name": {
+      "en": "Shih Chien University",
+      "zh": "實踐大學"
+    },
+    "type": "Private University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "private",
+    "ownershipLabel": "Private University",
+    "state": "Taipei",
+    "classificationTags": [
+      "Taiwan",
+      "Private"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://cmn-hant.overseas.ncnu.edu.tw/en/schools-individual-admission/university-admission-list/",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-156",
+    "name": {
+      "en": "Providence University",
+      "zh": "靜宜大學"
+    },
+    "type": "Private University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "private",
+    "ownershipLabel": "Private University",
+    "state": "Taichung",
+    "classificationTags": [
+      "Taiwan",
+      "Private"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://cmn-hant.overseas.ncnu.edu.tw/en/schools-individual-admission/university-admission-list/",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-157",
+    "name": {
+      "en": "Fooyin University",
+      "zh": "輔英科技大學"
+    },
+    "type": "Private University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "private",
+    "ownershipLabel": "Private University",
+    "state": "Kaohsiung",
+    "classificationTags": [
+      "Taiwan",
+      "Private"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://cmn-hant.overseas.ncnu.edu.tw/en/schools-individual-admission/university-admission-list/",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-158",
+    "name": {
+      "en": "Southern Taiwan University of Science and Technology",
+      "zh": "南臺科技大學"
+    },
+    "type": "Private University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "private",
+    "ownershipLabel": "Private University",
+    "state": "Tainan",
+    "classificationTags": [
+      "Taiwan",
+      "Private"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://cmn-hant.overseas.ncnu.edu.tw/en/schools-individual-admission/university-admission-list/",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-159",
+    "name": {
+      "en": "Ming Chi University of Technology",
+      "zh": "明志科技大學"
+    },
+    "type": "Private University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "private",
+    "ownershipLabel": "Private University",
+    "state": "New Taipei",
+    "classificationTags": [
+      "Taiwan",
+      "Private"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://cmn-hant.overseas.ncnu.edu.tw/en/schools-individual-admission/university-admission-list/",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-160",
+    "name": {
+      "en": "Chaoyang University of Technology",
+      "zh": "朝陽科技大學"
+    },
+    "type": "Private University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "private",
+    "ownershipLabel": "Private University",
+    "state": "Taichung",
+    "classificationTags": [
+      "Taiwan",
+      "Private"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://cmn-hant.overseas.ncnu.edu.tw/en/schools-individual-admission/university-admission-list/",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-161",
+    "name": {
+      "en": "Hungkuang University",
+      "zh": "弘光科技大學"
+    },
+    "type": "Private University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "private",
+    "ownershipLabel": "Private University",
+    "state": "Taichung",
+    "classificationTags": [
+      "Taiwan",
+      "Private"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://cmn-hant.overseas.ncnu.edu.tw/en/schools-individual-admission/university-admission-list/",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-162",
+    "name": {
+      "en": "Chihlee University of Technology",
+      "zh": "致理科技大學"
+    },
+    "type": "Private University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "private",
+    "ownershipLabel": "Private University",
+    "state": "New Taipei",
+    "classificationTags": [
+      "Taiwan",
+      "Private"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://cmn-hant.overseas.ncnu.edu.tw/en/schools-individual-admission/university-admission-list/",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-163",
+    "name": {
+      "en": "Shu-Te University",
+      "zh": "樹德科技大學"
+    },
+    "type": "Private University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "private",
+    "ownershipLabel": "Private University",
+    "state": "Kaohsiung",
+    "classificationTags": [
+      "Taiwan",
+      "Private"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://cmn-hant.overseas.ncnu.edu.tw/en/schools-individual-admission/university-admission-list/",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-164",
+    "name": {
+      "en": "Central Taiwan University of Science and Technology",
+      "zh": "中臺科技大學"
+    },
+    "type": "Private University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "private",
+    "ownershipLabel": "Private University",
+    "state": "Taichung",
+    "classificationTags": [
+      "Taiwan",
+      "Private"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://cmn-hant.overseas.ncnu.edu.tw/en/schools-individual-admission/university-admission-list/",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-165",
+    "name": {
+      "en": "嘉南藥理大學",
+      "zh": "嘉南藥理大學"
+    },
+    "type": "Private University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "private",
+    "ownershipLabel": "Private University",
+    "state": "Tainan",
+    "classificationTags": [
+      "Taiwan",
+      "Private"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://cmn-hant.overseas.ncnu.edu.tw/en/schools-individual-admission/university-admission-list/",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-166",
+    "name": {
+      "en": "I-Shou University",
+      "zh": "義守大學"
+    },
+    "type": "Private University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "private",
+    "ownershipLabel": "Private University",
+    "state": "Kaohsiung",
+    "classificationTags": [
+      "Taiwan",
+      "Private"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://cmn-hant.overseas.ncnu.edu.tw/en/schools-individual-admission/university-admission-list/",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-167",
+    "name": {
+      "en": "Nanhua University",
+      "zh": "南華大學"
+    },
+    "type": "Private University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "private",
+    "ownershipLabel": "Private University",
+    "state": "Chiayi",
+    "classificationTags": [
+      "Taiwan",
+      "Private"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://cmn-hant.overseas.ncnu.edu.tw/en/schools-individual-admission/university-admission-list/",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-168",
+    "name": {
+      "en": "Chang Jung Christian University",
+      "zh": "長榮大學"
+    },
+    "type": "Private University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "private",
+    "ownershipLabel": "Private University",
+    "state": "Tainan",
+    "classificationTags": [
+      "Taiwan",
+      "Private"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://cmn-hant.overseas.ncnu.edu.tw/en/schools-individual-admission/university-admission-list/",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-169",
+    "name": {
+      "en": "Tatung University",
+      "zh": "大同大學"
+    },
+    "type": "Private University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "private",
+    "ownershipLabel": "Private University",
+    "state": "Taipei",
+    "classificationTags": [
+      "Taiwan",
+      "Private"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://cmn-hant.overseas.ncnu.edu.tw/en/schools-individual-admission/university-admission-list/",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-171",
+    "name": {
+      "en": "China University of Technology",
+      "zh": "中國科技大學"
+    },
+    "type": "Private University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "private",
+    "ownershipLabel": "Private University",
+    "state": "Taipei",
+    "classificationTags": [
+      "Taiwan",
+      "Private"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://cmn-hant.overseas.ncnu.edu.tw/en/schools-individual-admission/university-admission-list/",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-173",
+    "name": {
+      "en": "Tungnan University",
+      "zh": "東南科技大學"
+    },
+    "type": "Private University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "private",
+    "ownershipLabel": "Private University",
+    "state": "New Taipei",
+    "classificationTags": [
+      "Taiwan",
+      "Private"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://cmn-hant.overseas.ncnu.edu.tw/en/schools-individual-admission/university-admission-list/",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-174",
+    "name": {
+      "en": "Wenzao Ursuline University of Languages",
+      "zh": "文藻外語大學"
+    },
+    "type": "Private University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "private",
+    "ownershipLabel": "Private University",
+    "state": "Kaohsiung",
+    "classificationTags": [
+      "Taiwan",
+      "Private"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://cmn-hant.overseas.ncnu.edu.tw/en/schools-individual-admission/university-admission-list/",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-175",
+    "name": {
+      "en": "Kainan University",
+      "zh": "開南大學"
+    },
+    "type": "Private University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "private",
+    "ownershipLabel": "Private University",
+    "state": "Taoyuan",
+    "classificationTags": [
+      "Taiwan",
+      "Private"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://cmn-hant.overseas.ncnu.edu.tw/en/schools-individual-admission/university-admission-list/",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-176",
+    "name": {
+      "en": "Fo Guang University",
+      "zh": "佛光大學"
+    },
+    "type": "Private University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "private",
+    "ownershipLabel": "Private University",
+    "state": "Yilan",
+    "classificationTags": [
+      "Taiwan",
+      "Private"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://cmn-hant.overseas.ncnu.edu.tw/en/schools-individual-admission/university-admission-list/",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "tw-177",
+    "name": {
+      "en": "Aletheia University",
+      "zh": "真理大學"
+    },
+    "type": "Private University",
+    "country": "Taiwan",
+    "studyLocation": "international",
+    "ownership": "private",
+    "ownershipLabel": "Private University",
+    "state": "New Taipei",
+    "classificationTags": [
+      "Taiwan",
+      "Private"
+    ],
+    "admissionRoutes": [
+      "Overseas Chinese Joint Admission (Malaysia)",
+      "Independent Admission"
+    ],
+    "dataStatus": "directory",
+    "source": "https://cmn-hant.overseas.ncnu.edu.tw/en/schools-individual-admission/university-admission-list/",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-211-391",
+    "name": {
+      "en": "Beijing Sport University",
+      "zh": "北京体育大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Beijing",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-211-392",
+    "name": {
+      "en": "Central Conservatory of Music",
+      "zh": "中央音乐学院"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Beijing",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-211-393",
+    "name": {
+      "en": "China University of Mining and Technology (Beijing)",
+      "zh": "中国矿业大学（北京）"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Beijing",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-211-394",
+    "name": {
+      "en": "China University of Mining and Technology",
+      "zh": "中国矿业大学（徐州）"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Xuzhou",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-211-395",
+    "name": {
+      "en": "China University of Geosciences (Beijing)",
+      "zh": "中国地质大学（北京）"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Beijing",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-211-396",
+    "name": {
+      "en": "China University of Geosciences (Wuhan)",
+      "zh": "中国地质大学（武汉）"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Wuhan",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-211-397",
+    "name": {
+      "en": "China University of Petroleum (Beijing)",
+      "zh": "中国石油大学（北京）"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Beijing",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-211-398",
+    "name": {
+      "en": "China University of Petroleum (East China)",
+      "zh": "中国石油大学（华东）"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Qingdao",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-211-399",
+    "name": {
+      "en": "Huazhong Agricultural University",
+      "zh": "华中农业大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Wuhan",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-211-400",
+    "name": {
+      "en": "Central China Normal University",
+      "zh": "华中师范大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Wuhan",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-211-401",
+    "name": {
+      "en": "Zhongnan University of Economics and Law",
+      "zh": "中南财经政法大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Wuhan",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-211-402",
+    "name": {
+      "en": "Hunan Normal University",
+      "zh": "湖南师范大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Changsha",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-211-403",
+    "name": {
+      "en": "Tibet University",
+      "zh": "西藏大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Lhasa",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-211-404",
+    "name": {
+      "en": "Naval Medical University",
+      "zh": "海军军医大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Shanghai",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
+  },
+  {
+    "id": "cn-211-405",
+    "name": {
+      "en": "Air Force Medical University",
+      "zh": "空军军医大学"
+    },
+    "type": "Public University · Project 211",
+    "country": "China",
+    "studyLocation": "international",
+    "ownership": "public",
+    "ownershipLabel": "Public University",
+    "state": "Xi’an",
+    "classificationTags": [
+      "211",
+      "Mainland China"
+    ],
+    "admissionRoutes": [],
+    "dataStatus": "directory",
+    "source": "https://www.moe.gov.cn/srcsite/A22/s7065/200512/t20051223_82762.html",
+    "lastVerified": null,
+    "dataNote": "Directory entry only. Check the institution’s official website for current programmes, admission routes and recognition."
   }
 ];
 
@@ -5015,20 +10130,20 @@ export const discoveryQuestions = [
     section: "development-interest",
     type: "multi-select",
     question: {
-      en: "Which areas would you like to explore further?",
-      zh: "你想进一步探索哪些领域？"
+      en: "A complex community problem needs a long-term solution. Which fields would you be willing to study deeply to help solve it?",
+      zh: "如果一个社区面对复杂问题，需要长期研究与解决，你愿意深入学习哪些领域来参与改善？"
     },
     options: [
       "Medicine & Healthcare",
       "Engineering",
-      "Artificial Intelligence",
-      "Biology & Biotechnology",
-      "Business",
-      "Science & Research",
-      "Design & Creative Arts",
-      "Social Sciences",
-      "Architecture & Construction",
-      "Education"
+      "Artificial Intelligence & Data Science",
+      "Biology, Biotechnology & Genetics",
+      "Business, Economics & Entrepreneurship",
+      "Fundamental Science & Research",
+      "Design, Media & Creative Technology",
+      "Psychology & Social Sciences",
+      "Architecture, Construction & Urban Systems",
+      "Education & Human Development"
     ]
   },
   {
@@ -5036,18 +10151,18 @@ export const discoveryQuestions = [
     section: "development-interest",
     type: "multi-select",
     question: {
-      en: "Which activities interest you most?",
-      zh: "以下哪些活动最吸引你？"
+      en: "Which challenging tasks would keep you engaged even when the answer is not obvious?",
+      zh: "即使一开始没有明确答案，以下哪些有挑战性的任务仍会让你愿意持续投入？"
     },
     options: [
-      "Solving difficult problems",
-      "Building something useful",
-      "Helping people",
-      "Discovering new information",
-      "Creating something original",
-      "Understanding human behaviour",
-      "Working with technology",
-      "Conducting experiments"
+      "Investigating a problem with incomplete evidence and testing competing explanations",
+      "Designing and prototyping a solution, then improving it after user feedback",
+      "Supporting people through complex decisions and explaining options clearly",
+      "Analysing data to identify patterns that are not immediately obvious",
+      "Developing an original concept and communicating it to an audience",
+      "Understanding how people, organisations and communities behave",
+      "Integrating software, hardware and systems to solve a practical need",
+      "Planning a controlled experiment and interpreting unexpected results"
     ]
   },
   {
@@ -5055,19 +10170,19 @@ export const discoveryQuestions = [
     section: "development-interest",
     type: "multi-select",
     question: {
-      en: "Which learning environments appeal to you?",
-      zh: "你比较喜欢在哪种环境学习？"
+      en: "Imagine a project that moves from research to real-world implementation. In which settings would you most like to contribute?",
+      zh: "想象一个项目从研究走向实际应用，你最希望在哪些环境中参与？"
     },
     options: [
-      "Laboratory",
-      "Hospital or healthcare setting",
-      "Engineering workshop",
-      "Office or business environment",
-      "Research centre",
-      "Construction site",
-      "Technology company",
-      "Creative studio",
-      "Outdoor or field environment"
+      "A laboratory where results must be precise, repeatable and documented",
+      "A healthcare team where decisions affect patient care and safety",
+      "An engineering workshop where designs are tested against real constraints",
+      "An organisation where you analyse operations, budgets and strategy",
+      "A research centre where you compare evidence and develop new knowledge",
+      "A construction or infrastructure project coordinating people and systems",
+      "A technology team building and evaluating digital products",
+      "A creative studio turning research into clear visual communication",
+      "A field setting collecting observations and responding to changing conditions"
     ]
   },
 
@@ -5102,7 +10217,7 @@ export const discoveryQuestions = [
   {
     id: "planning-2",
     section: "study-planning",
-    type: "single-select",
+    type: "multi-select",
     question: {
       en: "Which qualification are you aiming for?",
       zh: "你希望取得什么学历？"
@@ -5120,7 +10235,7 @@ export const discoveryQuestions = [
   {
     id: "planning-3",
     section: "study-planning",
-    type: "single-select",
+    type: "multi-select",
     question: {
       en: "Where would you prefer to study?",
       zh: "你希望在哪里升学？"
@@ -5138,7 +10253,7 @@ export const discoveryQuestions = [
   {
     id: "planning-4",
     section: "study-planning",
-    type: "single-select",
+    type: "multi-select",
     question: {
       en: "What is your preferred study budget?",
       zh: "你的升学预算是多少？"
@@ -5155,7 +10270,7 @@ export const discoveryQuestions = [
   {
     id: "planning-5",
     section: "study-planning",
-    type: "single-select",
+    type: "multi-select",
     question: {
       en: "What matters most when choosing a course?",
       zh: "选择科系时，你最重视什么？"
