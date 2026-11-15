@@ -4101,3 +4101,15 @@ html[data-language="zh"] .page-hero h2 { display: block; }
   gap: 0.55rem 1rem;
   margin-top: 0.75rem;
 }
+
+/* Discovery: automatic question progression hint */
+.question-auto-hint {
+  color: var(--text-secondary, #777);
+  font-size: 0.82rem;
+  text-align: right;
+  align-self: center;
+}
+@media (max-width: 560px) {
+  .question-stage-footer { gap: 0.75rem; flex-wrap: wrap; }
+  .question-auto-hint { text-align: left; }
+}

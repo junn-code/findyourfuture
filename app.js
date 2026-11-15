@@ -732,19 +732,26 @@ function renderRiasecQuestion() {
       <h3 class="question-prompt">${escapeHTML(questionText)}</h3>
       <p class="question-hint">${t("How much do you enjoy this activity?", "你有多喜欢这项活动？")}</p>
       <div class="rating-options" role="group" aria-label="Interest rating">
-        ${[1,2,3,4,5].map((value, index) => `<button type="button" class="rating-option ${Number(selected) === value ? "selected" : ""}" data-rating="${value}" aria-pressed="${Number(selected) === value}"><strong>${value}</strong><span>${escapeHTML(t(["Not at all","A little","Not sure","Quite a lot","Very much"][index], ["完全不喜欢","有一点","不确定","比较喜欢","非常喜欢"][index]))}</span></button>`).join("")}
+        ${[1,2,3,4,5].map((value, index) => `<button type="button" class="rating-option ${Number(selected) === value ? "selected" : ""}" data-rating="${value}" aria-pressed="${Number(selected) === value}"><strong>${value}</strong><span>${escapeHTML(t(["Strongly dislike","Dislike","Neutral","Like","Strongly like"][index], ["非常不感兴趣","不感兴趣","普通","感兴趣","非常感兴趣"][index]))}</span></button>`).join("")}
       </div>
-      <div class="question-stage-footer"><button type="button" class="button button-secondary" id="questionBack" ${state.quizIndex === 0 ? "disabled" : ""}>← ${t("Previous", "上一题")}</button><button type="button" class="button button-primary" id="questionNext" ${selected === undefined ? "disabled" : ""}>${state.quizIndex === questions.length - 1 ? t("Continue to interests", "继续发展兴趣") : t("Next question", "下一题")} →</button></div>
+      <div class="question-stage-footer"><button type="button" class="button button-secondary" id="questionBack" ${state.quizIndex === 0 ? "disabled" : ""}>← ${t("Previous", "上一题")}</button><span class="question-auto-hint">${t("Select an answer to continue automatically", "选择答案后将自动进入下一题")}</span></div>
     </article>`;
   target.querySelectorAll("[data-rating]").forEach(button => button.addEventListener("click", () => {
     state.quizAnswers[question.id] = Number(button.dataset.rating);
-    saveDiscovery(); updateDiscoveryProgress(); renderRiasecQuestion();
+    saveDiscovery(); updateDiscoveryProgress();
+    // Briefly show the selected state, then advance without requiring a Next button.
+    button.classList.add("selected");
+    target.querySelectorAll("[data-rating]").forEach(option => option.disabled = true);
+    window.setTimeout(() => {
+      if (state.quizIndex < questions.length - 1) {
+        state.quizIndex++;
+        renderRiasecQuestion();
+      } else {
+        setQuizTab("dreams");
+      }
+    }, 180);
   }));
   $("#questionBack", target)?.addEventListener("click", () => { if (state.quizIndex > 0) { state.quizIndex--; renderRiasecQuestion(); } });
-  $("#questionNext", target)?.addEventListener("click", () => {
-    if (state.quizIndex < questions.length - 1) { state.quizIndex++; renderRiasecQuestion(); }
-    else setQuizTab("dreams");
-  });
 }
 
 function renderDevelopmentChoices() {
