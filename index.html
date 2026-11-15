@@ -1,0 +1,1995 @@
+
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-language="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f5f7">
+
+  <title>Find Your Future — Discover Your Potential</title>
+
+  <meta name="description" content="Discover your interests, explore academic programmes, compare institutions and plan your future.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./style.css">
+
+  <script type="module" src="./app.js"></script>
+</head>
+
+<body>
+
+<div class="app-shell" id="app">
+
+  <!-- =========================================
+       BACKGROUND ATMOSPHERE
+  ========================================== -->
+
+  <div class="ambient-background" aria-hidden="true">
+    <div class="ambient-orb ambient-orb-one"></div>
+    <div class="ambient-orb ambient-orb-two"></div>
+    <div class="ambient-orb ambient-orb-three"></div>
+    <div class="ambient-grid"></div>
+  </div>
+
+
+  <!-- =========================================
+       TOP NAVIGATION
+  ========================================== -->
+
+  <header class="site-header" id="siteHeader">
+
+    <div class="header-inner">
+
+      <a href="#home" class="brand" data-page="home">
+
+        <span class="brand-mark">
+          <span>F</span>
+        </span>
+
+        <span class="brand-text">
+          <strong>Find Your Future</strong>
+          <small>Discover. Explore. Become.</small>
+        </span>
+
+      </a>
+
+
+      <nav class="desktop-navigation" id="mainNavigation">
+
+        <button class="nav-item active" data-page="home">
+          Home
+        </button>
+
+        <button class="nav-item" data-page="discover">
+          Discover
+        </button>
+
+        <button class="nav-item" data-page="fields">
+          Study Fields
+        </button>
+
+        <button class="nav-item" data-page="courses">
+          Courses
+        </button>
+
+        <button class="nav-item" data-page="institutions">
+          Institutions
+        </button>
+
+        <button class="nav-item" data-page="pathways">
+          Pathways
+        </button>
+
+        <button class="nav-item" data-page="careers">
+          Careers
+        </button>
+
+        <button class="nav-item" data-page="professional">
+          Professional
+        </button>
+
+      </nav>
+
+
+      <div class="header-actions">
+
+        <button
+          class="header-icon-button"
+          id="languageToggle"
+          type="button"
+          aria-label="Change language"
+          title="Language"
+        >
+          <span id="languageLabel">EN</span>
+        </button>
+
+        <button
+          class="header-icon-button"
+          id="themeToggle"
+          type="button"
+          aria-label="Change appearance"
+          title="Appearance"
+        >
+          <span id="themeIcon">☼</span>
+        </button>
+
+        <button
+          class="header-report-button"
+          data-page="report"
+        >
+          My Future
+          <span>↗</span>
+        </button>
+
+        <button
+          class="mobile-menu-button"
+          id="mobileMenuToggle"
+          type="button"
+          aria-label="Open navigation"
+        >
+          <span></span>
+          <span></span>
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- MOBILE NAVIGATION -->
+
+    <div class="mobile-navigation" id="mobileNavigation">
+
+      <button data-page="home">Home / 首页</button>
+      <button data-page="discover">Discover / 探索自己</button>
+      <button data-page="fields">Study Fields / 学科领域</button>
+      <button data-page="courses">Courses / 课程</button>
+      <button data-page="institutions">Institutions / 院校</button>
+      <button data-page="pathways">Pathways / 升学路线</button>
+      <button data-page="careers">Careers / 职业</button>
+      <button data-page="professional">Professional / 专业资格</button>
+      <button data-page="report">My Future / 我的未来</button>
+      <button data-page="admin">Admin Dashboard</button>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- =========================================
+       MAIN CONTENT
+  ========================================== -->
+
+  <main class="main-content" id="mainContent">
+
+
+    <!-- =====================================
+         PAGE 01 — HOME
+    ====================================== -->
+
+    <section
+      class="page-section active"
+      id="page-home"
+      data-page-section="home"
+    >
+
+      <div class="home-hero">
+
+        <div class="hero-copy">
+
+          <div class="hero-eyebrow">
+            <span class="status-dot"></span>
+            <span>YOUR FUTURE STARTS HERE</span>
+          </div>
+
+          <h1>
+            Discover your potential.
+            <span>Find your direction.</span>
+          </h1>
+
+          <h2 class="hero-chinese">
+            探索你的潜能，发现未来的方向。
+          </h2>
+
+          <p class="hero-description">
+            Explore your interests, discover academic programmes,
+            compare study pathways and understand the careers
+            you can build.
+          </p>
+
+          <p class="hero-description chinese-description">
+            从认识自己、寻找适合的科系，到比较升学路线及未来职业，
+            一步一步规划你的教育旅程。
+          </p>
+
+
+          <div class="hero-buttons">
+
+            <button
+              class="button button-primary button-large"
+              data-page="discover"
+            >
+              Start exploring
+              <span>↗</span>
+            </button>
+
+            <button
+              class="button button-glass button-large"
+              data-page="fields"
+            >
+              Explore study fields
+            </button>
+
+          </div>
+
+
+          <div class="hero-caption">
+            <span class="caption-symbol">✦</span>
+            <span>One platform. Multiple possibilities.</span>
+          </div>
+
+        </div>
+
+
+        <!-- HERO VISUAL -->
+
+        <div class="hero-visual">
+
+          <div class="hero-glass-orbit orbit-large"></div>
+          <div class="hero-glass-orbit orbit-small"></div>
+
+          <div class="hero-glass-object">
+
+            <div class="glass-object-highlight"></div>
+
+            <div class="glass-object-inner">
+              <span class="glass-star">✦</span>
+              <span class="glass-object-label">YOUR FUTURE</span>
+              <strong>∞</strong>
+              <span class="glass-object-caption">
+                Endless possibilities
+              </span>
+            </div>
+
+          </div>
+
+
+          <div class="floating-info-card floating-info-top">
+
+            <span class="floating-icon blue-icon">✧</span>
+
+            <span>
+              <strong>Discover</strong>
+              <small>Your interests</small>
+            </span>
+
+          </div>
+
+
+          <div class="floating-info-card floating-info-bottom">
+
+            <span class="floating-icon purple-icon">◈</span>
+
+            <span>
+              <strong>Explore</strong>
+              <small>Your opportunities</small>
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- HOME INTRODUCTION -->
+
+      <section class="content-section home-discovery-section">
+
+        <div class="section-heading">
+
+          <div>
+            <span class="section-eyebrow">
+              EXPLORE YOUR FUTURE
+            </span>
+
+            <h2>
+              Everything starts with discovery.
+            </h2>
+
+            <p>
+              从认识自己，到寻找适合自己的学习与职业方向。
+            </p>
+          </div>
+
+          <button
+            class="text-link"
+            data-page="fields"
+          >
+            Explore all fields
+            <span>↗</span>
+          </button>
+
+        </div>
+
+
+        <div class="feature-grid">
+
+          <article
+            class="feature-card feature-discover"
+            data-page="discover"
+            tabindex="0"
+            role="button"
+          >
+
+            <div class="feature-card-top">
+              <span class="feature-symbol">✧</span>
+              <span class="feature-number">01</span>
+            </div>
+
+            <div class="feature-card-content">
+              <span class="feature-kicker">SELF DISCOVERY</span>
+              <h3>Discover Yourself</h3>
+              <p>认识兴趣、性格倾向与发展方向。</p>
+            </div>
+
+            <div class="feature-card-bottom">
+              <span>Start your discovery</span>
+              <span>↗</span>
+            </div>
+
+          </article>
+
+
+          <article
+            class="feature-card"
+            data-page="fields"
+            tabindex="0"
+            role="button"
+          >
+
+            <div class="feature-card-top">
+              <span class="feature-symbol">◈</span>
+              <span class="feature-number">02</span>
+            </div>
+
+            <div class="feature-card-content">
+              <span class="feature-kicker">ACADEMIC DISCIPLINES</span>
+              <h3>Study Fields</h3>
+              <p>探索不同学科领域与专业。</p>
+            </div>
+
+            <div class="feature-card-bottom">
+              <span>Explore fields</span>
+              <span>↗</span>
+            </div>
+
+          </article>
+
+
+          <article
+            class="feature-card"
+            data-page="courses"
+            tabindex="0"
+            role="button"
+          >
+
+            <div class="feature-card-top">
+              <span class="feature-symbol">▤</span>
+              <span class="feature-number">03</span>
+            </div>
+
+            <div class="feature-card-content">
+              <span class="feature-kicker">ACADEMIC PROGRAMMES</span>
+              <h3>Explore Courses</h3>
+              <p>了解学历、课程结构与学习内容。</p>
+            </div>
+
+            <div class="feature-card-bottom">
+              <span>Find courses</span>
+              <span>↗</span>
+            </div>
+
+          </article>
+
+
+          <article
+            class="feature-card"
+            data-page="institutions"
+            tabindex="0"
+            role="button"
+          >
+
+            <div class="feature-card-top">
+              <span class="feature-symbol">⌂</span>
+              <span class="feature-number">04</span>
+            </div>
+
+            <div class="feature-card-content">
+              <span class="feature-kicker">EDUCATION PROVIDERS</span>
+              <h3>Institutions</h3>
+              <p>寻找大学、学院、Polytechnic 与 TVET。</p>
+            </div>
+
+            <div class="feature-card-bottom">
+              <span>Explore institutions</span>
+              <span>↗</span>
+            </div>
+
+          </article>
+
+
+          <article
+            class="feature-card"
+            data-page="pathways"
+            tabindex="0"
+            role="button"
+          >
+
+            <div class="feature-card-top">
+              <span class="feature-symbol">⇢</span>
+              <span class="feature-number">05</span>
+            </div>
+
+            <div class="feature-card-content">
+              <span class="feature-kicker">EDUCATION PLANNING</span>
+              <h3>Study Pathways</h3>
+              <p>比较不同学历与升学路线。</p>
+            </div>
+
+            <div class="feature-card-bottom">
+              <span>Plan your pathway</span>
+              <span>↗</span>
+            </div>
+
+          </article>
+
+
+          <article
+            class="feature-card"
+            data-page="careers"
+            tabindex="0"
+            role="button"
+          >
+
+            <div class="feature-card-top">
+              <span class="feature-symbol">◎</span>
+              <span class="feature-number">06</span>
+            </div>
+
+            <div class="feature-card-content">
+              <span class="feature-kicker">CAREER EXPLORATION</span>
+              <h3>Future Careers</h3>
+              <p>了解职业、行业与未来发展。</p>
+            </div>
+
+            <div class="feature-card-bottom">
+              <span>Explore careers</span>
+              <span>↗</span>
+            </div>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- HOME PATHWAY FEATURE -->
+
+      <section class="pathway-promo">
+
+        <div class="pathway-promo-content">
+
+          <span class="section-eyebrow">
+            YOUR JOURNEY, YOUR WAY
+          </span>
+
+          <h2>
+            More than one path.
+            <span>One future.</span>
+          </h2>
+
+          <p>
+            Compare education routes and discover the different
+            ways to reach your academic goals.
+          </p>
+
+          <p class="chinese-description">
+            升学不只有一种方式。根据你的学历、兴趣与目标，
+            探索不同的教育路线。
+          </p>
+
+          <button
+            class="button button-dark"
+            data-page="pathways"
+          >
+            Explore pathways
+            <span>↗</span>
+          </button>
+
+        </div>
+
+
+        <div class="pathway-promo-visual">
+
+          <div class="pathway-node pathway-node-start">
+            <span>START</span>
+            <strong>SPM</strong>
+          </div>
+
+          <div class="pathway-branch">
+
+            <div class="branch-line"></div>
+
+            <div class="branch-options">
+
+              <span>Foundation</span>
+              <span>STPM</span>
+              <span>Diploma</span>
+
+            </div>
+
+            <div class="branch-merge"></div>
+
+          </div>
+
+          <div class="pathway-node pathway-node-end">
+            <span>YOUR GOAL</span>
+            <strong>Bachelor</strong>
+          </div>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- HOME QUALIFICATION LEVELS -->
+
+      <section class="content-section">
+
+        <div class="section-heading">
+
+          <div>
+            <span class="section-eyebrow">
+              EDUCATION LEVELS
+            </span>
+
+            <h2>Explore your next step.</h2>
+
+            <p>
+              从职业技能课程到博士研究，了解不同学历层级。
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="qualification-grid" id="homeQualificationGrid">
+
+          <button class="qualification-card" data-level="Certificate">
+            <span>01</span>
+            <strong>Certificate</strong>
+            <small>证书</small>
+            <b>↗</b>
+          </button>
+
+          <button class="qualification-card" data-level="Foundation">
+            <span>02</span>
+            <strong>Foundation</strong>
+            <small>大学预科</small>
+            <b>↗</b>
+          </button>
+
+          <button class="qualification-card" data-level="Diploma">
+            <span>03</span>
+            <strong>Diploma</strong>
+            <small>文凭</small>
+            <b>↗</b>
+          </button>
+
+          <button class="qualification-card" data-level="Advanced Diploma">
+            <span>04</span>
+            <strong>Advanced Diploma</strong>
+            <small>高级文凭</small>
+            <b>↗</b>
+          </button>
+
+          <button class="qualification-card" data-level="Bachelor">
+            <span>05</span>
+            <strong>Bachelor</strong>
+            <small>学士学位</small>
+            <b>↗</b>
+          </button>
+
+          <button class="qualification-card" data-level="Postgraduate Diploma">
+            <span>06</span>
+            <strong>Postgraduate Diploma</strong>
+            <small>研究生文凭</small>
+            <b>↗</b>
+          </button>
+
+          <button class="qualification-card" data-level="Master">
+            <span>07</span>
+            <strong>Master</strong>
+            <small>硕士学位</small>
+            <b>↗</b>
+          </button>
+
+          <button class="qualification-card" data-level="PhD">
+            <span>08</span>
+            <strong>PhD</strong>
+            <small>博士学位</small>
+            <b>↗</b>
+          </button>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- HOME PROFESSIONAL -->
+
+      <section class="home-professional-banner">
+
+        <div>
+          <span class="section-eyebrow">
+            BEYOND YOUR DEGREE
+          </span>
+
+          <h2>Build your professional future.</h2>
+
+          <p>
+            Understand professional registration, accreditation,
+            licensing and industry requirements.
+          </p>
+
+          <p class="chinese-description">
+            不只了解学历，也了解专业注册、执照、认证与行业要求。
+          </p>
+        </div>
+
+        <button
+          class="button button-glass"
+          data-page="professional"
+        >
+          Explore professional requirements ↗
+        </button>
+
+      </section>
+
+    </section>
+
+
+
+
+    <!-- =====================================
+         PAGE 02 — DISCOVER
+    ====================================== -->
+
+    <section
+      class="page-section"
+      id="page-discover"
+      data-page-section="discover"
+    >
+
+      <div class="page-hero compact-page-hero">
+
+        <span class="section-eyebrow">SELF DISCOVERY</span>
+
+        <h1>Get to know yourself.</h1>
+
+        <h2>认识自己，探索更多可能。</h2>
+
+        <p>
+          Explore your interests and preferences through
+          a guided discovery experience.
+        </p>
+
+        <p class="chinese-description">
+          通过一系列探索题目，了解你的兴趣倾向、发展方向与升学规划。
+        </p>
+
+      </div>
+
+
+      <div class="discovery-layout">
+
+        <aside class="discovery-sidebar glass-panel">
+
+          <div class="discovery-progress">
+
+            <span class="small-label">YOUR PROGRESS</span>
+
+            <strong id="quizProgressText">
+              0 / 80 completed
+            </strong>
+
+            <div class="progress-track">
+              <span id="quizProgressBar"></span>
+            </div>
+
+            <small>Take your time. Your progress is saved locally.</small>
+
+          </div>
+
+
+          <div class="discovery-navigation" id="quizTabs">
+
+            <button
+              class="discovery-nav-item active"
+              data-quiz-tab="questions"
+            >
+              <span class="nav-step-number">01</span>
+
+              <span>
+                <strong>Interest Assessment</strong>
+                <small>72 questions · RIASEC</small>
+              </span>
+
+              <span class="nav-chevron">›</span>
+            </button>
+
+
+            <button
+              class="discovery-nav-item"
+              data-quiz-tab="dreams"
+            >
+              <span class="nav-step-number">02</span>
+
+              <span>
+                <strong>Development Interests</strong>
+                <small>Choose 3 areas</small>
+              </span>
+
+              <span class="nav-chevron">›</span>
+            </button>
+
+
+            <button
+              class="discovery-nav-item"
+              data-quiz-tab="planning"
+            >
+              <span class="nav-step-number">03</span>
+
+              <span>
+                <strong>Study Planning</strong>
+                <small>5 questions</small>
+              </span>
+
+              <span class="nav-chevron">›</span>
+            </button>
+
+          </div>
+
+
+          <div class="discovery-sidebar-note">
+            <span>✦</span>
+            <p>
+              Your results are a starting point for exploration,
+              not a limit on your future.
+            </p>
+          </div>
+
+        </aside>
+
+
+
+        <div class="discovery-main">
+
+          <!-- QUESTIONS -->
+
+          <div
+            class="quiz-panel active"
+            id="questionsPanel"
+          >
+
+            <div class="panel-heading">
+
+              <div>
+                <span class="section-eyebrow">
+                  SECTION 01 · 72 QUESTIONS
+                </span>
+
+                <h2>What interests you?</h2>
+
+                <p>
+                  Rate each statement based on how much you enjoy it.
+                </p>
+              </div>
+
+              <span class="panel-label">RIASEC</span>
+
+            </div>
+
+
+            <div
+              class="questions-container"
+              id="questionsContainer"
+            ></div>
+
+          </div>
+
+
+
+          <!-- DREAMS -->
+
+          <div
+            class="quiz-panel"
+            id="dreamsPanel"
+          >
+
+            <div class="panel-heading">
+
+              <div>
+                <span class="section-eyebrow">
+                  SECTION 02 · CHOOSE 3
+                </span>
+
+                <h2>What would you like to explore?</h2>
+
+                <p>
+                  Select three areas that interest you.
+                </p>
+              </div>
+
+              <span class="panel-label">3 PICKS</span>
+
+            </div>
+
+
+            <div
+              class="dream-choices"
+              id="dreamChoices"
+            ></div>
+
+
+            <div class="selection-counter" id="dreamCounter">
+              0 of 3 selected
+            </div>
+
+          </div>
+
+
+
+          <!-- PLANNING -->
+
+          <div
+            class="quiz-panel"
+            id="planningPanel"
+          >
+
+            <div class="panel-heading">
+
+              <div>
+                <span class="section-eyebrow">
+                  SECTION 03 · 5 QUESTIONS
+                </span>
+
+                <h2>Let's plan your next step.</h2>
+
+                <p>
+                  Tell us a little about your education plans.
+                </p>
+              </div>
+
+              <span class="panel-label">PLANNING</span>
+
+            </div>
+
+
+            <div
+              class="planning-fields"
+              id="planningFields"
+            ></div>
+
+          </div>
+
+
+
+          <div class="quiz-navigation-footer">
+
+            <button
+              class="button button-secondary"
+              id="quizPrevious"
+              type="button"
+            >
+              ← Previous
+            </button>
+
+            <div class="quiz-footer-right">
+
+              <button
+                class="button button-primary"
+                id="quizNext"
+                type="button"
+              >
+                Continue →
+              </button>
+
+              <button
+                class="button button-primary hidden"
+                id="submitQuiz"
+                type="button"
+              >
+                Generate my report ↗
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <p
+            class="form-message"
+            id="quizMessage"
+            role="status"
+          ></p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+
+    <!-- =====================================
+         PAGE 03 — STUDY FIELDS
+    ====================================== -->
+
+    <section
+      class="page-section"
+      id="page-fields"
+      data-page-section="fields"
+    >
+
+      <div class="page-hero">
+
+        <span class="section-eyebrow">ACADEMIC DISCIPLINES</span>
+
+        <h1>Explore study fields.</h1>
+
+        <h2>发现知识的不同领域。</h2>
+
+        <p>
+          Explore a broad range of academic disciplines,
+          from engineering and medicine to technology,
+          science and the arts.
+        </p>
+
+        <p class="chinese-description">
+          从工程、医学、生物科学到人工智能、商业、设计及社会科学，
+          探索不同学科与专业。
+        </p>
+
+      </div>
+
+
+      <div class="catalog-toolbar">
+
+        <label class="search-field">
+
+          <span class="search-icon" aria-hidden="true"><svg class="search-icon-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg></span>
+
+          <input
+            id="fieldSearch"
+            type="search"
+            placeholder="Search study fields..."
+          >
+
+          <kbd>SEARCH</kbd>
+
+        </label>
+
+        <span class="catalog-count" id="fieldCount">
+          All study fields
+        </span>
+
+      </div>
+
+
+      <div
+        class="horizontal-filter"
+        id="fieldCategoryFilter"
+      >
+
+        <button class="filter-chip active" data-filter="all">
+          All Fields
+        </button>
+
+      </div>
+
+
+      <div
+        class="catalog-grid"
+        id="fieldGrid"
+      ></div>
+
+
+      <div class="empty-state hidden" id="fieldEmpty">
+        <span class="empty-search-icon" aria-hidden="true"><svg class="search-icon-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg></span>
+        <h3>No study fields found.</h3>
+        <p>Try another keyword or category.</p>
+      </div>
+
+    </section>
+
+
+
+
+    <!-- =====================================
+         PAGE 04 — COURSES
+    ====================================== -->
+
+    <section
+      class="page-section"
+      id="page-courses"
+      data-page-section="courses"
+    >
+
+      <div class="page-hero">
+
+        <span class="section-eyebrow">ACADEMIC PROGRAMMES</span>
+
+        <h1>Find what you want to study.</h1>
+
+        <h2>寻找适合你的课程。</h2>
+
+        <p>
+          Explore programmes across six qualification levels.
+          Understand what you will learn and where your studies can lead.
+        </p>
+
+        <p class="chinese-description">
+          浏览不同学历层级，了解课程内容、入学条件、学习成果与未来职业。
+        </p>
+
+      </div>
+
+
+      <div class="catalog-toolbar">
+
+        <label class="search-field">
+
+          <span class="search-icon" aria-hidden="true"><svg class="search-icon-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg></span>
+
+          <input
+            id="courseSearch"
+            type="search"
+            placeholder="Search courses or programmes..."
+          >
+
+        </label>
+
+
+        <select id="courseLevelFilter" class="filter-select">
+          <option value="all">All Qualification Levels</option>
+        </select>
+
+
+        <select id="courseFieldFilter" class="filter-select">
+          <option value="all">All Study Fields</option>
+        </select>
+
+      </div>
+
+
+      <div class="qualification-tabs" id="courseQualificationTabs">
+
+        <button class="qualification-tab active" data-level="all">
+          All
+        </button>
+
+        <button class="qualification-tab" data-level="Certificate">
+          Certificate
+        </button>
+
+        <button class="qualification-tab" data-level="Foundation">
+          Foundation
+        </button>
+
+        <button class="qualification-tab" data-level="Diploma">
+          Diploma
+        </button>
+
+        <button class="qualification-tab" data-level="Advanced Diploma">
+          Advanced Diploma
+        </button>
+
+        <button class="qualification-tab" data-level="Bachelor">
+          Bachelor
+        </button>
+
+        <button class="qualification-tab" data-level="Postgraduate Diploma">
+          Postgraduate Diploma
+        </button>
+
+        <button class="qualification-tab" data-level="Master">
+          Master
+        </button>
+
+        <button class="qualification-tab" data-level="PhD">
+          PhD
+        </button>
+
+      </div>
+
+
+      <div class="catalog-result-heading">
+        <h2>Explore programmes</h2>
+        <span id="courseCount">Programmes</span>
+      </div>
+
+
+      <div
+        class="catalog-grid"
+        id="courseGrid"
+      ></div>
+
+
+      <div class="empty-state hidden" id="courseEmpty">
+        <span class="empty-search-icon" aria-hidden="true"><svg class="search-icon-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg></span>
+        <h3>No programmes found.</h3>
+        <p>Try another search or qualification level.</p>
+      </div>
+
+    </section>
+
+
+
+
+    <!-- =====================================
+         PAGE 05 — INSTITUTIONS
+    ====================================== -->
+
+    <section
+      class="page-section"
+      id="page-institutions"
+      data-page-section="institutions"
+    >
+
+      <div class="page-hero">
+
+        <span class="section-eyebrow">EDUCATION DIRECTORY</span>
+
+        <h1>Discover where to study.</h1>
+
+        <h2>探索马来西亚及海外院校。</h2>
+
+        <p>
+          Explore universities, university colleges,
+          private colleges, polytechnics, community colleges
+          and technical institutions.
+        </p>
+
+        <p class="chinese-description">
+          从公立大学、私立大学、外国分校到学院、理工学院、
+          社区学院与 TVET 机构。
+        </p>
+
+      </div>
+
+
+      <div class="institution-highlight">
+
+        <div>
+          <span class="section-eyebrow">MALAYSIA FIRST</span>
+
+          <h2>Explore Malaysia's education landscape.</h2>
+
+          <p>
+            Discover different types of education providers
+            and their academic opportunities.
+          </p>
+        </div>
+
+        <div class="institution-highlight-symbol">
+          ◈
+        </div>
+
+      </div>
+
+
+      <div class="catalog-toolbar">
+
+        <label class="search-field">
+
+          <span class="search-icon" aria-hidden="true"><svg class="search-icon-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg></span>
+
+          <input
+            id="institutionSearch"
+            type="search"
+            placeholder="Search institutions..."
+          >
+
+        </label>
+
+
+        <select
+          id="institutionTypeFilter"
+          class="filter-select"
+        >
+          <option value="all">All Institution Types</option>
+        </select>
+
+      </div>
+
+
+      <div class="institution-filter-group">
+        <span class="filter-group-label">Study location / 学习地点</span>
+        <div class="horizontal-filter" id="institutionCategoryFilter" aria-label="Filter by study location">
+          <button type="button" class="filter-chip active" data-country="all">All locations</button>
+          <button type="button" class="filter-chip" data-country="Malaysia">Malaysia</button>
+          <button type="button" class="filter-chip" data-country="international">Outside Malaysia</button>
+        </div>
+      </div>
+
+      <div class="institution-filter-group">
+        <span class="filter-group-label">Institution ownership / 院校性质</span>
+        <div class="horizontal-filter" id="institutionOwnershipFilter" aria-label="Filter by institution ownership">
+          <button type="button" class="filter-chip active" data-ownership="all">All types</button>
+          <button type="button" class="filter-chip" data-ownership="public">Public / Government</button>
+          <button type="button" class="filter-chip" data-ownership="private">Private</button>
+          <button type="button" class="filter-chip" data-ownership="foreign-branch">Foreign university campuses</button>
+          <button type="button" class="filter-chip" data-ownership="other">Other providers</button>
+        </div>
+      </div>
+
+      <div
+        class="horizontal-filter"
+        id="institutionCountryFilter"
+        aria-label="Filter by country"
+      ></div>
+
+      <div class="catalog-result-heading">
+        <h2>Institutions directory</h2>
+        <span id="institutionCount">Institutions</span>
+      </div>
+
+
+      <div
+        class="catalog-grid"
+        id="institutionGrid"
+      ></div>
+
+
+      <div class="empty-state hidden" id="institutionEmpty">
+        <span class="empty-search-icon" aria-hidden="true"><svg class="search-icon-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg></span>
+        <h3>No institutions found.</h3>
+        <p>Try another search or category.</p>
+      </div>
+
+    </section>
+
+
+
+
+    <!-- =====================================
+         PAGE 06 — PATHWAYS
+    ====================================== -->
+
+    <section
+      class="page-section"
+      id="page-pathways"
+      data-page-section="pathways"
+    >
+
+      <div class="page-hero">
+
+        <span class="section-eyebrow">EDUCATION PLANNING</span>
+
+        <h1>Your journey. Your possibilities.</h1>
+
+        <h2>规划属于你的升学路线。</h2>
+
+        <p>
+          Compare different routes from your current qualification
+          to your next academic goal.
+        </p>
+
+        <p class="chinese-description">
+          根据你目前的学历，探索不同升学选择。
+          每个人的路线都可以不同。
+        </p>
+
+      </div>
+
+
+      <div class="pathway-intro-card">
+
+        <div>
+          <span class="section-eyebrow">START WITH YOUR QUALIFICATION</span>
+
+          <h2>Where are you now?</h2>
+
+          <p>选择目前持有的学历。</p>
+        </div>
+
+
+        <select
+          id="pathwayQualification"
+          class="large-select"
+        >
+
+          <option value="">Select your qualification</option>
+          <option value="SPM">SPM</option>
+          <option value="UEC">UEC</option>
+          <option value="STPM">STPM</option>
+          <option value="A-Level">A-Level</option>
+          <option value="Foundation">Foundation</option>
+          <option value="Diploma">Diploma</option>
+          <option value="Certificate">Certificate</option>
+          <option value="TVET">TVET</option>
+
+        </select>
+
+      </div>
+
+
+      <div class="catalog-toolbar">
+
+        <label class="search-field">
+
+          <span class="search-icon" aria-hidden="true"><svg class="search-icon-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg></span>
+
+          <input
+            id="pathwaySearch"
+            type="search"
+            placeholder="Search study pathways..."
+          >
+
+        </label>
+
+        <span
+          class="catalog-count"
+          id="pathwayCompareCount"
+        >
+          0 of 3 selected
+        </span>
+
+      </div>
+
+
+      <div class="pathway-section-heading">
+
+        <div>
+          <span class="section-eyebrow">POSSIBLE ROUTES</span>
+          <h2>Explore your options.</h2>
+        </div>
+
+      </div>
+
+
+      <div
+        class="pathway-grid"
+        id="pathwayGrid"
+      ></div>
+
+
+      <section class="pathway-comparison-section">
+
+        <div class="section-heading">
+
+          <div>
+            <span class="section-eyebrow">MAKE A COMPARISON</span>
+            <h2>Compare your pathways.</h2>
+            <p>最多选择三条路线进行比较。</p>
+          </div>
+
+          <div class="comparison-actions">
+
+            <button
+              class="button button-secondary"
+              id="clearPathwayCompare"
+            >
+              Clear
+            </button>
+
+            <button
+              class="button button-primary"
+              id="comparePathways"
+            >
+              Compare selected
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <div
+          class="pathway-comparison"
+          id="pathwayComparison"
+        >
+
+          <div class="empty-state">
+            <span>⇢</span>
+            <h3>Select pathways to compare.</h3>
+            <p>Choose up to three pathways above.</p>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <div class="notice-box">
+        <strong>Important information</strong>
+        <p>
+          Study pathways are general illustrations.
+          Actual entry requirements, subject prerequisites,
+          credit transfers and recognition depend on the receiving institution.
+        </p>
+        <p>
+          升学路线只供参考，实际入学条件、科目要求及学分豁免，
+          必须以院校最新公布的规定为准。
+        </p>
+      </div>
+
+    </section>
+
+
+
+
+    <!-- =====================================
+         PAGE 07 — CAREERS
+    ====================================== -->
+
+    <section
+      class="page-section"
+      id="page-careers"
+      data-page-section="careers"
+    >
+
+      <div class="page-hero">
+
+        <span class="section-eyebrow">CAREER EXPLORATION</span>
+
+        <h1>Imagine what you could become.</h1>
+
+        <h2>探索未来职业的可能。</h2>
+
+        <p>
+          Discover career opportunities across industries,
+          understand job roles and explore the qualifications
+          that may support your journey.
+        </p>
+
+      </div>
+
+
+      <div class="catalog-toolbar">
+
+        <label class="search-field">
+
+          <span class="search-icon" aria-hidden="true"><svg class="search-icon-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg></span>
+
+          <input
+            id="careerSearch"
+            type="search"
+            placeholder="Search careers..."
+          >
+
+        </label>
+
+
+        <select
+          id="careerCategoryFilter"
+          class="filter-select"
+        >
+          <option value="all">All Industries</option>
+        </select>
+
+      </div>
+
+
+      <div class="catalog-result-heading">
+        <h2>Career directory</h2>
+        <span id="careerCount">Careers</span>
+      </div>
+
+
+      <div
+        class="catalog-grid"
+        id="careerGrid"
+      ></div>
+
+
+      <div class="empty-state hidden" id="careerEmpty">
+        <span class="empty-search-icon" aria-hidden="true"><svg class="search-icon-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg></span>
+        <h3>No careers found.</h3>
+        <p>Try another keyword.</p>
+      </div>
+
+    </section>
+
+
+
+
+    <!-- =====================================
+         PAGE 08 — PROFESSIONAL
+    ====================================== -->
+
+    <section
+      class="page-section"
+      id="page-professional"
+      data-page-section="professional"
+    >
+
+      <div class="page-hero">
+
+        <span class="section-eyebrow">PROFESSIONAL DEVELOPMENT</span>
+
+        <h1>Beyond your qualification.</h1>
+
+        <h2>了解专业资格与行业要求。</h2>
+
+        <p>
+          Explore professional bodies, registration,
+          licensing, accreditation and career progression.
+        </p>
+
+      </div>
+
+
+      <div class="professional-intro-card">
+
+        <span class="professional-intro-symbol">✦</span>
+
+        <h2>A degree may be one step in your journey.</h2>
+
+        <p>
+          Some professions require additional examinations,
+          registration, supervised practice or professional licensing.
+        </p>
+
+        <p>
+          某些专业领域除了学历，也可能需要额外考试、
+          实习、注册或执业资格。
+        </p>
+
+      </div>
+
+
+      <div
+        class="catalog-grid"
+        id="professionalGrid"
+      ></div>
+
+
+      <div class="notice-box">
+        <strong>Verify professional requirements</strong>
+        <p>
+          Professional registration and licensing rules may change.
+          Always check with the relevant official professional body.
+        </p>
+      </div>
+
+    </section>
+
+
+
+
+    <!-- =====================================
+         PAGE 09 — MY FUTURE REPORT
+    ====================================== -->
+
+    <section
+      class="page-section"
+      id="page-report"
+      data-page-section="report"
+    >
+
+      <div class="page-hero">
+
+        <span class="section-eyebrow">YOUR PERSONAL SPACE</span>
+
+        <h1>Your future, brought together.</h1>
+
+        <h2>你的探索成果与升学规划。</h2>
+
+        <p>
+          Review your discovery results, study interests
+          and possible education directions.
+        </p>
+
+      </div>
+
+
+      <div class="report-actions">
+
+        <button
+          class="button button-secondary"
+          id="printReport"
+        >
+          Print report
+        </button>
+
+        <button
+          class="button button-primary"
+          id="exportReport"
+        >
+          Export report ↗
+        </button>
+
+      </div>
+
+
+      <div
+        class="report-content"
+        id="reportContent"
+      >
+
+        <div class="empty-state report-empty">
+
+          <span>✧</span>
+
+          <h2>Your future report starts here.</h2>
+
+          <p>
+            Complete your discovery assessment to generate
+            your personal exploration report.
+          </p>
+
+          <button
+            class="button button-primary"
+            data-page="discover"
+          >
+            Start discovery ↗
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="report-reset-area">
+
+        <button
+          class="text-button danger-text"
+          id="resetQuiz"
+        >
+          Reset my discovery data
+        </button>
+
+      </div>
+
+    </section>
+
+
+
+
+    <!-- =====================================
+         PAGE 10 — ADMIN DASHBOARD
+    ====================================== -->
+
+    <section
+      class="page-section"
+      id="page-admin"
+      data-page-section="admin"
+    >
+
+      <div class="page-hero">
+
+        <span class="section-eyebrow">SYSTEM MANAGEMENT</span>
+
+        <h1>Admin Dashboard.</h1>
+
+        <h2>平台数据管理中心。</h2>
+
+        <p>
+          Manage academic fields, courses, institutions,
+          curriculum information and verification records.
+        </p>
+
+      </div>
+
+
+      <div class="admin-warning">
+        <span>ⓘ</span>
+        <div>
+          <strong>Local prototype</strong>
+          <p>
+            This demonstration dashboard stores data locally.
+            It is not a secure production administration system.
+          </p>
+        </div>
+      </div>
+
+
+      <div class="admin-layout">
+
+        <aside class="admin-sidebar">
+
+          <button class="admin-tab active" data-admin-tab="overview">
+            Overview
+          </button>
+
+          <button class="admin-tab" data-admin-tab="fields">
+            Field Management
+          </button>
+
+          <button class="admin-tab" data-admin-tab="courses">
+            Course Management
+          </button>
+
+          <button class="admin-tab" data-admin-tab="institutions">
+            Institution Management
+          </button>
+
+          <button class="admin-tab" data-admin-tab="curriculum">
+            Curriculum Management
+          </button>
+
+          <button class="admin-tab" data-admin-tab="careers">
+            Career Management
+          </button>
+
+          <button class="admin-tab" data-admin-tab="pathways">
+            Pathway Management
+          </button>
+
+          <button class="admin-tab" data-admin-tab="professional">
+            Professional Requirements
+          </button>
+
+          <button class="admin-tab" data-admin-tab="verification">
+            Source Verification
+          </button>
+
+          <button class="admin-tab" data-admin-tab="versions">
+            Version History
+          </button>
+
+          <button class="admin-tab" data-admin-tab="settings">
+            System Settings
+          </button>
+
+        </aside>
+
+
+        <div class="admin-main" id="adminMain">
+
+          <div class="admin-overview">
+
+            <h2>Platform overview</h2>
+
+            <div class="admin-stat-grid">
+
+              <div class="admin-stat-card">
+                <span>Study Fields</span>
+                <strong id="adminFieldCount">—</strong>
+              </div>
+
+              <div class="admin-stat-card">
+                <span>Courses</span>
+                <strong id="adminCourseCount">—</strong>
+              </div>
+
+              <div class="admin-stat-card">
+                <span>Institutions</span>
+                <strong id="adminInstitutionCount">—</strong>
+              </div>
+
+              <div class="admin-stat-card">
+                <span>Careers</span>
+                <strong id="adminCareerCount">—</strong>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div id="adminWorkspace"></div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+
+
+  <!-- =========================================
+       FOOTER
+  ========================================== -->
+
+  <footer class="site-footer">
+
+    <div class="footer-main">
+
+      <div class="footer-brand">
+
+        <a href="#home" data-page="home" class="brand">
+
+          <span class="brand-mark">
+            <span>F</span>
+          </span>
+
+          <span class="brand-text">
+            <strong>Find Your Future</strong>
+            <small>Discover. Explore. Become.</small>
+          </span>
+
+        </a>
+
+        <p>
+          A platform for discovering academic opportunities
+          and planning your future.
+        </p>
+
+        <p>
+          探索教育机会，规划未来方向。
+        </p>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <strong>Explore</strong>
+
+        <button data-page="discover">Discover</button>
+        <button data-page="fields">Study Fields</button>
+        <button data-page="courses">Courses</button>
+        <button data-page="careers">Careers</button>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <strong>Education</strong>
+
+        <button data-page="institutions">Institutions</button>
+        <button data-page="pathways">Pathways</button>
+        <button data-page="professional">Professional</button>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <strong>Your Space</strong>
+
+        <button data-page="report">My Future</button>
+        <button data-page="admin">Admin Dashboard</button>
+
+      </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <span>© 2026 Find Your Future</span>
+
+      <span>Discover your potential. Find your direction.</span>
+
+    </div>
+
+  </footer>
+
+
+
+
+  <!-- =========================================
+       COURSE DETAIL MODAL
+  ========================================== -->
+
+  <div
+    class="modal"
+    id="courseModal"
+    aria-hidden="true"
+  >
+
+    <div class="modal-backdrop" data-modal-close></div>
+
+    <div
+      class="modal-dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="courseModalTitle"
+    >
+
+      <div class="modal-header">
+
+        <span class="section-eyebrow">PROGRAMME INFORMATION</span>
+
+        <button
+          class="modal-close"
+          data-modal-close
+          aria-label="Close"
+        >
+          ×
+        </button>
+
+      </div>
+
+      <div
+        class="modal-content"
+        id="courseModalContent"
+      ></div>
+
+    </div>
+
+  </div>
+
+
+
+
+  <!-- =========================================
+       PATHWAY DETAIL MODAL
+  ========================================== -->
+
+  <div
+    class="modal"
+    id="pathwayModal"
+    aria-hidden="true"
+  >
+
+    <div class="modal-backdrop" data-modal-close></div>
+
+    <div
+      class="modal-dialog"
+      role="dialog"
+      aria-modal="true"
+    >
+
+      <div class="modal-header">
+
+        <span class="section-eyebrow">PATHWAY DETAILS</span>
+
+        <button
+          class="modal-close"
+          data-modal-close
+          aria-label="Close"
+        >
+          ×
+        </button>
+
+      </div>
+
+      <div
+        class="modal-content"
+        id="pathwayModalContent"
+      ></div>
+
+    </div>
+
+  </div>
+
+
+
+
+  <!-- =========================================
+       GLOBAL NOTIFICATION
+  ========================================== -->
+
+  <div
+    class="toast-container"
+    id="toastContainer"
+    aria-live="polite"
+  ></div>
+
+
+
+</div>
+
+</body>
+</html>
+
