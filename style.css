@@ -4086,3 +4086,18 @@ html[data-language="zh"] .page-hero h2 { display: block; }
 .qualification-card { min-height: 138px; }
 .qualification-card strong { font-size: 13px; line-height: 1.35; }
 @media (max-width: 820px) { .qualification-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* Institution directory v2.1 */
+.institution-parent {
+  margin: 0.65rem 0 0;
+  color: var(--muted-text, #6b7280);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+.institution-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem 1rem;
+  margin-top: 0.75rem;
+}

@@ -444,7 +444,7 @@ function renderInstitutions() {
     const itemType = item.type ?? item.institutionType ?? item.category ?? "";
     const ownership = institutionOwnership(item);
     const location = institutionLocation(item);
-    const searchable = [getName(item), getDescription(item), item.abbreviation, item.type, item.state, item.country].join(" ").toLowerCase();
+    const searchable = [getName(item), getDescription(item), item.abbreviation, item.type, item.state, item.country, item.parentUniversity, item.parentCountry].join(" ").toLowerCase();
     const locationMatch = state.institutionCategory === "all" ||
       (state.institutionCategory === "Malaysia" && location === "domestic") ||
       (state.institutionCategory === "international" && location === "international") ||
@@ -459,7 +459,11 @@ function renderInstitutions() {
       ${item.abbreviation ? `<span class="institution-abbreviation">${escapeHTML(item.abbreviation)}</span>` : ""}
       <p>${escapeHTML(getDescription(item) || t("Institution directory entry. Check the official website for current programme details.", "院校目录资料。课程详情请以官方网站为准。"))}</p>
       <div class="card-meta"><span>${escapeHTML([item.state, item.country].filter(Boolean).join(", "))}</span></div>
-      ${item.website ? `<a class="text-button" href="${escapeHTML(item.website)}" target="_blank" rel="noopener noreferrer">${t("Official website", "官方网站")} ↗</a>` : ""}
+      ${item.parentUniversity ? `<p class="institution-parent">${t("Home university", "母校")}: ${escapeHTML(item.parentUniversity)}${item.parentCountry ? ` · ${escapeHTML(item.parentCountry)}` : ""}</p>` : ""}
+      <div class="institution-links">
+        ${item.website ? `<a class="text-button" href="${escapeHTML(item.website)}" target="_blank" rel="noopener noreferrer">${t("Official website", "官方网站")} ↗</a>` : ""}
+        ${item.source ? `<a class="text-button" href="${escapeHTML(item.source)}" target="_blank" rel="noopener noreferrer">${t("Register / source", "登记册／资料来源")} ↗</a>` : ""}
+      </div>
     </article>
   `).join("");
   setText("#institutionCount", `${filtered.length} ${t("institutions", "所院校")}`);
