@@ -80,6 +80,9 @@
           Institutions
         </button>
 
+        <button class="nav-item" data-page="compare">Compare</button>
+        <button class="nav-item" data-page="skills">Skills</button>
+        <button class="nav-item" data-page="planner">My Planner</button>
         <button class="nav-item" data-page="pathways">
           Pathways
         </button>
@@ -153,6 +156,9 @@
       <button data-page="fields">Study Fields / 学科领域</button>
       <button data-page="courses">Courses / 课程</button>
       <button data-page="institutions">Institutions / 院校</button>
+      <button data-page="compare">Compare / 比较</button>
+      <button data-page="skills">Skills / 技能探索</button>
+      <button data-page="planner">My Planner / 我的规划</button>
       <button data-page="pathways">Pathways / 升学路线</button>
       <button data-page="careers">Careers / 职业</button>
       <button data-page="professional">Professional / 专业资格</button>
@@ -1079,6 +1085,11 @@
 
       </div>
 
+      <section class="eligibility-panel">
+        <div><span class="section-eyebrow">ENTRY EXPLORER</span><h2>Explore your entry pathway.</h2><p>Compare your current qualification level with a programme level. This is a preliminary guide only; subject grades, equivalency, language and institution-specific rules require manual verification.</p></div>
+        <div class="eligibility-controls"><label>My current qualification<select id="eligibilityCurrent"><option>SPM</option><option>UEC</option><option>STPM</option><option>A-Level</option><option>Foundation</option><option>Certificate</option><option>Diploma</option><option>Bachelor</option><option>Master</option><option>PhD</option><option>TVET</option></select></label><label>Programme<select id="eligibilityCourse"><option value="">Select a course</option></select></label><button class="button button-primary" id="checkEligibility" type="button">Check pathway</button></div>
+        <div id="eligibilityResult" class="eligibility-result" aria-live="polite">Select a qualification and programme to explore the next step.</div>
+      </section>
 
       <div class="catalog-toolbar">
 
@@ -1106,6 +1117,8 @@
 
       </div>
 
+
+      <div class="course-tools-strip"><div><strong>Plan before you choose.</strong><span>Save programmes, compare up to four, and check your qualification pathway.</span></div><button class="button button-secondary" type="button" data-page="compare">Open comparison ↗</button><button class="button button-secondary" type="button" data-page="planner">My planner ↗</button></div>
 
       <div class="qualification-tabs" id="courseQualificationTabs">
 
@@ -1669,6 +1682,29 @@
       <div class="catalog-grid" id="admissionsTestGrid"></div>
     </section>
 
+
+    <!-- =====================================
+         NEW — COMPARE, SKILLS AND PERSONAL PLANNER
+    ====================================== -->
+    <section class="page-section" id="page-compare" data-page-section="compare">
+      <div class="page-hero"><span class="section-eyebrow">DECISION SUPPORT</span><h1>Compare your options.</h1><h2>比较科系与院校。</h2><p>Compare up to four saved programmes side by side. Missing information stays clearly marked rather than estimated.</p></div>
+      <div class="compare-toolbar"><label class="search-field"><span class="search-icon">⌕</span><input id="compareSearch" type="search" placeholder="Find a programme to add..."></label><button class="button button-secondary" id="clearCompare">Clear comparison</button></div>
+      <div class="catalog-result-heading"><h2>Compare courses</h2><span>Up to four programmes</span></div><div id="comparePicker" class="compare-picker"></div><div id="compareTable" class="compare-table-wrap"></div>
+      <div class="catalog-result-heading" style="margin-top:42px"><h2>Compare institutions</h2><span>Up to four institutions</span></div><div class="compare-toolbar"><label class="search-field"><span class="search-icon">⌕</span><input id="compareInstitutionSearch" type="search" placeholder="Find an institution to add..."></label><button class="button button-secondary" id="clearInstitutionCompare">Clear institution comparison</button></div><div id="institutionComparePicker" class="compare-picker"></div><div id="institutionCompareTable" class="compare-table-wrap"></div>
+    </section>
+
+    <section class="page-section" id="page-skills" data-page-section="skills">
+      <div class="page-hero"><span class="section-eyebrow">SKILLS EXPLORER</span><h1>Explore the skills behind careers.</h1><h2>探索职业所需的技能。</h2><p>Discover transferable skills, related study areas and careers. These are exploration prompts, not formal competency standards.</p></div>
+      <div class="catalog-toolbar"><label class="search-field"><span class="search-icon">⌕</span><input id="skillSearch" type="search" placeholder="Search skills, careers or study areas..."></label><select id="skillCategoryFilter" class="filter-select"><option value="all">All skill groups</option></select></div>
+      <div class="catalog-result-heading"><h2>Skills directory</h2><span id="skillCount"></span></div><div class="catalog-grid" id="skillGrid"></div>
+    </section>
+
+    <section class="page-section" id="page-planner" data-page-section="planner">
+      <div class="page-hero"><span class="section-eyebrow">YOUR PERSONAL SPACE</span><h1>Build your study plan.</h1><h2>建立个人升学规划。</h2><p>Keep a shortlist of courses and institutions, define your next steps and track your application journey on this device.</p></div>
+      <div class="planner-summary" id="plannerSummary"></div>
+      <div class="planner-columns"><section class="planner-panel"><div class="catalog-result-heading"><h2>Saved courses</h2><span id="savedCourseCount"></span></div><div id="savedCourses"></div></section><section class="planner-panel"><div class="catalog-result-heading"><h2>Saved institutions</h2><span id="savedInstitutionCount"></span></div><div id="savedInstitutions"></div></section></div>
+      <section class="planner-panel planner-goals"><div class="catalog-result-heading"><h2>My next steps</h2><span>Personal checklist</span></div><form id="plannerTaskForm" class="planner-task-form"><input id="plannerTaskInput" type="text" maxlength="180" placeholder="e.g. Check entry requirements" required><button class="button button-primary" type="submit">Add task</button></form><div id="plannerTasks"></div><div class="planner-actions"><button class="button button-secondary" id="exportPlanner">Export my plan</button><button class="button button-secondary" id="clearPlanner">Clear saved plan</button></div><p class="data-note">Planner data is stored in this browser only. It is not synced to an account or cloud database.</p></section>
+    </section>
 
     <!-- =====================================
          PAGE 10 — MY FUTURE REPORT

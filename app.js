@@ -3,14 +3,17 @@ import * as PATHWAYS from "./pathways.js";
 
 /* =========================================================
    FIND YOUR FUTURE — APPLICATION
-   Five-file edition: admin is integrated in this module.
+   Version 3.0.0 — five-file edition; admin is integrated in this module.
    ========================================================= */
 
 const STORAGE = {
   language: "fyf-language",
   theme: "fyf-theme",
   discovery: "fyf-discovery-v2",
-  admin: "fyf-admin-local-data"
+  admin: "fyf-admin-local-data",
+  planner: "fyf-personal-planner-v3",
+  compare: "fyf-course-compare-v3",
+  institutionCompare: "fyf-institution-compare-v3"
 };
 
 const state = {
@@ -148,7 +151,7 @@ function setText(selector, value) {
    NAVIGATION, LANGUAGE AND APPEARANCE
    ========================================================= */
 
-const PAGE_IDS = ["home", "discover", "fields", "courses", "institutions", "pathways", "careers", "professional", "scholarships", "report", "admin"];
+const PAGE_IDS = ["home", "discover", "fields", "courses", "institutions", "compare", "skills", "planner", "pathways", "careers", "professional", "scholarships", "report", "admin"];
 
 function navigateTo(page, updateHash = true) {
   if (!PAGE_IDS.includes(page)) page = "home";
@@ -175,7 +178,10 @@ function navigateTo(page, updateHash = true) {
   initCatalogFilters();
 
   if (page === "fields") renderFields();
-  if (page === "courses") renderCourses();
+  if (page === "courses") { renderCourses(); initEligibilityExplorer(); }
+  if (page === "compare") { renderCompare(); renderInstitutionCompare(); }
+  if (page === "skills") renderSkills();
+  if (page === "planner") renderPlanner();
   if (page === "institutions") renderInstitutions();
   if (page === "pathways") renderPathways();
   if (page === "careers") renderCareers();
@@ -373,7 +379,7 @@ function renderCourses() {
         ${formatDuration(course.duration) ? `<span>${escapeHTML(formatDuration(course.duration))}</span>` : ""}
         ${course.studyMode?.length ? `<span>${escapeHTML(course.studyMode.join(", "))}</span>` : ""}
       </div>
-      <button class="text-button" type="button" data-course-detail="${escapeHTML(getId(course))}">${t("View programme details", "查看课程详情")} ↗</button>
+      <div class="card-actions"><button class="text-button" type="button" data-course-detail="${escapeHTML(getId(course))}">${t("View programme details", "查看课程详情")} ↗</button><button class="text-button" type="button" data-save-course="${escapeHTML(getId(course))}">♡ ${t("Save", "收藏")}</button><button class="text-button" type="button" data-compare-course="${escapeHTML(getId(course))}">＋ ${t("Compare", "比较")}</button></div>
     </article>
   `).join("");
   setText("#courseCount", `${filtered.length} ${t("programmes", "项课程")}`);
@@ -397,10 +403,13 @@ function renderCourseDetail(id) {
       <div><dt>${t("Country", "国家")}</dt><dd>${escapeHTML(course.country || "—")}</dd></div>
     </dl>
     <section class="detail-section"><h3>${t("Entry requirements", "入学要求")}</h3><p>${escapeHTML(localized(course.entryRequirements, t("Not provided. Check the institution's official programme page.", "暂无资料，请查阅院校官方课程页面。")))}</p></section>
-    <section class="detail-section"><h3>${t("Curriculum", "课程大纲")}</h3>${curriculum.length ? `<ul>${curriculum.map(item => `<li>${escapeHTML(localized(item.name || item.subjectName || item.title || item))}</li>`).join("")}</ul>` : `<p>${t("Detailed curriculum has not been supplied yet.", "尚未提供详细课程大纲。")}</p>`}</section>
+    <section class="detail-section"><h3>${t("Curriculum / course modules", "课程大纲／科目")}</h3>${curriculum.length ? `<ul>${curriculum.map(item => `<li>${escapeHTML(localized(item.name || item.subjectName || item.title || item))}${item.year ? ` · ${t("Year", "第")}${escapeHTML(item.year)}${state.language === "zh" ? "年" : ""}` : ""}</li>`).join("")}</ul>` : `<p>${t("Detailed curriculum has not been supplied yet. Request the latest module handbook from the institution.", "尚未提供详细课程大纲，请向院校索取最新课程手册。")}</p>`}</section>
+    <section class="detail-section"><h3>${t("Admission checks", "入学资格检查")}</h3><p>${escapeHTML(localized(course.subjectRequirements, t("Subject prerequisites have not been verified in this directory entry.", "此目录条目尚未核实科目先修要求。")))}</p><p>${escapeHTML(localized(course.languageRequirements, t("Language requirements not supplied.", "尚未提供语言要求。")))}</p></section>
+    <section class="detail-section"><h3>${t("Fees & recognition", "学费与专业认可")}</h3><p>${course.estimatedFees ? `${escapeHTML(course.feeCurrency || "")} ${escapeHTML(course.estimatedFees)} · ${escapeHTML(course.feeAcademicYear || t("Academic year not stated", "未注明学年"))}` : t("Tuition fees have not been verified.", "学费尚未核实。")}</p><p>${escapeHTML(localized(course.professionalRecognition, t("Professional recognition has not been confirmed for this programme entry.", "此课程条目的专业认可尚未确认。")))}</p></section>
     ${institutionNames.length ? `<section class="detail-section"><h3>${t("Listed institutions", "开办院校")}</h3><p>${escapeHTML(institutionNames.join(", "))}</p></section>` : ""}
     ${course.dataNote ? `<p class="data-note">${escapeHTML(course.dataNote)}</p>` : ""}
     ${course.source ? `<a class="text-button" href="${escapeHTML(course.source)}" target="_blank" rel="noopener noreferrer">${t("View source", "查看来源")} ↗</a>` : ""}
+    <div class="card-actions"><button class="button button-secondary" type="button" data-save-course="${escapeHTML(getId(course))}">${t("Save to my planner", "收藏到我的规划")}</button><button class="button button-primary" type="button" data-compare-course="${escapeHTML(getId(course))}">${t("Add to comparison", "加入比较")}</button></div>
   `;
   openModal("#courseModal");
 }
@@ -471,6 +480,8 @@ function renderInstitutions() {
       ${(item.admissionRoutes || []).includes("Overseas Chinese Joint Admission (Malaysia)") ? `<p class="institution-admission-note">${t("Taiwan has an overseas Chinese student joint-admission system. Confirm current eligibility, participating departments and quotas in the annual official guide; this directory does not guarantee admission.", "台湾设有海外联合招生制度；申请资格、参与科系与年度名额须以官方当年度简章为准，本目录不保证录取。")} <a href="https://www.overseas.edu.tw/en/university_system/taiwan-university-of-education-system/" target="_blank" rel="noopener noreferrer">${t("Admission information", "招生资讯")} ↗</a></p>` : ""}
       ${item.parentUniversity ? `<p class="institution-parent">${t("Home university", "母校")}: ${escapeHTML(item.parentUniversity)}${item.parentCountry ? ` · ${escapeHTML(item.parentCountry)}` : ""}</p>` : ""}
       <div class="institution-links">
+        <button class="text-button" type="button" data-save-institution="${escapeHTML(getId(item))}">♡ ${t("Save", "收藏")}</button>
+        <button class="text-button" type="button" data-compare-institution="${escapeHTML(getId(item))}">＋ ${t("Compare", "比较")}</button>
         ${item.website ? `<a class="text-button" href="${escapeHTML(item.website)}" target="_blank" rel="noopener noreferrer">${t("Official website", "官方网站")} ↗</a>` : ""}
         ${item.source ? `<a class="text-button" href="${escapeHTML(item.source)}" target="_blank" rel="noopener noreferrer">${t("Register / source", "登记册／资料来源")} ↗</a>` : ""}
       </div>
@@ -481,6 +492,7 @@ function renderInstitutions() {
 }
 
 function initInstitutionEvents() {
+  $("#institutionGrid")?.addEventListener("click", event => { const button = event.target.closest("[data-save-institution]"); if (button) { toggleSaved("institutions", button.dataset.saveInstitution); showToast(t("Institution saved to your planner.", "院校已收藏到个人规划。")); } });
   $("#institutionSearch")?.addEventListener("input", renderInstitutions);
   $("#institutionTypeFilter")?.addEventListener("change", renderInstitutions);
   $("#institutionCategoryFilter")?.addEventListener("click", event => {
@@ -659,7 +671,10 @@ function renderCareers() {
   grid.innerHTML = filtered.map(item => {
     const relatedCourses = getArray("courses").filter(course => (item.disciplineId && course.disciplineId === item.disciplineId) || (item.fieldId && course.fieldId === item.fieldId)).slice(0, 3);
     const disciplineLabel = item.disciplineId ? item.disciplineId.replace(/-/g, " ") : getFieldName(item.fieldId);
-    return `<article class="catalog-card career-card"><div class="card-topline"><span class="category-label">${escapeHTML(item.industry || getFieldName(item.fieldId))}</span>${statusBadge(item)}</div><h3>${escapeHTML(getName(item))}</h3><p>${escapeHTML(getDescription(item))}</p><div class="card-meta">${item.fieldId ? `<span>${escapeHTML(getFieldName(item.fieldId))}</span>` : ""}</div><div class="career-related"><strong>${t("Related study areas", "相关科系方向")}</strong><p>${escapeHTML(disciplineLabel)}</p>${relatedCourses.length ? `<small>${t("Related programmes in this directory", "目录中的相关课程")}: ${relatedCourses.map(course => escapeHTML(getName(course))).join(" · ")}</small>` : `<small>${t("Programme listings are being expanded. Search the related study field.", "相关课程目录持续扩充中，可先查看相关学科领域。")}</small>`}<button class="text-button" type="button" data-career-discipline="${escapeHTML(item.disciplineId || item.fieldId || "")}">${t("Explore related courses", "查看相关科系课程")} ↗</button></div></article>`;
+    const duties = item.responsibilities?.[state.language] || item.responsibilities?.en || [];
+    const professionalNames = (item.professionalRequirements || []).map(id => getArray("professionalRequirements").find(body => getId(body) === id)).filter(Boolean).map(getName);
+    const relatedSkills = getArray("skills").filter(skill => (skill.relatedFields || []).includes(item.fieldId)).slice(0, 4);
+    return `<article class="catalog-card career-card"><div class="card-topline"><span class="category-label">${escapeHTML(item.industry || getFieldName(item.fieldId))}</span>${statusBadge(item)}</div><h3>${escapeHTML(getName(item))}</h3><p>${escapeHTML(getDescription(item))}</p><div class="card-meta">${item.fieldId ? `<span>${escapeHTML(getFieldName(item.fieldId))}</span>` : ""}${item.qualificationLevels?.length ? `<span>${escapeHTML(item.qualificationLevels.map(level=>getQualificationLabel(level)).join(" / "))}</span>` : ""}</div>${Array.isArray(duties)&&duties.length?`<div class="career-related"><strong>${t("Typical responsibilities", "常见工作内容")}</strong><ul>${duties.slice(0,4).map(duty=>`<li>${escapeHTML(duty)}</li>`).join("")}</ul></div>`:""}<div class="career-related"><strong>${t("Related skills to explore", "值得探索的相关技能")}</strong><p>${relatedSkills.map(skill=>escapeHTML(getName(skill))).join(" · ")||t("Not specified in this directory entry", "此目录条目尚未注明")}</p>${professionalNames.length?`<small>${t("Relevant professional bodies", "相关专业机构")}: ${professionalNames.map(escapeHTML).join(" · ")}</small>`:""}<strong>${t("Related study areas", "相关科系方向")}</strong><p>${escapeHTML(disciplineLabel)}</p>${relatedCourses.length ? `<small>${t("Related programmes in this directory", "目录中的相关课程")}: ${relatedCourses.map(course => escapeHTML(getName(course))).join(" · ")}</small>` : `<small>${t("Programme listings are being expanded. Search the related study field.", "相关课程目录持续扩充中，可先查看相关学科领域。")}</small>`}<button class="text-button" type="button" data-career-discipline="${escapeHTML(item.disciplineId || item.fieldId || "")}">${t("Explore related courses", "查看相关科系课程")} ↗</button></div></article>`;
   }).join("");
   setText("#careerCount", `${filtered.length} ${t("careers", "种职业")}`);
   $("#careerEmpty")?.classList.toggle("hidden", filtered.length > 0);
@@ -950,8 +965,13 @@ function renderReport() {
   const top = scores.slice(0, 3);
   const selectedFieldIds = [...new Set(top.flatMap(item => RIASEC_FIELD_MAP[item.code] || []))];
   const selectedFields = selectedFieldIds.map(id => getArray("studyFields").find(field => field.id === id)).filter(Boolean).slice(0, 4);
-  const relatedCourses = getArray("courses").filter(course => selectedFieldIds.includes(course.fieldId)).slice(0, 6);
-  const relatedCareers = getArray("careers").filter(career => selectedFieldIds.includes(career.fieldId)).slice(0, 6);
+  const topScoreTotal = top.reduce((sum, item) => sum + item.score, 0) || 1;
+  const alignmentFor = item => {
+    const matched = top.filter(score => (RIASEC_FIELD_MAP[score.code] || []).includes(item.fieldId));
+    return { percent: Math.round(matched.reduce((sum, score) => sum + score.score, 0) / topScoreTotal * 100), codes: matched.map(score => score.code) };
+  };
+  const relatedCourses = getArray("courses").filter(course => selectedFieldIds.includes(course.fieldId)).map(course => ({ ...course, alignment: alignmentFor(course) })).sort((a,b) => b.alignment.percent-a.alignment.percent).slice(0, 6);
+  const relatedCareers = getArray("careers").filter(career => selectedFieldIds.includes(career.fieldId)).map(career => ({ ...career, alignment: alignmentFor(career) })).sort((a,b) => b.alignment.percent-a.alignment.percent).slice(0, 6);
   const riasecCode = top.map(item => item.code).join("-");
   const planning = getQuestions("study-planning").map(question => {
     const raw = state.quizAnswers[question.id] || [];
@@ -965,6 +985,7 @@ function renderReport() {
       <h2>${t("Your RIASEC profile", "你的 RIASEC 兴趣画像")}</h2>
       <div class="riasec-code-line"><span>${t("Your leading code", "你的主要代码")}</span><strong>${riasecCode}</strong><small>${top.map(item => escapeHTML(item[state.language])).join(" · ")}</small></div>
       <p>${t("Your leading letters summarise your strongest interest themes. Use them to explore study fields, programmes and career directions.", "你的主要字母代码总结了较突出的兴趣方向，可用来探索相关学科、科系与职业出路。")}</p>
+      <p class="match-method-note">${t("Match indicators are transparent rule-based estimates from your top three RIASEC themes and broad field links. They are not AI predictions, admissions probabilities or validated psychometric scores.", "匹配指标是根据前三项 RIASEC 兴趣及宽泛学科关联计算的规则式参考值，并非 AI 预测、录取概率或经验证的心理测量分数。")}</p>
       <div class="riasec-score-grid">${scores.map(item => `<div class="riasec-score"><span>${item.code}</span><strong>${item.score}</strong><small>${escapeHTML(item[state.language])}</small><div><i style="width:${item.score / 60 * 100}%"></i></div></div>`).join("")}</div>
     </section>
     <section class="report-section report-recommendations">
@@ -973,11 +994,11 @@ function renderReport() {
     </section>
     <section class="report-section report-recommendations">
       <h2>${t("Related programmes", "相关科系／课程")}</h2>
-      <div class="report-list-grid">${relatedCourses.length ? relatedCourses.map(course => `<div class="report-list-item"><strong>${escapeHTML(getName(course))}</strong><small>${escapeHTML(getFieldName(course.fieldId))} · ${escapeHTML(getQualificationLabel(getQualification(course)) || t("Level not listed", "未注明学历层级"))}</small><em>${escapeHTML(String(course.dataStatus || "directory"))}</em></div>`).join("") : `<p>${t("No directly matched programme listing is available yet. Explore the study fields above.", "目前没有可直接匹配的课程条目，请先探索上方学科领域。")}</p>`}</div>
+      <div class="report-list-grid">${relatedCourses.length ? relatedCourses.map(course => `<div class="report-list-item"><strong>${escapeHTML(getName(course))}</strong><small>${escapeHTML(getFieldName(course.fieldId))} · ${escapeHTML(getQualificationLabel(getQualification(course)) || t("Level not listed", "未注明学历层级"))}</small><em>${t("Indicative interest alignment", "兴趣关联参考值")}: ${course.alignment.percent}% · ${escapeHTML(course.alignment.codes.join(" / "))} · ${escapeHTML(String(course.dataStatus || "directory"))}</em></div>`).join("") : `<p>${t("No directly matched programme listing is available yet. Explore the study fields above.", "目前没有可直接匹配的课程条目，请先探索上方学科领域。")}</p>`}</div>
     </section>
     <section class="report-section report-recommendations">
       <h2>${t("Possible career directions", "相关职业出路")}</h2>
-      <div class="report-list-grid">${relatedCareers.length ? relatedCareers.map(career => `<div class="report-list-item"><strong>${escapeHTML(getName(career))}</strong><small>${escapeHTML(getFieldName(career.fieldId))}${career.disciplineId ? ` · ${escapeHTML(career.disciplineId.replace(/-/g, " "))}` : ""}</small></div>`).join("") : `<p>${t("Career matches will expand as the directory grows.", "职业匹配资料会随着目录扩充而增加。")}</p>`}</div>
+      <div class="report-list-grid">${relatedCareers.length ? relatedCareers.map(career => `<div class="report-list-item"><strong>${escapeHTML(getName(career))}</strong><small>${escapeHTML(getFieldName(career.fieldId))}${career.disciplineId ? ` · ${escapeHTML(career.disciplineId.replace(/-/g, " "))}` : ""}</small><em>${t("Indicative interest alignment", "兴趣关联参考值")}: ${career.alignment.percent}%</em></div>`).join("") : `<p>${t("Career matches will expand as the directory grows.", "职业匹配资料会随着目录扩充而增加。")}</p>`}</div>
     </section>
     <section class="report-section report-planning-summary"><h2>${t("Your study planning", "你的升学规划")}</h2><div class="report-list-grid">${planning.map(item => `<div class="report-list-item"><strong>${escapeHTML(item.question)}</strong><small>${escapeHTML(String(item.answer || "—"))}</small></div>`).join("")}</div></section>
     <p class="report-disclaimer">${t("Educational exploration only. This is not a psychometric diagnosis, admissions decision or guarantee of career suitability. Programme records may be directory or illustrative entries; confirm current requirements with each institution.", "本报告仅供教育探索参考，并非心理诊断、录取决定或职业适合度保证。课程资料可能属于目录或示例条目，请向院校核实最新要求。")}</p>
@@ -1036,6 +1057,7 @@ const ADMIN_COLLECTIONS = [
   { key: "studyPathways", label: { en: "Study Pathways", zh: "升学路线" }, icon: "⇢" },
   { key: "qualificationLevels", label: { en: "Qualification Levels", zh: "学历层级" }, icon: "▥" },
   { key: "discoveryQuestions", label: { en: "Discovery Questions", zh: "探索问卷" }, icon: "?" },
+  { key: "skills", label: { en: "Skills", zh: "技能" }, icon: "✧" },
   { key: "scholarshipSources", label: { en: "Scholarship Sources", zh: "奖学金来源" }, icon: "☆" },
   { key: "admissionsTests", label: { en: "Admissions & Tests", zh: "入学考试与要求" }, icon: "✓" }
 ];
@@ -1074,11 +1096,13 @@ function renderAdminDashboard() {
   adminState.search = "";
   const total = ADMIN_COLLECTIONS.reduce((sum, item) => sum + adminGetCollection(item.key).length, 0);
   const verified = ADMIN_COLLECTIONS.reduce((sum, item) => sum + adminGetCollection(item.key).filter(record => ["verified", "official", "official-source"].includes(adminStatus(record))).length, 0);
+  const needsReview = ADMIN_COLLECTIONS.reduce((sum, item) => sum + adminGetCollection(item.key).filter(record => !["verified", "official", "official-source"].includes(adminStatus(record))).length, 0);
+  const duplicateIds = ADMIN_COLLECTIONS.reduce((sum, item) => { const ids=adminGetCollection(item.key).map(adminItemId).filter(Boolean); return sum + ids.length - new Set(ids).size; }, 0);
   if (!adminState.container) return;
   adminState.container.innerHTML = `
     <div class="admin-dashboard-integrated">
-      <header class="admin-dashboard-header"><div><span class="section-eyebrow">DATABASE MANAGEMENT</span><h2>${adminText("Manage your education database.", "管理教育资料数据库。")}</h2><p>${adminText("Edit records, maintain sources and track verification status.", "编辑资料、维护来源并追踪核实状态。")}</p></div><div class="admin-actions"><button class="button button-secondary" id="adminExport">${adminText("Export JSON", "导出 JSON")}</button><button class="button button-primary" id="adminImportTrigger">${adminText("Import JSON", "导入 JSON")}</button><input id="adminImportFile" type="file" accept="application/json,.json" hidden></div></header>
-      <div class="admin-summary"><div><span>${adminText("Total records", "资料总数")}</span><strong>${total}</strong></div><div><span>${adminText("Verified / official", "已核实／官方资料")}</span><strong>${verified}</strong></div><div><span>${adminText("Collections", "数据库类别")}</span><strong>${ADMIN_COLLECTIONS.length}</strong></div></div>
+      <header class="admin-dashboard-header"><div><span class="section-eyebrow">DATABASE MANAGEMENT</span><h2>${adminText("Manage your education database.", "管理教育资料数据库。")}</h2><p>${adminText("Edit records, maintain sources and track verification status.", "编辑资料、维护来源并追踪核实状态。")}</p></div><div class="admin-actions"><button class="button button-secondary" id="adminExport">${adminText("Export JSON", "导出 JSON")}</button><button class="button button-secondary" id="adminExportCSV">${adminText("Export CSV", "导出 CSV")}</button><button class="button button-primary" id="adminImportTrigger">${adminText("Import JSON", "导入 JSON")}</button><button class="button button-secondary" id="adminImportCSVTrigger">${adminText("Import CSV", "导入 CSV")}</button><input id="adminImportFile" type="file" accept="application/json,.json" hidden><input id="adminImportCSVFile" type="file" accept="text/csv,.csv" hidden></div></header>
+      <div class="admin-summary"><div><span>${adminText("Total records", "资料总数")}</span><strong>${total}</strong></div><div><span>${adminText("Verified / official", "已核实／官方资料")}</span><strong>${verified}</strong></div><div><span>${adminText("Needs review", "待核实资料")}</span><strong>${needsReview}</strong></div><div><span>${adminText("Duplicate IDs", "重复编号")}</span><strong>${duplicateIds}</strong></div><div><span>${adminText("Collections", "数据库类别")}</span><strong>${ADMIN_COLLECTIONS.length}</strong></div></div>
       <div class="admin-workspace-integrated"><aside class="admin-collection-nav"><h3>${adminText("DATABASE", "数据库")}</h3>${ADMIN_COLLECTIONS.map(item => `<button type="button" class="admin-collection-button ${item.key === adminState.activeCollection ? "active" : ""}" data-admin-collection="${item.key}"><span>${item.icon}</span><span>${adminLocalized(item.label)}</span><small>${adminGetCollection(item.key).length}</small></button>`).join("")}</aside><section class="admin-collection-panel"><div id="adminCollectionContent"></div></section></div>
       <p class="admin-local-note">${adminText("Local prototype: changes are saved in this browser only. They do not update a shared database or official institution records. Export your JSON regularly to keep a backup.", "本地原型：修改只保存在当前浏览器，不会更新共享数据库或官方院校资料。请定期导出 JSON 备份。")}</p>
     </div>`;
@@ -1088,6 +1112,9 @@ function renderAdminDashboard() {
     renderAdminCollection();
   }));
   $("#adminExport", adminState.container)?.addEventListener("click", exportAdminData);
+  $("#adminExportCSV", adminState.container)?.addEventListener("click", exportAdminCSV);
+  $("#adminImportCSVTrigger", adminState.container)?.addEventListener("click", () => $("#adminImportCSVFile", adminState.container)?.click());
+  $("#adminImportCSVFile", adminState.container)?.addEventListener("change", importAdminCSV);
   $("#adminImportTrigger", adminState.container)?.addEventListener("click", () => $("#adminImportFile", adminState.container)?.click());
   $("#adminImportFile", adminState.container)?.addEventListener("change", importAdminData);
   renderAdminCollection();
@@ -1162,9 +1189,30 @@ function deleteAdminRecord(id) {
 function exportAdminData() {
   const output = {};
   ADMIN_COLLECTIONS.forEach(item => output[item.key] = adminGetCollection(item.key));
-  output._metadata = { application: "Find Your Future", exportedAt: new Date().toISOString(), formatVersion: 2, note: "Browser-local admin data export" };
+  output._metadata = { application: "Find Your Future", exportedAt: new Date().toISOString(), formatVersion: 3, note: "Browser-local admin data export" };
   downloadJSON(output, "find-your-future-database.json");
 }
+function csvCell(value) { const text = typeof value === "object" && value !== null ? JSON.stringify(value) : String(value ?? ""); return `"${text.replace(/"/g,'""')}"`; }
+function exportAdminCSV() {
+  const rows=adminGetCollection(adminState.activeCollection); const keys=[...new Set(rows.flatMap(row=>Object.keys(row)))];
+  const csv=[keys.map(csvCell).join(","),...rows.map(row=>keys.map(key=>csvCell(row[key])).join(","))].join("\r\n");
+  const blob=new Blob(["\ufeff",csv],{type:"text/csv;charset=utf-8"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download=`find-your-future-${adminState.activeCollection}.csv`;a.click();URL.revokeObjectURL(url);
+}
+function parseCSV(text) {
+  const rows=[];let row=[],cell="",quoted=false;
+  for(let i=0;i<text.length;i++){const ch=text[i];if(quoted){if(ch==='"'&&text[i+1]==='"'){cell+='"';i++;}else if(ch==='"')quoted=false;else cell+=ch;}else if(ch==='"')quoted=true;else if(ch===','){row.push(cell);cell="";}else if(ch==='\n'){row.push(cell.replace(/\r$/,""));rows.push(row);row=[];cell="";}else cell+=ch;}
+  if(cell.length||row.length){row.push(cell.replace(/\r$/,""));rows.push(row);}return rows;
+}
+async function importAdminCSV(event) {
+ const file=event.target.files?.[0];if(!file)return;
+ try{const rows=parseCSV((await file.text()).replace(/^\ufeff/,""));if(rows.length<2)throw new Error("CSV must include a header and at least one record.");const headers=rows[0].map(x=>x.trim());if(!headers.includes("id"))throw new Error("CSV requires an id column.");
+ const imported=rows.slice(1).filter(row=>row.some(cell=>cell.trim())).map(row=>{const item={};headers.forEach((key,i)=>{const raw=row[i]??"";if(!raw)return;try{item[key]=JSON.parse(raw);}catch{item[key]=raw;}});return item;});
+ if(imported.some(item=>!adminItemId(item)))throw new Error("Every imported row must contain an id.");
+ if(!confirm(adminText(`Import ${imported.length} CSV records into ${adminState.activeCollection}? Matching IDs will be replaced.`,`将 ${imported.length} 项 CSV 资料导入 ${adminState.activeCollection}？相同 ID 将被替换。`)))return;
+ const existing=adminGetCollection(adminState.activeCollection);const map=new Map(existing.map(item=>[adminItemId(item),item]));imported.forEach(item=>map.set(adminItemId(item),item));adminState.localChanges[adminState.activeCollection]=[...map.values()];adminSaveLocalChanges();renderAdminDashboard();showToast(adminText("CSV import completed.","CSV 导入完成。"));
+ }catch(error){alert(`${adminText("CSV import failed:","CSV 导入失败：")} ${error.message}`);}finally{event.target.value="";}
+}
+
 async function importAdminData(event) {
   const file = event.target.files?.[0];
   if (!file) return;
@@ -1178,6 +1226,111 @@ async function importAdminData(event) {
     showToast(adminText("Import completed.", "导入完成。"));
   } catch (error) { alert(`${adminText("Import failed:", "导入失败：")} ${error.message}`); }
   finally { event.target.value = ""; }
+}
+
+/* =========================================================
+   V3 — COMPARISON, SKILLS AND PERSONAL PLANNER
+   Browser-local utilities; no cloud sync or live AI service implied.
+   ========================================================= */
+function readPlanner() {
+  try { const value = JSON.parse(localStorage.getItem(STORAGE.planner) || "{}"); return { courses: Array.isArray(value.courses) ? value.courses : [], institutions: Array.isArray(value.institutions) ? value.institutions : [], tasks: Array.isArray(value.tasks) ? value.tasks : [] }; }
+  catch { return { courses: [], institutions: [], tasks: [] }; }
+}
+function writePlanner(value) { localStorage.setItem(STORAGE.planner, JSON.stringify(value)); }
+function toggleSaved(type, id) {
+  const plan = readPlanner(); const list = plan[type] || [];
+  plan[type] = list.includes(id) ? list.filter(item => item !== id) : [...list, id]; writePlanner(plan);
+  if (state.currentPage === "planner") renderPlanner();
+}
+function renderPlanner() {
+  const plan = readPlanner();
+  const courses = plan.courses.map(id => getArray("courses").find(item => getId(item) === id)).filter(Boolean);
+  const institutions = plan.institutions.map(id => getArray("institutions").find(item => getId(item) === id)).filter(Boolean);
+  setText("#savedCourseCount", `${courses.length} saved`); setText("#savedInstitutionCount", `${institutions.length} saved`);
+  setText("#plannerSummary", `${courses.length} ${t("courses saved", "项课程已收藏")} · ${institutions.length} ${t("institutions saved", "所院校已收藏")} · ${plan.tasks.filter(x => !x.done).length} ${t("open tasks", "项待办事项")}`);
+  const renderSaved = (items, type) => items.length ? items.map(item => `<article class="planner-item"><div><strong>${escapeHTML(getName(item))}</strong><small>${escapeHTML(type === "courses" ? `${getQualificationLabel(getQualification(item))} · ${getFieldName(item.fieldId)}` : `${item.country || ""} · ${item.type || ""}`)}</small></div><button class="text-button" data-remove-saved="${type}" data-id="${escapeHTML(getId(item))}">${t("Remove", "移除")}</button></article>`).join("") : `<p class="empty-inline">${t("Nothing saved yet. Explore the directory and save an option.", "还没有收藏项目，请浏览目录并收藏感兴趣的选项。")}</p>`;
+  $("#savedCourses").innerHTML = renderSaved(courses, "courses"); $("#savedInstitutions").innerHTML = renderSaved(institutions, "institutions");
+  $("#plannerTasks").innerHTML = plan.tasks.length ? plan.tasks.map(task => `<label class="planner-task"><input type="checkbox" data-task-toggle="${escapeHTML(task.id)}" ${task.done ? "checked" : ""}><span class="${task.done ? "is-done" : ""}">${escapeHTML(task.text)}</span><button type="button" class="text-button" data-task-delete="${escapeHTML(task.id)}">×</button></label>`).join("") : `<p class="empty-inline">${t("Add a few practical next steps to get started.", "添加几个实际行动，开始规划。")}</p>`;
+}
+function renderSkills() {
+  const grid = $("#skillGrid"); if (!grid) return;
+  const query = ($("#skillSearch")?.value || "").trim().toLowerCase(); const category = $("#skillCategoryFilter")?.value || "all";
+  const skills = getArray("skills"); const cats = [...new Set(skills.map(x => x.category).filter(Boolean))].sort();
+  const select = $("#skillCategoryFilter"); if (select && select.options.length <= 1) select.innerHTML += cats.map(x => `<option value="${escapeHTML(x)}">${escapeHTML(x)}</option>`).join("");
+  const filtered = skills.filter(skill => [getName(skill), getDescription(skill), skill.category, ...(skill.relatedCareers || []), ...(skill.relatedFields || [])].join(" ").toLowerCase().includes(query) && (category === "all" || skill.category === category));
+  grid.innerHTML = filtered.map(skill => `<article class="catalog-card skill-card"><div class="card-topline"><span class="category-label">${escapeHTML(skill.category || t("Skill", "技能"))}</span>${statusBadge(skill)}</div><h3>${escapeHTML(getName(skill))}</h3><p>${escapeHTML(getDescription(skill))}</p><div class="skill-related"><strong>${t("Related study fields", "相关学科")}</strong><p>${(skill.relatedFields || []).map(id => escapeHTML(getFieldName(id))).join(" · ") || "—"}</p><strong>${t("Example career directions", "相关职业方向示例")}</strong><p>${(skill.relatedCareers || []).map(escapeHTML).join(" · ") || "—"}</p></div></article>`).join("");
+  setText("#skillCount", `${filtered.length} ${t("skills", "项技能")}`);
+}
+function getCompareIds() { try { const a = JSON.parse(localStorage.getItem(STORAGE.compare) || "[]"); return Array.isArray(a) ? a.slice(0,4) : []; } catch { return []; } }
+function setCompareIds(ids) { localStorage.setItem(STORAGE.compare, JSON.stringify([...new Set(ids)].slice(0,4))); }
+function addCompareCourse(id) { const ids = getCompareIds(); if (ids.includes(id)) { showToast(t("Already in comparison.", "已在比较清单中。")); return; } if (ids.length >= 4) { showToast(t("You can compare up to four programmes.", "最多可比较四项课程。")); return; } setCompareIds([...ids,id]); showToast(t("Added to comparison.", "已加入比较。")); }
+function renderCompare() {
+  const query = ($("#compareSearch")?.value || "").trim().toLowerCase(); const ids = getCompareIds();
+  const matches = getArray("courses").filter(course => !query || [getName(course),getDescription(course),course.country,course.fieldId].join(" ").toLowerCase().includes(query)).slice(0,12);
+  $("#comparePicker").innerHTML = `<div class="compare-picker-list">${matches.map(course => `<button type="button" class="compare-option" data-compare-add="${escapeHTML(getId(course))}"><span>${escapeHTML(getName(course))}</span><small>${escapeHTML(getQualificationLabel(getQualification(course)))} · ${escapeHTML(course.country || "")}</small><b>＋</b></button>`).join("")}</div>`;
+  const courses = ids.map(id => getArray("courses").find(x => getId(x) === id)).filter(Boolean);
+  const rows = [ ["Qualification", c=>getQualificationLabel(getQualification(c))], ["Study field", c=>getFieldName(c.fieldId)], ["Country", c=>c.country], ["Duration", c=>formatDuration(c.duration)], ["Study mode", c=>(c.studyMode||[]).join(", ")], ["Entry requirements", c=>localized(c.entryRequirements)], ["Subject prerequisites", c=>localized(c.subjectRequirements)], ["Tuition fees", c=>c.estimatedFees ? `${c.feeCurrency||""} ${c.estimatedFees} ${c.feeAcademicYear||""}` : "Not verified / 未核实"], ["Curriculum modules", c=>(c.curriculum||[]).map(m=>localized(m.name||m.title||m)).join("; ") || "Not supplied / 未提供"], ["Professional recognition", c=>localized(c.professionalRecognition)], ["Data status", c=>statusLabel(c)] ];
+  $("#compareTable").innerHTML = courses.length ? `<div class="compare-table-scroll"><table class="comparison-table"><thead><tr><th>Compare</th>${courses.map(c=>`<th>${escapeHTML(getName(c))}<button type="button" data-compare-remove="${escapeHTML(getId(c))}">Remove ×</button></th>`).join("")}</tr></thead><tbody>${rows.map(([label,fn])=>`<tr><th>${label}</th>${courses.map(c=>`<td>${escapeHTML(fn(c)||"Not supplied / 未提供")}</td>`).join("")}</tr>`).join("")}</tbody></table></div><p class="data-note">Comparison only uses information present in the directory. Missing values are not estimates. Verify programme details, campus, fees and accreditation with the institution.</p>` : `<p class="empty-inline">${t("Add programmes above to compare them side by side.", "从上方添加课程，即可并排比较。")}</p>`;
+}
+function getInstitutionCompareIds() { try { const a=JSON.parse(localStorage.getItem(STORAGE.institutionCompare)||"[]"); return Array.isArray(a)?a.slice(0,4):[]; } catch { return []; } }
+function setInstitutionCompareIds(ids) { localStorage.setItem(STORAGE.institutionCompare,JSON.stringify([...new Set(ids)].slice(0,4))); }
+function addCompareInstitution(id) { const ids=getInstitutionCompareIds(); if(ids.includes(id)){showToast(t("Already in comparison.","已在比较清单中。"));return;} if(ids.length>=4){showToast(t("You can compare up to four institutions.","最多可比较四所院校。"));return;} setInstitutionCompareIds([...ids,id]);showToast(t("Institution added to comparison.","院校已加入比较。")); }
+function renderInstitutionCompare() {
+ const query=( $("#compareInstitutionSearch")?.value||"").trim().toLowerCase(); const ids=getInstitutionCompareIds();
+ const matches=getArray("institutions").filter(x=>!query||[getName(x),x.country,x.state,x.type,x.abbreviation].join(" ").toLowerCase().includes(query)).slice(0,12);
+ $("#institutionComparePicker").innerHTML=`<div class="compare-picker-list">${matches.map(x=>`<button type="button" class="compare-option" data-institution-compare-add="${escapeHTML(getId(x))}"><span>${escapeHTML(getName(x))}</span><small>${escapeHTML([x.country,x.type].filter(Boolean).join(" · "))}</small><b>＋</b></button>`).join("")}</div>`;
+ const chosen=ids.map(id=>getArray("institutions").find(x=>getId(x)===id)).filter(Boolean);
+ const rows=[["Country",x=>x.country],["State / location",x=>x.state],["Institution type",x=>x.type||x.institutionType],["Ownership",x=>x.ownershipLabel||institutionOwnership(x)],["Classification",x=>(x.classificationTags||[]).join(", ")],["Admission routes",x=>(x.admissionRoutes||[]).join(", ")],["Official website",x=>x.website],["Data status",x=>statusLabel(x)]];
+ $("#institutionCompareTable").innerHTML=chosen.length?`<div class="compare-table-scroll"><table class="comparison-table"><thead><tr><th>Compare</th>${chosen.map(x=>`<th>${escapeHTML(getName(x))}<button type="button" data-institution-compare-remove="${escapeHTML(getId(x))}">Remove ×</button></th>`).join("")}</tr></thead><tbody>${rows.map(([label,fn])=>`<tr><th>${label}</th>${chosen.map(x=>`<td>${escapeHTML(fn(x)||"Not supplied / 未提供")}</td>`).join("")}</tr>`).join("")}</tbody></table></div><p class="data-note">Directory comparisons are descriptive. Confirm current programme availability, campus and recognition with each institution.</p>`:`<p class="empty-inline">${t("Add institutions above to compare them.","从上方添加院校进行比较。")}</p>`;
+}
+
+function initEligibilityExplorer() {
+  const select = $("#eligibilityCourse"); if (!select) return;
+  const current = select.value;
+  select.innerHTML = `<option value="">${t("Select a course", "选择课程")}</option>` + getArray("courses").map(course => `<option value="${escapeHTML(getId(course))}">${escapeHTML(getName(course))} — ${escapeHTML(getQualificationLabel(getQualification(course)))}</option>`).join("");
+  if (current) select.value = current;
+  const button = $("#checkEligibility");
+  if (button && !button.dataset.bound) {
+    button.dataset.bound = "true";
+    button.addEventListener("click", () => {
+      const course = getArray("courses").find(item => getId(item) === select.value);
+      const currentQualification = $("#eligibilityCurrent").value;
+      const result = $("#eligibilityResult");
+      if (!course) { result.textContent = t("Choose a programme first.", "请先选择课程。"); return; }
+      const currentOrder = PATHWAYS.getQualificationOrder(currentQualification);
+      const targetOrder = PATHWAYS.getQualificationOrder(getQualification(course));
+      let heading = t("Manual review required", "需要人工核对"); let detail = t("The qualification level alone cannot establish admission eligibility. Check subject grades, prerequisites, equivalency, language and the institution's current rules.", "仅凭学历层级无法判断入学资格。请核对科目成绩、先修条件、学历等值、语言要求及院校现行规定。");
+      if (currentOrder !== null && targetOrder !== null && currentOrder < targetOrder) { heading = t("An additional study stage may be needed", "可能需要额外升学阶段"); detail = t("Your selected qualification level is below the programme award level. This does not rule out entry: a pathway, foundation, bridging or other accepted qualification may apply. Confirm with the institution.", "你选择的学历层级低于课程授予学历层级。这不代表一定无法申请；可能存在预科、衔接或其他认可资格路线，请向院校确认。"); }
+      else if (currentOrder !== null && targetOrder !== null && currentOrder >= targetOrder) { heading = t("Qualification level may be suitable for further checking", "学历层级可进一步核对"); detail = t("Your selected qualification is at or above the programme award level in the general pathway scale. This is not an eligibility confirmation; subject and grade requirements still need checking.", "按一般升学层级，你选择的学历与课程授予层级相同或更高。这不是入学资格确认，仍须核对科目及成绩要求。"); }
+      result.innerHTML = `<strong>${escapeHTML(heading)}</strong><p>${escapeHTML(detail)}</p><p><b>${t("Programme:", "课程：")}</b> ${escapeHTML(getName(course))} · ${escapeHTML(getQualificationLabel(getQualification(course)))}</p><p>${escapeHTML(localized(course.entryRequirements, t("Detailed entry requirements are not available in this record.", "此资料未提供详细入学要求。")))}</p>${course.source ? `<a href="${escapeHTML(course.source)}" target="_blank" rel="noopener noreferrer">${t("Check listed source", "查看资料来源")} ↗</a>` : ""}`;
+    });
+  }
+}
+
+function initV3Events() {
+  document.addEventListener("click", e => {
+    const saveCourse = e.target.closest("[data-save-course]");
+    if (saveCourse) { toggleSaved("courses", saveCourse.dataset.saveCourse); showToast(t("Course saved to your planner.", "课程已收藏到个人规划。")); }
+    const compareCourse = e.target.closest("[data-compare-course]");
+    if (compareCourse) addCompareCourse(compareCourse.dataset.compareCourse);
+    const compareInstitution = e.target.closest("[data-compare-institution]");
+    if (compareInstitution) addCompareInstitution(compareInstitution.dataset.compareInstitution);
+  });
+  $("#compareSearch")?.addEventListener("input", renderCompare);
+  $("#compareInstitutionSearch")?.addEventListener("input", renderInstitutionCompare);
+  $("#institutionComparePicker")?.addEventListener("click",e=>{const b=e.target.closest("[data-institution-compare-add]");if(b){addCompareInstitution(b.dataset.institutionCompareAdd);renderInstitutionCompare();}});
+  $("#institutionCompareTable")?.addEventListener("click",e=>{const b=e.target.closest("[data-institution-compare-remove]");if(b){setInstitutionCompareIds(getInstitutionCompareIds().filter(id=>id!==b.dataset.institutionCompareRemove));renderInstitutionCompare();}});
+  $("#clearInstitutionCompare")?.addEventListener("click",()=>{setInstitutionCompareIds([]);renderInstitutionCompare();});
+  $("#comparePicker")?.addEventListener("click", e => { const b=e.target.closest("[data-compare-add]"); if(b){addCompareCourse(b.dataset.compareAdd);renderCompare();} });
+  $("#compareTable")?.addEventListener("click", e => { const b=e.target.closest("[data-compare-remove]"); if(b){setCompareIds(getCompareIds().filter(id=>id!==b.dataset.compareRemove));renderCompare();} });
+  $("#clearCompare")?.addEventListener("click",()=>{setCompareIds([]);renderCompare();});
+  $("#skillSearch")?.addEventListener("input",renderSkills); $("#skillCategoryFilter")?.addEventListener("change",renderSkills);
+  $("#plannerTaskForm")?.addEventListener("submit",e=>{e.preventDefault();const input=$("#plannerTaskInput");const textValue=input.value.trim();if(!textValue)return;const plan=readPlanner();plan.tasks.push({id:`task-${Date.now()}`,text:textValue,done:false});writePlanner(plan);input.value="";renderPlanner();});
+  $("#plannerTasks")?.addEventListener("change",e=>{const id=e.target.dataset.taskToggle;if(!id)return;const plan=readPlanner();plan.tasks=plan.tasks.map(x=>x.id===id?{...x,done:e.target.checked}:x);writePlanner(plan);renderPlanner();});
+  $("#plannerTasks")?.addEventListener("click",e=>{const b=e.target.closest("[data-task-delete]");if(b){const plan=readPlanner();plan.tasks=plan.tasks.filter(x=>x.id!==b.dataset.taskDelete);writePlanner(plan);renderPlanner();}});
+  $$("#savedCourses,#savedInstitutions").forEach(container=>container.addEventListener("click",e=>{const b=e.target.closest("[data-remove-saved]");if(b){toggleSaved(b.dataset.removeSaved,b.dataset.id);renderPlanner();}}));
+  $("#exportPlanner")?.addEventListener("click",()=>downloadJSON(readPlanner(),"find-your-future-study-plan.json"));
+  $("#clearPlanner")?.addEventListener("click",()=>{if(confirm(t("Clear all saved courses, institutions and tasks?","清除所有收藏课程、院校与待办事项？"))){writePlanner({courses:[],institutions:[],tasks:[]});renderPlanner();}});
 }
 
 /* =========================================================
@@ -1196,6 +1349,7 @@ function initApp() {
   initInstitutionEvents();
   initPathwayEvents();
   initCareerEvents();
+  initV3Events();
   initDiscoveryEvents();
   renderHomeStats();
   const initialPage = location.hash.slice(1) || "home";

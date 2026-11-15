@@ -2,7 +2,7 @@
 /* =========================================================
    FIND YOUR FUTURE
    DATA DATABASE
-   Version: 2.3
+   Version: 3.0
    Malaysia-first | English + Chinese
    ========================================================= */
 
@@ -12,7 +12,7 @@
 
 export const APP_CONFIG = {
   name: "Find Your Future",
-  version: "2.3.0",
+  version: "3.0.0",
   defaultLanguage: "en",
   supportedLanguages: ["en", "zh"],
   defaultTheme: "light",
@@ -10692,6 +10692,21 @@ for (const [id, en, zh, start, end, steps] of pathwaySeeds) {
   });
 }
 
+export const skills = [
+  { id:"critical-thinking", name:{en:"Critical Thinking",zh:"批判性思维"}, category:"Thinking", description:{en:"Evaluate information, question assumptions and make reasoned decisions.",zh:"评估信息、检视假设并作出有依据的判断。"}, relatedFields:["science","engineering","business","social-sciences"], relatedCareers:["Researcher","Analyst","Engineer"], dataStatus:"directory" },
+  { id:"problem-solving", name:{en:"Problem Solving",zh:"解决问题"}, category:"Thinking", description:{en:"Define problems, compare possible approaches and test solutions.",zh:"界定问题、比较不同方法并验证解决方案。"}, relatedFields:["engineering","technology","science"], relatedCareers:["Engineer","Software Developer","Technician"], dataStatus:"directory" },
+  { id:"scientific-research", name:{en:"Scientific Research",zh:"科学研究"}, category:"Research", description:{en:"Develop research questions, review evidence and interpret findings.",zh:"提出研究问题、审阅证据并解释研究结果。"}, relatedFields:["science","medical-health","biotechnology"], relatedCareers:["Research Assistant","Biomedical Scientist","Research Scientist"], dataStatus:"directory" },
+  { id:"data-analysis", name:{en:"Data Analysis",zh:"数据分析"}, category:"Digital", description:{en:"Organise data, identify patterns and communicate evidence-based insights.",zh:"整理数据、识别模式并传达有证据支持的见解。"}, relatedFields:["technology","business","science"], relatedCareers:["Data Analyst","Research Analyst","Business Analyst"], dataStatus:"directory" },
+  { id:"programming", name:{en:"Programming",zh:"编程"}, category:"Digital", description:{en:"Use programming languages and computational thinking to build and test software.",zh:"运用编程语言与计算思维开发及测试软件。"}, relatedFields:["technology","engineering"], relatedCareers:["Software Developer","AI Engineer","Systems Analyst"], dataStatus:"directory" },
+  { id:"communication", name:{en:"Communication",zh:"沟通"}, category:"People", description:{en:"Explain ideas clearly and adapt communication to different audiences.",zh:"清楚表达想法，并根据不同对象调整沟通方式。"}, relatedFields:["business","social-sciences","education","medical-health"], relatedCareers:["Teacher","Consultant","Healthcare Professional"], dataStatus:"directory" },
+  { id:"teamwork", name:{en:"Teamwork",zh:"团队合作"}, category:"People", description:{en:"Coordinate responsibilities, contribute constructively and work toward shared outcomes.",zh:"协调职责、积极贡献并共同达成目标。"}, relatedFields:["engineering","business","medical-health","design"], relatedCareers:["Project Coordinator","Engineer","Healthcare Team Member"], dataStatus:"directory" },
+  { id:"engineering-design", name:{en:"Engineering Design",zh:"工程设计"}, category:"Technical", description:{en:"Translate requirements into concepts, models and testable designs.",zh:"将需求转化为概念、模型和可测试的设计。"}, relatedFields:["engineering","built-environment"], relatedCareers:["Mechanical Engineer","Civil Engineer","Design Engineer"], dataStatus:"directory" },
+  { id:"project-management", name:{en:"Project Management",zh:"项目管理"}, category:"Professional", description:{en:"Plan scope, resources, schedules, risks and project communication.",zh:"规划项目范围、资源、时间、风险与沟通。"}, relatedFields:["business","engineering","built-environment"], relatedCareers:["Project Manager","Construction Manager","Operations Manager"], dataStatus:"directory" },
+  { id:"creativity", name:{en:"Creativity",zh:"创意"}, category:"Creative", description:{en:"Generate original ideas and explore alternative ways to meet a need.",zh:"提出新颖想法，并探索满足需求的不同方法。"}, relatedFields:["design","arts","technology"], relatedCareers:["Designer","Product Developer","Creative Technologist"], dataStatus:"directory" },
+  { id:"attention-to-detail", name:{en:"Attention to Detail",zh:"注重细节"}, category:"Professional", description:{en:"Check accuracy, follow specifications and notice inconsistencies.",zh:"检查准确性、遵循规格并发现不一致之处。"}, relatedFields:["science","engineering","business","medical-health"], relatedCareers:["Laboratory Technologist","Quality Officer","Accountant"], dataStatus:"directory" },
+  { id:"adaptability", name:{en:"Adaptability",zh:"适应能力"}, category:"Professional", description:{en:"Adjust approaches when tools, requirements or circumstances change.",zh:"当工具、要求或环境改变时调整做法。"}, relatedFields:["technology","business","engineering","social-sciences"], relatedCareers:["Technology Professional","Consultant","Project Coordinator"], dataStatus:"directory" }
+];
+
 export const scholarshipSources = [
   { id: "ptptn", name: { en: "PTPTN Education Financing", zh: "PTPTN 高等教育贷款" }, country: "Malaysia", website: "https://www.ptptn.gov.my/", dataStatus: "directory", note: "Financing eligibility and terms depend on current PTPTN rules." },
   { id: "jpa-scholarships", name: { en: "Public Service Department Scholarships", zh: "公共服务局奖学金" }, country: "Malaysia", website: "https://www.jpa.gov.my/", dataStatus: "directory", note: "Check current scholarship advertisements and eligibility." },
@@ -10753,6 +10768,7 @@ export const databaseSummaryExpanded = {
   pendingCareers: careers.filter(item => item.dataStatus === "pending").length,
   scholarshipSources: scholarshipSources.length,
   admissionsTests: admissionsTests.length,
+  skills: skills.length,
   note: "Counts describe records in this prototype, not the total number of active programmes available in Malaysia."
 };
 
@@ -10899,6 +10915,7 @@ export const databaseSummary = {
   discoveryQuestions: discoveryQuestions.length,
   scholarshipSources: scholarshipSources.length,
   admissionsTests: admissionsTests.length,
+  skills: skills.length,
   verifiedCourses: courses.filter(item => ["verified", "official"].includes(item.dataStatus)).length,
   pendingCourses: courses.filter(item => item.dataStatus === "pending").length
 };
